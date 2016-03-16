@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<viewpoint:DAnalysis xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style" xmi:id="_7G4uoOrMEeWxNde5vUVu8g" selectedViews="_7M4o8OrMEeWxNde5vUVu8g" version="8.1.1">
+  <models xmi:type="ecore:EPackage" href="IoTDevice.ecore#/"/>
+  <ownedViews xmi:type="viewpoint:DRepresentationContainer" xmi:id="_7M4o8OrMEeWxNde5vUVu8g" initialized="true">
+    <ownedRepresentations xmi:type="diagram:DSemanticDiagram" xmi:id="_7TkfwOrMEeWxNde5vUVu8g" name="IoTDevice class diagram">
+      <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_7T3asOrMEeWxNde5vUVu8g" source="GMF_DIAGRAMS">
+        <data xmi:type="notation:Diagram" xmi:id="_7T3aserMEeWxNde5vUVu8g" type="Sirius" element="_7TkfwOrMEeWxNde5vUVu8g" measurementUnit="Pixel">
+          <children xmi:type="notation:Node" xmi:id="_7UDn8OrMEeWxNde5vUVu8g" type="2001" element="_7TlG0OrMEeWxNde5vUVu8g">
+            <children xmi:type="notation:Node" xmi:id="_7UXxAOrMEeWxNde5vUVu8g" type="5002">
+              <layoutConstraint xmi:type="notation:Location" xmi:id="_7UXxAerMEeWxNde5vUVu8g" y="5"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_7ZrHwOrMEeWxNde5vUVu8g" type="3005" element="_7TlG0erMEeWxNde5vUVu8g">
+              <styles xmi:type="notation:ShapeStyle" xmi:id="_7ZrHwerMEeWxNde5vUVu8g" fontName="Segoe UI"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7ZrHwurMEeWxNde5vUVu8g"/>
+            </children>
+            <styles xmi:type="notation:ShapeStyle" xmi:id="_7UDn8erMEeWxNde5vUVu8g" fontName="Segoe UI" fontHeight="8"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7UDn8urMEeWxNde5vUVu8g" width="672" height="67"/>
+          </children>
+          <styles xmi:type="notation:DiagramStyle" xmi:id="_7T3asurMEeWxNde5vUVu8g"/>
+        </data>
+      </ownedAnnotationEntries>
+      <ownedDiagramElements xmi:type="diagram:DNode" xmi:id="_7TlG0OrMEeWxNde5vUVu8g" width="-1" height="-1">
+        <target xmi:type="ecore:EPackage" href="IoTDevice.ecore#/"/>
+        <semanticElements xmi:type="ecore:EPackage" href="IoTDevice.ecore#/"/>
+        <ownedStyle xmi:type="diagram:WorkspaceImage" xmi:id="_7TlG0erMEeWxNde5vUVu8g" showIcon="false" labelPosition="node" workspacePath="/org.eclipse.emf.ecoretools.design/icons/full/back/empty.svg">
+          <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_7TlG0urMEeWxNde5vUVu8g"/>
+          <description xmi:type="style:WorkspaceImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']/@style"/>
+          <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_7TlG0-rMEeWxNde5vUVu8g"/>
+        </ownedStyle>
+        <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@nodeMappings[name='Empty%20Diagram']"/>
+      </ownedDiagramElements>
+      <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
+      <filterVariableHistory xmi:type="diagram:FilterVariableHistory" xmi:id="_7TlG1OrMEeWxNde5vUVu8g"/>
+      <activatedLayers xmi:type="description_1:Layer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer"/>
+      <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Package']"/>
+      <activatedLayers xmi:type="description_1:AdditionalLayer" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@additionalLayers[name='Validation']"/>
+      <target xmi:type="ecore:EPackage" href="IoTDevice.ecore#/"/>
+    </ownedRepresentations>
+    <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
+  </ownedViews>
+</viewpoint:DAnalysis>
