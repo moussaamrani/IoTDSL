@@ -4,10 +4,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//Type">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node" abstract="true" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="CommunicationPath">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocol" lowerBound="1"
         eType="#//Protocol"/>
@@ -28,7 +25,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
         eType="#//Capability" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="IoTModel" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="IoTModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//Type" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="networkconfiguration" upperBound="-1"
@@ -41,11 +38,11 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="literals" upperBound="-1"
         eType="#//EnumerationLiteral" containment="true" eOpposite="#//EnumerationLiteral/enumeration"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumerationLiteral">
+  <eClassifiers xsi:type="ecore:EClass" name="EnumerationLiteral" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="enumeration" lowerBound="1"
         eType="#//Enumeration" eOpposite="#//Enumeration/literals"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" abstract="true" eSuperTypes="#//Type"/>
   <eClassifiers xsi:type="ecore:EClass" name="Capability" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
@@ -86,11 +83,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TriggerOp">
     <eLiterals name="AND"/>
-    <eLiterals name="OR"/>
+    <eLiterals name="OR" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ReactionOp">
     <eLiterals name="SEQ"/>
-    <eLiterals name="PAR"/>
+    <eLiterals name="PAR" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CapabilityReference" eSuperTypes="#//Reaction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"
@@ -103,4 +100,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rhs" lowerBound="1" eType="#//Reaction"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RealType" eSuperTypes="#//PrimitiveType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="#//PrimitiveType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="#//PrimitiveType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerType" eSuperTypes="#//PrimitiveType"/>
 </ecore:EPackage>
