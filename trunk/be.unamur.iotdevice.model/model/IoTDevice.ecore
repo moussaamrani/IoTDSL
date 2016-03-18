@@ -73,7 +73,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Trigger" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Reaction" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//Trigger"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//Trigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="event" lowerBound="1" eType="#//Sensing"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompositeTrigger" eSuperTypes="#//Trigger">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="#//TriggerOp"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" lowerBound="1" eType="#//Trigger"
@@ -83,11 +85,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="TriggerOp">
     <eLiterals name="AND"/>
-    <eLiterals name="OR" value="1"/>
+    <eLiterals name="OR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ReactionOp">
     <eLiterals name="SEQ"/>
-    <eLiterals name="PAR" value="1"/>
+    <eLiterals name="PAR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CapabilityReference" eSuperTypes="#//Reaction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"
@@ -101,7 +103,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RealType" eSuperTypes="#//PrimitiveType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="#//PrimitiveType"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="#//PrimitiveType"/>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerType" eSuperTypes="#//PrimitiveType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="#//PrimitiveType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="#//PrimitiveType"/>
 </ecore:EPackage>
