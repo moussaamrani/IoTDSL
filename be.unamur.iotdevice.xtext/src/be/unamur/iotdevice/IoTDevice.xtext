@@ -2,66 +2,78 @@
 grammar be.unamur.iotdevice.IoTDevice with org.eclipse.xtext.common.Terminals
 
 import "https://www.unamur.be/IoTDevice" 
-import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+//import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 IoTModel returns IoTModel:
 	{IoTModel} 
 	(types+=Type)* 
-	(networkconfiguration+=NetworkConfiguration)* 
+	(configuration+=NetworkConfiguration)* 
 	(rules+=Rule)* 
 ;
 
 Type returns Type:
-	Cloud | Gateway | Router | Device | Enumeration | PrimitiveType;
+	DeclaredType | PrimitiveType;
+
+DeclaredType: 
+	Node | Enumeration 
+;
 
 Enumeration:
-	'enumeration' name=EString '{'
-		(literals += EnumerationLiteral ';')+
+	'enumeration' name=ValidID '{'
+		(literals += EnumerationLiteral ';')*
 	'}'
 ;
 EnumerationLiteral:
-	{EnumerationLiteral} name=EString
+	{EnumerationLiteral} name=ValidID
+;
+
+Node returns Node:
+	Cloud | Gateway | Router | Device
 ;
 
 Cloud returns Cloud:
-	{Cloud} 'cloud' name=EString;
+	{Cloud} 'cloud' name=ValidID;
 
 Gateway returns Gateway:
-	{Gateway} 'gateway' name=EString;
+	{Gateway} 'gateway' name=ValidID;
 
 Router returns Router:
-	{Router} 'router' name=EString;
+	{Router} 'router' name=ValidID;
 
 Device returns Device:
-	{Device} 'device' name=EString '{' capabilities+=Capability* '}';
+	{Device} 'device' name=ValidID '{' capabilities+=Capability* '}';
 
 Capability returns Capability:
 	Sensing | Actuating;
 
 Sensing returns Sensing:
-	{Sensing} 'sensing' name=EString '(' 
+	{Sensing} 'sensing' name=ValidID '(' 
 		(parameters += Parameter (',' parameters += Parameter)*)? 
 	')'
 ;
 
 Actuating returns Actuating:
 	{Actuating}
-	'actuating' name=EString '(' 
+	'actuating' name=ValidID '(' 
 		(parameters += Parameter (',' parameters += Parameter)*)? 
 	')'
 ;
 
 Parameter returns Parameter:
-	name=EString ':' type=[Type|EString]
+	name=ValidID ':' type=TypeReference
+;
+
+TypeReference:
+	ptype = PrimitiveType | dtype = [DeclaredType|QualifiedName]
 ;
 
 PrimitiveType:
 	IntegerType | BooleanType | StringType | RealType
 ;
-IntegerType: {IntegerType} "Integer";
-BooleanType: {BooleanType} "Boolean";
-StringType:  {StringType}  "String";
-RealType:    {RealType} "Real";
+IntegerType: {IntegerType} name="integer";
+BooleanType: {BooleanType} name="boolean";
+StringType:  {StringType}  name="string";
+RealType:    {RealType} name="real";
 
 
 
@@ -69,18 +81,18 @@ RealType:    {RealType} "Real";
 
 
 NetworkConfiguration returns NetworkConfiguration:
-	{NetworkConfiguration} 'configuration' name=EString '{'
+	{NetworkConfiguration} 'configuration' name=ValidID '{'
         (nodes+=NodeInstance)* 
 		(paths+=CommunicationPath)*
 	'}'
 ;
 
 NodeInstance returns NodeInstance:
-	'node' name=EString ':' type=[Node|EString] 
+	'node' name=ValidID ':' type=[Node|ValidID] 
 ;
 
 CommunicationPath returns CommunicationPath:
-	'from' src=[NodeInstance|EString] 'to' tgt=[NodeInstance|EString] 'via' protocol=Protocol
+	'from' src=[NodeInstance|ValidID] 'to' tgt=[NodeInstance|ValidID] 'via' protocol=Protocol
 ;
 
 enum Protocol returns Protocol:
@@ -88,43 +100,100 @@ enum Protocol returns Protocol:
 
 
 
+
+
+
 Rule returns Rule:
-	'Rule' name=EString ':'
-		'when' '(' trigger=Trigger ')' 'do' '{' reaction=Reaction '}'
+	'rule' name=ValidID ':'
+		'when' '(' trigger=Expression ')' 'do' '{' reaction=Reaction '}'
 ;
 
-Trigger returns Trigger:
-	Event ({CompositeTrigger.lhs=current} op=TriggerOp rhs=Event)*
+//Trigger returns Trigger:
+//	exp=Expression 
+//;
+
+Reaction returns Reaction: ParallelComposition;
+
+ParallelComposition returns Reaction: 
+	SeqComposition ({ParallelComposition.lhs=current} '||' rhs=SeqComposition)*
 ;
 
-Event returns Event:
-	{Event} event=[Sensing|EString]
+SeqComposition returns Reaction:
+	SimpleReaction ({SeqComposition.lhs=current} ';' rhs=SimpleReaction)*
 ;
 
-Reaction returns Reaction:
-	CapabilityReference ({CompositeReaction.lhs=current} op=ReactionOp rhs=CapabilityReference)*
+SimpleReaction returns SimpleReaction:
+	exp=Expression
 ;
 
-CapabilityReference returns CapabilityReference:
-	capability=[Capability|EString]
+
+
+Expression returns Expression: OrExpression;
+
+OrExpression returns Expression:
+		AndExpression ({OrExpression.lhs=current} op="or" rhs=AndExpression)*
 ;
 
-enum TriggerOp returns TriggerOp:
-	AND = 'and' | OR = 'or'
-;
-enum ReactionOp returns ReactionOp:
-	SEQ = ';' | PAR = '||'
+AndExpression returns Expression:
+	EqualityExpression ({AndExpression.lhs=current} op="and"  rhs=EqualityExpression)*
 ;
 
-EString returns ecore::EString:
-	STRING | ID;
+EqualityExpression returns Expression:
+	RelationalExpression ({EqualityExpression.lhs=current} op=("=="|"!=") rhs=RelationalExpression)*
+;
+
+RelationalExpression returns Expression:
+	AdditiveExpression (
+		  {ComparativeExpression.lhs=current} op=("<"|">"|"<="|">=") rhs=AdditiveExpression
+	)*
+;
+
+AdditiveExpression returns Expression:
+	MultiplicativeExpression ({AdditiveExpression.lhs=current} op=("+"|"-") rhs=MultiplicativeExpression)*
+;
+
+MultiplicativeExpression returns Expression:
+	UnaryExpression ({MultiplicativeExpression.lhs=current} op=("*"|"/") rhs=UnaryExpression)*
+;
+
+UnaryExpression returns Expression:
+	  {NotExpression}   op="not" operand=UnaryExpression |
+	  {PlusExpression}  op="+"   operand=UnaryExpression |
+	  {MinusExpression} op="-"   operand=UnaryExpression | 
+	  CapabilitySelection
+;
 
 
+CapabilitySelection returns Expression:
+	PrimaryExpression ( =>(
+		  {CapabilitySelection.receiver=current} '.') capability=[Capability|ValidID]  
+		  	'(' (args += Expression (',' args += Expression)* )?  ')'
+		)*
+;
 
+PrimaryExpression returns Expression:
+	ParenthesizedExpression | LiteralExpression | Target
+;
 
+ParenthesizedExpression returns Expression:
+	'(' Expression ')'
+;
 
+Target:
+	ref=[NodeInstance|ValidID]
+;
 
+LiteralExpression returns LiteralExpression:
+	{IntegerLiteral} value=INT |
+	{StringLiteral} value=STRING |
+	{EnumLiteral} enumeration=[Enumeration|QualifiedName] '::' literal=[EnumerationLiteral] |
+	{BooleanLiteral} ('false' | isTrue ?= 'true') 
+;
 
+QualifiedName:
+  ValidID (=>'.' ValidID)*
+;
 
-
-
+ValidID:
+	ID
+;

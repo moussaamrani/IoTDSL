@@ -3,12 +3,26 @@
  */
 package be.unamur.iotdevice;
 
+import IoTDevice.impl.IoTDevicePackageImpl;
+
+import com.google.inject.Injector;
+
 /**
  * Initialization support for running Xtext languages 
  * without equinox extension registry
  */
 public class IoTDeviceStandaloneSetup extends IoTDeviceStandaloneSetupGenerated{
 
+	@Override
+	public Injector createInjectorAndDoEMFRegistration() {
+		IoTDevicePackageImpl.init(); 
+		org.eclipse.xtext.common.TerminalsStandaloneSetup.doSetup();
+
+		Injector injector = createInjector();
+		register(injector);
+		return injector;
+	}
+	
 	public static void doSetup() {
 		new IoTDeviceStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
