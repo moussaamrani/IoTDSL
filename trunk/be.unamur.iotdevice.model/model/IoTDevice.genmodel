@@ -1,90 +1,277 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.unamur.iotdevice.model/src" modelPluginID="be.unamur.iotdevice.model"
-    modelName="IoTDevice" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.unamur.iotdevice.model/src" modelPluginID="be.unamur.iotdevice.model" modelName="IoTDevice" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>IoTDevice.ecore</foreignModel>
-  <genPackages prefix="IoTDevice" disposableProviderFactory="true" ecorePackage="IoTDevice.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IoTDevice.ecore#//Protocol">
-      <genEnumLiterals ecoreEnumLiteral="IoTDevice.ecore#//Protocol/IP"/>
-      <genEnumLiterals ecoreEnumLiteral="IoTDevice.ecore#//Protocol/ZWAVE"/>
-      <genEnumLiterals ecoreEnumLiteral="IoTDevice.ecore#//Protocol/ZIGBEE"/>
+  <genPackages prefix="IoTDevice" disposableProviderFactory="true">
+    <ecorePackage href="IoTDevice.ecore#/"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="IoTDevice.ecore#//Protocol"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="IoTDevice.ecore#//Protocol/IP"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="IoTDevice.ecore#//Protocol/ZWAVE"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="IoTDevice.ecore#//Protocol/ZIGBEE"/>
+      </genEnumLiterals>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IoTDevice.ecore#//TriggerOp">
-      <genEnumLiterals ecoreEnumLiteral="IoTDevice.ecore#//TriggerOp/AND"/>
-      <genEnumLiterals ecoreEnumLiteral="IoTDevice.ecore#//TriggerOp/OR"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="IoTDevice.ecore#//TriggerOp"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="IoTDevice.ecore#//TriggerOp/AND"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="IoTDevice.ecore#//TriggerOp/OR"/>
+      </genEnumLiterals>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IoTDevice.ecore#//ReactionOp">
-      <genEnumLiterals ecoreEnumLiteral="IoTDevice.ecore#//ReactionOp/SEQ"/>
-      <genEnumLiterals ecoreEnumLiteral="IoTDevice.ecore#//ReactionOp/PAR"/>
+    <genEnums typeSafeEnumCompatible="false">
+      <ecoreEnum href="IoTDevice.ecore#//ReactionOp"/>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="IoTDevice.ecore#//ReactionOp/SEQ"/>
+      </genEnumLiterals>
+      <genEnumLiterals>
+        <ecoreEnumLiteral href="IoTDevice.ecore#//ReactionOp/PAR"/>
+      </genEnumLiterals>
     </genEnums>
-    <genClasses image="false" ecoreClass="IoTDevice.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDevice.ecore#//NamedElement/name"/>
+    <genClasses image="false">
+      <ecoreClass href="IoTDevice.ecore#//NamedElement"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="IoTDevice.ecore#//NamedElement/name"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//Node">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDevice.ecore#//Node/id"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Node"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//CommunicationPath">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDevice.ecore#//CommunicationPath/protocol"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//CommunicationPath/tgt"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//CommunicationPath/src"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//CommunicationPath"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="IoTDevice.ecore#//CommunicationPath/protocol"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//CommunicationPath/tgt"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//CommunicationPath/src"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//Cloud"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Gateway"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Router"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Device">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//Device/capabilities"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Cloud"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//IoTModel">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//IoTModel/types"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//IoTModel/networkconfiguration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//IoTModel/rules"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Gateway"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//Type"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Enumeration">
-      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//Enumeration/literals"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Router"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//EnumerationLiteral">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//EnumerationLiteral/enumeration"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Device"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//Device/capabilities"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//PrimitiveType"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Capability">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//Capability/parameters"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//IoTModel"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//IoTModel/types"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//IoTModel/configuration"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//IoTModel/rules"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//Sensing"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Actuating"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Parameter">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//Parameter/type"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Type"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//NetworkConfiguration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//NetworkConfiguration/nodes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//NetworkConfiguration/paths"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Enumeration"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//Enumeration/literals"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//NodeInstance">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//NodeInstance/in"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//NodeInstance/out"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//NodeInstance/type"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//EnumerationLiteral"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//EnumerationLiteral/enumeration"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//Rule">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//Rule/trigger"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//Rule/reaction"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//PrimitiveType"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//Trigger"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Reaction"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//Event"/>
-    <genClasses ecoreClass="IoTDevice.ecore#//CompositeTrigger">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDevice.ecore#//CompositeTrigger/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//CompositeTrigger/lhs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//CompositeTrigger/rhs"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Capability"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//Capability/parameters"/>
+      </genFeatures>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//CapabilityReference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//CapabilityReference/capability"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Sensing"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDevice.ecore#//CompositeReaction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDevice.ecore#//CompositeReaction/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//CompositeReaction/lhs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDevice.ecore#//CompositeReaction/rhs"/>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Actuating"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Parameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//Parameter/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//NetworkConfiguration"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//NetworkConfiguration/nodes"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//NetworkConfiguration/paths"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//NodeInstance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//NodeInstance/in"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//NodeInstance/out"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//NodeInstance/type"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Rule"/>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//Rule/trigger"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//Rule/reaction"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Trigger"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//Reaction"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//EventReference"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//CompositeTrigger"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="IoTDevice.ecore#//CompositeTrigger/op"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//CompositeTrigger/lhs"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//CompositeTrigger/rhs"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//CapabilityReference"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//CompositeReaction"/>
+      <genFeatures createChild="false">
+        <ecoreFeature xsi:type="ecore:EAttribute" href="IoTDevice.ecore#//CompositeReaction/op"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//CompositeReaction/lhs"/>
+      </genFeatures>
+      <genFeatures property="None" children="true" createChild="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//CompositeReaction/rhs"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//RealType"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//IntegerType"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//BooleanType"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//StringType"/>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="IoTDevice.ecore#//Expression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//MemberSelection"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//MemberSelection/receiver"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//MemberSelection/member"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//MemberSelection/args"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="IoTDevice.ecore#//BinExpression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//BinExpression/lhs"/>
+      </genFeatures>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//BinExpression/rhs"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//EqualityExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//OrExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//AndExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//RelationalExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//AdditiveExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//MultiplicativeExpression"/>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="IoTDevice.ecore#//UnaryExpression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//UnaryExpression/operande"/>
+      </genFeatures>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//PlusExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//MinusExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//NotExpression"/>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="IoTDevice.ecore#//LiteralExpression"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//StringLiteral"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//BooleanLiteral"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//IntegerLiteral"/>
+    </genClasses>
+    <genClasses>
+      <ecoreClass href="IoTDevice.ecore#//RealLiteral"/>
+    </genClasses>
+    <genClasses image="false">
+      <ecoreClass href="IoTDevice.ecore#//Reference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true">
+        <ecoreFeature xsi:type="ecore:EReference" href="IoTDevice.ecore#//Reference/exp"/>
+      </genFeatures>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

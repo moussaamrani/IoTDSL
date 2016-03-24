@@ -1,0 +1,13 @@
+package be.unamur.iotdevice.xdsml
+
+language IoTDevice {
+	syntax "platform:/resource/be.unamur.iotdevice.model/model/IoTDevice.ecore"
+
+	xtext "/be.unamur.iotdevice.xtext/src/be/unamur/iotdevice/IoTDevice.xtext"
+	
+/*
+ *	with qualified.class.name
+ */
+
+	exactType IoTDeviceMT
+}
