@@ -2,6 +2,7 @@ package be.unamur.iotdevice.util
 
 import IoTDevice.Actuating
 import IoTDevice.Capability
+import IoTDevice.CollectionLiteral
 import IoTDevice.CommunicationPath
 import IoTDevice.Device
 import IoTDevice.Enumeration
@@ -14,6 +15,7 @@ import IoTDevice.NodeInstance
 import IoTDevice.Parameter
 import IoTDevice.Rule
 import IoTDevice.Sensing
+import IoTDevice.Target
 import IoTDevice.UnaryExpression
 import org.eclipse.emf.ecore.EObject
 
@@ -56,10 +58,18 @@ class IoTDeviceUtil {
 		param.getContainerOfType(typeof(Capability))	
 	}
 
-	def static containingConfiguration(NodeInstance node){
-		node.getContainerOfType(typeof(NetworkConfiguration))
+	def static containingConfiguration(EObject object){
+		object.getContainerOfType(typeof(NetworkConfiguration))
 	}
 	
+	def static containingCollectionLiteral(Target target){
+		target.getContainerOfType(typeof(CollectionLiteral))
+	}
+
+	def static containingLiteralExpression(CollectionLiteral literal){
+		literal.getContainerOfType(typeof(Expression))
+	}
+
 	def static containingConfiguration(CommunicationPath path){
 		path.getContainerOfType(typeof(NetworkConfiguration))
 	}

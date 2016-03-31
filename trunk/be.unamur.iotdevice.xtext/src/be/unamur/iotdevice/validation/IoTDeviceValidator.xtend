@@ -12,9 +12,12 @@ import IoTDevice.Gateway
 import IoTDevice.IoTDevicePackage
 import IoTDevice.Parameter
 import IoTDevice.Rule
+import IoTDevice.Target
+import IoTDevice.VariableDeclaration
 import org.eclipse.xtext.validation.Check
 
 import static extension be.unamur.iotdevice.util.IoTDeviceUtil.*
+import IoTDevice.CollectionLiteral
 
 /**
  * This class contains custom validation rules. 
@@ -88,6 +91,35 @@ class IoTDeviceValidator extends AbstractIoTDeviceValidator {
 				IoTDevicePackage::eINSTANCE.namedElement_Name,
 				DUPLICATE_PARAMETER)
 	}
+
+	@Check
+	def void checkNoDuplicateVariable(VariableDeclaration variable){
+		val duplicate = variable.containingConfiguration.variables.findFirst[it != variable && it.name == variable.name]
+		if(duplicate != null)
+			error("Duplicate variable declaration '" + variable.name + "'",
+				IoTDevicePackage::eINSTANCE.namedElement_Name,
+				DUPLICATE_PARAMETER)
+	}
+
+	@Check
+	def void checkNoDuplicateVariableLiteral(Target target){
+		val duplicate = target.containingCollectionLiteral.value.findFirst[it != target && it.ref.name == target.ref.name]
+		if(duplicate != null)
+			error("Duplicate parameter declaration '" + target.ref.name + "'",
+				IoTDevicePackage::eINSTANCE.namedElement_Name,
+				DUPLICATE_PARAMETER)
+	}
+
+	@Check
+	def void checkSameTypeForCollectionLiterals(CollectionLiteral coll){
+		val type = coll.value.get(0).ref.type
+		val mismatch = coll.value.findFirst[it.ref.type != type] 
+		if(mismatch != null)
+			error("Collection literals in '" + coll + " do not have matching types'",
+				IoTDevicePackage::eINSTANCE.namedElement_Name,
+				DUPLICATE_PARAMETER)
+	}
+
 
 	@Check
 	def void checkNoDuplicateRule(Rule rule){

@@ -82,8 +82,9 @@ RealType:    {RealType} name="real";
 
 NetworkConfiguration returns NetworkConfiguration:
 	{NetworkConfiguration} 'configuration' name=ValidID '{'
-        (nodes+=NodeInstance)* 
-		(paths+=CommunicationPath)*
+        (nodes     += NodeInstance)* 
+		(paths     += CommunicationPath)*
+		(variables += VariableDeclaration)* 
 	'}'
 ;
 
@@ -93,6 +94,10 @@ NodeInstance returns NodeInstance:
 
 CommunicationPath returns CommunicationPath:
 	'from' src=[NodeInstance|ValidID] 'to' tgt=[NodeInstance|ValidID] 'via' protocol=Protocol
+;
+
+VariableDeclaration returns VariableDeclaration:
+	'var' name=ValidID '=' init = Expression
 ;
 
 enum Protocol returns Protocol:
@@ -187,6 +192,7 @@ LiteralExpression returns LiteralExpression:
 	{IntegerLiteral} value=INT |
 	{StringLiteral} value=STRING |
 	{EnumLiteral} enumeration=[Enumeration|QualifiedName] '::' literal=[EnumerationLiteral] |
+	{CollectionLiteral} '[' value += Target (',' value += Target)* ']' | 
 	{BooleanLiteral} ('false' | isTrue ?= 'true') 
 ;
 
