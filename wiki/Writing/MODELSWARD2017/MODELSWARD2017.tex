@@ -35,14 +35,65 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
-
+\usepackage{inconsolata}
 
 \newcommand{\IOT}{IoT\xspace}
 \newcommand{\IOTDSL}{IoTD\textsc{sl}\xspace}
 \newcommand{\DSL}{\textsc{Dsl}\xspace}
 \newcommand{\MDE}{\textsc{Mde}\xspace}
 
+\usepackage{xcolor}
+\definecolor{myblue}{HTML}{406E86}
+\definecolor{codeblue}{HTML}{004385}
+\definecolor{codegrey}{HTML}{4D4D4D}
+\definecolor{rulerline}{HTML}{A0A2AC}
+\definecolor{codegreen}{HTML}{518D71}
+\definecolor{codeviolet}{HTML}{7F0055}
+\definecolor{darkblue}{HTML}{08088A}
+\definecolor{mygrey}{HTML}{4D4D4D}
+
+\usepackage{listingsutf8}
+\usepackage{caption}[2015/09/20]
+
+\lstdefinelanguage{iotdsl}{
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[d]",
+  morestring=[d]',
+  morekeywords={
+    configuration, node, from, to, via,
+    sensing, actuating, gateway, device,
+    rule, when, before, after, and, do
+  }
+}
+
+\lstset{
+  basicstyle=\fontsize{6}{7}\ttfamily,
+  basewidth={0.55em,0.45em},
+  keywordstyle=\bfseries\color{codeviolet},
+  commentstyle=\itshape\color{mygrey},
+  stringstyle=\color{darkblue},
+  identifierstyle=\color{black},
+  numbers=left,
+  numberstyle=\tiny\color{rulerline},
+  stepnumber=1, 
+  numbersep=5pt,
+  firstnumber=1, 
+  frame=lines,
+  rulecolor=\color{rulerline},
+  tabsize=2,
+  breaklines=true,
+  aboveskip=4pt,
+  belowskip=4pt,
+  showspaces=false,
+  showstringspaces=false,
+  captionpos=b,
+  literate={~} {$\sim$}{1}
+}
+
 \begin{document}
+
+\renewcommand{\thelstlisting}{\arabic{lstlisting}}
 
 \title{TBA}
 \author{\authorname{Moussa Amrani\sup{1}, Fabian Gilson\sup{1}, Abdelmounaïm Debieche\sup{1}, Vincent \textsc{Englebert}\sup{1}}

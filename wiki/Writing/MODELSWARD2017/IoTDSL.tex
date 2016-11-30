@@ -39,95 +39,81 @@ For now, type definitions are defined as specific files that can be imported and
 
 Figure \ref{fig:RE-TypeDeclarations} shows how the devices used in the Running Example are declared in \IOTDSL: each device is introduced by the keyword \textsf{device}, has a name and capabilities that correspond to reporting events (\textsf{sensing}) or operating over the environment (\textsf{actuating}). A special device, introduced by the keyword \textsf{gateway}, centralises data from all devices connected to it (cf. Section \ref{sec:IoTDSL-NetworkConfiguration}). Note that this is the visible part of \IOTDSL: in the background, the events declared for all devices need to be mapped to concrete low-level events that the devices actually use. For that purpose, \IOTDSL contains a mapping language aimed at reconciling high- and low-level events that is not detailed here for space reasons.
 
-\begin{figure}[t]%
-	\begin{boxedminipage}[t]{\columnwidth}
-	\begin{sffamily}
-		\begin{tiny}
-		\begin{minipage}[t]{0.5\columnwidth}
-\textbf{device} DoorLock\{\\
-   \phantom{M}\textbf{sensing} opened()\\
-   \phantom{M}\textbf{sensing} closed()\\
-\}\\
-\textbf{device} PresenceDetector\{\\
-   \phantom{M}\textbf{sensing} detected()\\
-   \phantom{M}\textbf{actuating} isPresent()\\
-\}\\
-\textbf{device} LightBulb\{\\
-   \phantom{M}\textbf{actuating} on()\\
-   \phantom{M}\textbf{actuating} off()\\
-   \phantom{M}\textbf{actuating} blink()\\
-\}\\	
-\textbf{device} TempSensor \{\\
-   \phantom{M}\textbf{sensing} getTemp( )\\
-\}
-		\end{minipage}
-		\hfill
-		\begin{minipage}[t]{0.45\columnwidth}
-\textbf{device} Heater\{\\
-\phantom{M}\textbf{actuating} warm(delay:Integer)\\
-\phantom{M}\textbf{actuating} stop()\\
-\}\\
-\textbf{device} Alarme\{\\
-   \phantom{M}\textbf{actuating} sound()\\
-   \phantom{M}\textbf{actuating} call(msg:String)\\
-\}\\
-\textbf{device} Timer\{\\
-   \phantom{M}\textbf{actuating} reset()\\
-   \phantom{M}\textbf{actuating} set(delay:Integer)\\
-   \phantom{M}\textbf{sensing}   timeout()\\
-\}\\\\
-\textbf{gateway} Central\\		
-		\end{minipage}
-		\end{tiny}
-	\end{sffamily}
-	\end{boxedminipage}
-
-	\caption{Type Declarations in \IOTDSL: Devices declare capabilities (i.e. sensing or actuating) as high-level events to be manipulated by end-users.}%
-	\label{fig:RE-TypeDeclarations}%
-\end{figure}
+\begin{center}
+\begin{minipage}[t]{.45\linewidth}
+\begin{lstlisting}[language=iotdsl]	
+device DoorLock{
+  sensing opened()
+  sensing closed()
+}
+device PresenceDetector{
+  sensing detected()
+  actuating isPresent()
+}
+device LightBulb{
+  actuating on()
+  actuating off()
+  actuating blink()
+}	
+device TempSensor {
+  sensing getTemp()
+}
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}[t]{.45\linewidth}
+\begin{lstlisting}[language=iotdsl]	
+device DoorLock{
+  sensing opened()
+  sensing closed()
+}
+device PresenceDetector{
+  sensing detected()
+  actuating isPresent()
+}
+device LightBulb{
+  actuating on()
+  actuating off()
+  actuating blink()
+}	
+device TempSensor {
+  sensing getTemp()
+}
+\end{lstlisting}
+\end{minipage}
+\captionof{lstlisting}{Type Declarations in \IOTDSL: Devices declare capabilities (i.e. sensing or actuating) as high-level events to be manipulated by end-users.}
+\label{fig:RE-TypeDeclarations}
+\end{center}
 
 
-
-	
 \subsection{Network Configuration}
 \label{sec:IoTDSL-NetworkConfiguration}
 
 This part defines how devices are connected (cf. Figure \ref{fig:IoTDevice-MM}, purple): an actual device within a system is represented by a \textsf{NodeInstance} and is typed by a \textsf{Node} or a \textsf{Gateway}; instances communicate with other \IOT devices or gateways through predefined \textsf{CommunicationPath}s: such a path defines, among other information, the protocol(s) used for communication. We rely on existing platforms such as OpenRemote or SmartThings to handle the communication protocols intricate details, since those details are, from an end-user viewpoint, technical aspects rather than essential matters. By knowing which protocols are used between each pair of devices, we can perform data conversion in the proper format required by the protocols automatically: most of those protocols are already implemented in General-Purpose Programming Languages (\textsc{Gpl}s), like Java or C, to name a few of them.
-	
-\begin{figure}[t]%
-	\begin{boxedminipage}[t]{\columnwidth}
-	\begin{sffamily}
-		\begin{tiny}
-		{\setlength{\baselineskip}{1.2\baselineskip}
-\textbf{configuration} MyHome\{\\
-   \phantom{M}\textbf{node} gw \textbf{:} Central\\
-   \phantom{M}\textbf{node} livingTemp  \textbf{:} TemperaturSensor\\
-   \phantom{M}\textbf{node} kitchenTemp \textbf{:} TemperaturSensor\\
-   \phantom{M}\textbf{node} livingHeater  \textbf{:} Heater\\
-   \phantom{M}\textbf{node} frontdoor     \textbf{:} DoorLock\\
-   \phantom{M}\textbf{node} corridorLight \textbf{:} LightBulb\\
-	\phantom{M}\textbf{node} livingLight   \textbf{:} LightBulb\\
-   \phantom{M}\textbf{node} timer  \textbf{:} Timer\\
-   \phantom{M}\textbf{node} alarme \textbf{:} Alarme\\
-   \phantom{M}\textbf{node} corridorDetector\textbf{:} PresenceDetector\\
-	\phantom{M}\textbf{node} livingDetector  \textbf{:} PresenceDetector
-	\\\\
-   \phantom{M}\textbf{from} livingTemperature  \textbf{to} gw \textbf{via} MQTT\\
-   \phantom{M}\textbf{from} HomeTemperature \textbf{to} gw \textbf{via} DDS\\
-   \phantom{M}\textbf{from} livingHeater   \textbf{to} gw \textbf{via} DDS\\
-   \phantom{M}\textbf{from} frontdoor  \textbf{to} gw \textbf{via} MQTT\\
-   \phantom{M}\textbf{from} light \textbf{to} gw \textbf{via} MQTT\\
-   \phantom{M}\textbf{from} timer \textbf{to} gw \textbf{via} DDS\\
-   \phantom{M}\textbf{from} alarme \textbf{to} gw \textbf{via} DDS\\
-   \phantom{M}\textbf{from} bodydetector  \textbf{to} gw \textbf{via} MQTT\\
-\}
-	\par}
-		\end{tiny}
-	\end{sffamily}
-	\end{boxedminipage}
-	\caption{Network Configuration for the devices present in Alice's House}%
-	\label{fig:RE-Network}%
-\end{figure}	
+
+\begin{lstlisting}[label=fig:RE-Network,language=iotdsl,caption=Network Configuration for the devices present in Alice's House]	
+configuration MyHome {
+  node gw 					   : Central
+  node livingTemp      : TemperaturSensor
+  node kitchenTemp     : TemperaturSensor
+  node livingHeater    : Heater
+  node frontdoor       : DoorLock
+  node corridorLight   : LightBulb
+  node livingLight     : LightBulb
+  node timer           : Timer
+  node alarme          : Alarme
+  node corridorDetector: PresenceDetector
+  node livingDetector  : PresenceDetector
+
+  from livingTemperature to gw via MQTT
+  from HomeTemperature to gw via DDS
+  from livingHeater to gw via DDS
+  from frontdoor to gw via MQTT
+  from light to gw via MQTT
+  from timer to gw via DDS
+  from alarme to gw via DDS
+  from bodydetector to gw via MQTT
+}
+\end{lstlisting}	
 
 From a practical viewpoint, we can easily imagine that network configurations are automatically established if devices follow the recommendation of discovery protocols (cf. \cite{} for an overview). By concentrating the connections on a gateway in charge of centralising the upcoming or leaving devices, e.g., phones that enter or leave a house, or devices that (dis)connect, it becomes possible to gather information on new devices and connect them appropriately to other devices in the network according to their capabilities, communication protocols, and so on.
 
@@ -146,47 +132,40 @@ We now explain how the scenario of the running example are translated in busines
 \begin{enumerate}
 	\item When Alice enters home (and thus opens the front door), she wants the lights in the hallway and the living room to automatically switch on. 
 
-	\noindent
-	
-	\begin{small}	
-		\begin{sffamily}
-	\textbf{rule} SwitchLightsWhenEnter:\\
-	\phantom{M}\textbf{when} (frontdoor.opened() \textbf{and after}\\
-	\phantom{MMMM} corridorDetector.detected()) \textbf{do} \{\\
-	\phantom{MM} corridorLight.on() \textbf{||} livingLight.on()\\ 			
-	\phantom{M} \}
-		\end{sffamily}
-	\end{small}
+\begin{lstlisting}[language=iotdsl]
+rule SwitchLightsWhenEnter:
+  when (frontdoor.opened() and 
+      after corridorDetector.detected()) do {
+    corridorLight.on() || livingLight.on()
+  }
+\end{lstlisting}	
 	
 	\item When Alice is in the living room, the temperature inside the room should be maintained between comfortable temperatures; whereas when she is not, the temperature should not drop below 16°C.
 	
-		\noindent
 	
-	\begin{small}	
-		\begin{sffamily}
-	\textbf{rule} PresentInLiving:\\	
-	\phantom{M}\textbf{when} (presenceTimer.timeout()) \textbf{do}\{\\
-	\phantom{MM} livingDetector.isPresent() \textbf{||}\\
-	\phantom{MM} (presenceTimer.reset \textbf{;}\\ 
-	\phantom{MML} presenceTimer.set(TIMEDETECT))\\
-	\phantom{M}\}\\
-	\textbf{rule} MonitorLivingTempInStop:\\
-	\phantom{M}\textbf{when} (livingDetector.detected() \textbf{and}\\
-	\phantom{MMMM} livingTemp.getTemp > IN\_MAX) do \{\\
-	\phantom{MM} livingHeater.stop()\\ 			
-	\phantom{M}\}\\
-	\textbf{rule} MonitorLivingTempInStart:\\
-	\phantom{M}\textbf{when} (livingDetector.detected() \textbf{and}\\
-	\phantom{MMMM} livingTemp.getTemp < IN\_MIN) do \{\\
-	\phantom{MM} livingHeater.warm(TIMEHEAT)\\ 			
-	\phantom{M}\}\\
-	\textbf{rule} MonitorLivingTempOutStart:\\
-	\phantom{M}\textbf{when} (presenceTimer.timeout() \textbf{before} \textbf{and}\\
-	\phantom{MMMM} livingTemp.getTemp < OUT\_MIN) do \{\\
-	\phantom{MM} livingHeater.warm(TIMEHEAT)\\ 			
-	\phantom{M}\}\\
-		\end{sffamily}
-	\end{small}
+\begin{lstlisting}[language=iotdsl]
+rule PresentInLiving:	
+  when (presenceTimer.timeout()) do {
+     livingDetector.isPresent() || 
+       (presenceTimer.reset; 
+       presenceTimer.set(TIMEDETECT))
+  }
+rule MonitorLivingTempInStop:
+  when (livingDetector.detected() 
+      and livingTemp.getTemp > IN_MAX) do {
+    livingHeater.stop()
+  }
+rule MonitorLivingTempInStart:
+  when (livingDetector.detected() 
+      and livingTemp.getTemp < IN_MIN) do {
+    livingHeater.warm(TIMEHEAT)
+  }
+rule MonitorLivingTempOutStart:
+  when (presenceTimer.timeout() 
+      and before livingTemp.getTemp < OUT_MIN) do {
+    livingHeater.warm(TIMEHEAT)
+  }
+\end{lstlisting}
 	
 	\item There is a critical fire situation when smoke is detected in the kitchen while temperature is maintained beyong 45°C for at least five minutes.
 \end{enumerate}
