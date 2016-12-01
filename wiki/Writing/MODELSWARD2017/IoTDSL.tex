@@ -18,18 +18,20 @@ Despite its early stages of development, \IOTDSL showed its ability to appropria
 
 To illustrate our proposal, we consider a smart home equipped with several devices, just like Alice's situation in Section \ref{sec:Context-Challenges}, as illustrated in Figure \ref{fig:RE}. At the entrance, the door is equipped with a lock detector, allowing to know when the door is opened or closed. The hallway contains motion detectors, so that the lights in the hallway as well as in the living room automatically switch on when she enters her house. Furthermore, the living room also contains a presence detector because Alice wants the temperature to be automatically monitored when she's occupying the room, being maintained between 20°C and 22°C; otherwise, when she is not home, the temperature may not drop below 16°C. For security reasons, Alice's kitchen contains a smoke detector and a temperature monitor. When she cooks, it happens that she burns something; but she wants to make sure to detect any departing fire: she considers a critical situation when the temperature remains above 40°C consistently during five minutes while there is also smoke in the kitchen. 
 
+% for placement reasons
+\begin{figure*}%
+  \centering  
+  \includegraphics[width=.75\linewidth]{IoTDevice-MM.png}%
+  \caption{Metamodel of \IOTDSL, separated in three concerns: \emph{Type Definition} captures devices' capabilities (top green part), \emph{Network Configuration} details how device instances are connected to each others (middle purple part), \emph{Business Rules} defines the functionalities expected from the IoT installation (bottom yellow part).}%
+  \label{fig:IoTDevice-MM}%
+\end{figure*}
+
 Figure \ref{fig:RE} shows how the various devices are physically distributed inside an archetypal representation of a smart home, and how each device communicates with a centralised gateway. In our \DSL, the gateway concentrates the data received from the devices deployed inside the home, and keeps the business logic running, \textit{i.e.} receiving data from and acting through the devices. 
 
 \subsection{Type Definition}
 \label{sec:IoTDSL-Type}
  
 In this section, we define \IOT devices' types, \textit{i.e.} which capabilities are available to the users in terms of environment sensing and actuating. In our scenario, type definitions either come from an advanced user who is able to reason properly about a particular device and extract the relevant information, or from a preexisting devices database, either being an actual repository the system is connected to, or a library of \textit{devices-off-the-shelf}. The concepts dedicated to type definition are shown in Figure~\ref{fig:IoTDevice-MM} (green background). This part is similar to the notion of \textsf{Classifier} in \textsc{Mof}-like languages: a \textsf{Type} is either a \textsf{PrimitiveType} (integers and real numbers, strings and booleans), or a user-defined \textsf{DeclaredType}. We distinguish between general \textsf{Gateway}s, which centralise information and processing, from \textsf{Node}s, which possess capabilities and are deployed in the environment. A \textsf{Capability} is basically a \textsc{Mof}-like operation with a signature, expressed through a list of \textsf{Parameter}s that either capture data from the environment, or act on it. A \textsf{Node} can mix both kinds of capabilities, allowing us to represent in a uniform fashion composite devices that expose complex behaviours.
-
-\begin{figure*}[h!]%
-\includegraphics[width=\textwidth]{IoTDevice}%
-\caption{Metamodel of \IOTDSL, separated in three concerns: \emph{Type Definition} captures devices' capabilities (top green part), \emph{Network Configuration} details how device instances are connected to each others (middle purple part), \emph{Business Rules} defines the functionalities expected from the IoT installation (bottom yellow part).}%
-\label{fig:IoTDevice-MM}%
-\end{figure*}
 
 For now, type definitions are defined as specific files that can be imported and combined easily within an \IOT specification. We plan to propose a graphical interface to facilitate the browsing and integration of library components into \IOT systems.
 
