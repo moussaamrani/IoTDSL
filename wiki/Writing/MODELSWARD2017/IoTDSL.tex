@@ -21,7 +21,7 @@ To illustrate our proposal, we consider a smart home equipped with several devic
 % for placement reasons
 \begin{figure*}%
   \centering  
-  \includegraphics[width=.75\linewidth]{IoTDevice-MM.png}%
+  \includegraphics[width=.9\linewidth]{IoTDevice-MM.png}%
   \caption{Metamodel of \IOTDSL, separated in three concerns: \emph{Type Definition} captures devices' capabilities (top green part), \emph{Network Configuration} details how device instances are connected to each others (middle purple part), \emph{Business Rules} defines the functionalities expected from the IoT installation (bottom yellow part).}%
   \label{fig:IoTDevice-MM}%
 \end{figure*}
@@ -86,7 +86,7 @@ gateway Central
 \subsection{Network Configuration}
 \label{sec:IoTDSL-NetworkConfiguration}
 
-The configuration-related constructs are specified in the purple-part of Figure~\ref{fig:IoTDevice-MM}. A concrete device is materialised by a \textsf{NodeInstance} and is typed by an abstract \textsf{Node}, \textit{e.g.} a \textsf{Device} or a \textsf{Gateway}. Instances may communicate with other \IOT devices through predefined \textsf{CommunicationPath}s. Such paths define, among others, one or more protocols used for communication. We actually rely on existing platforms, such as OpenRemote~\cite{fixme} or SmartThings~\cite{fixme} to handle the intricate details of the communication protocols since these details are, from an end-user viewpoint, technical aspects rather than essential matters. By knowing which protocols are used between each pair of devices, we can perform data conversion in the proper format required by the protocols automatically: most of those protocols are already implemented in General-Purpose Programming Languages (\textsc{Gpl}s), like Java or C, to name a few of them.
+The configuration-related constructs are specified in the purple-part of Figure~\ref{fig:IoTDevice-MM}. A concrete device is materialised by a \textsf{NodeInstance} and is typed by an abstract \textsf{Node}, \textit{e.g.} a \textsf{Device} or a \textsf{Gateway}. Instances may communicate with other \IOT devices through predefined \textsf{CommunicationPath}s. Such paths define, among others, one or more protocols used for communication. We actually rely on existing platforms, such as OpenRemote~\cite{fixme} or SmartThings~\cite{fixme} to handle the intricate details of the communication protocols since these details are, from an end-user viewpoint, technical aspects rather than essential matters. By knowing which protocols are used between each pair of devices, we can perform data conversion in the proper format required by the protocols automatically: most of those protocols are already implemented in General-Purpose Programming Languages (\textsc{Gpl}s), like Java or C, to name a few of them. The variety of available protocols in \IOT infrastructures makes it difficult to mix disparate technologies. This \textsf{Gateway} is actually meant to serve as a mapper to couple distinct devices\footnote{One may argue that using \textit{concentrators} exposes single-point-of-failures, but in nowadays configurations, replication and fallbacks are clearly not an issue anymore, and such structures may be represented in \IOTDSL.}.
 
 \begin{lstlisting}[label=lis:RE-Network,language=iotdsl,caption=Network Configuration for Alice's House]	
 configuration MyHome {
@@ -114,6 +114,7 @@ configuration MyHome {
 \end{lstlisting}	
 
 From a practical point of view, we can easily imagine that network configurations are automatically established if devices follow the recommendation of discovery protocols~\cite{}. By concentrating the connections on a gateway in charge of centralising the joining and leaving devices, \textit{e.g.}, phones that enter or leave a house, it becomes possible to gather information on new devices and connect them appropriately to other devices in the network according to their capabilities, communication protocols, and so on. Although \IOTDSL empowers \textsf{Node}s to be passed as \textsf{Parameter}s, enabling devices' definition to be discovered thanks to the \textsf{Gateway}.
+
 
 Listing~\ref{lis:RE-Network} shows the connection between the devices presented in Figure~\ref{fig:RE}. A specific device is considered as an instance of a defined type such that particular devices with the same set of capabilities may be distinguished via identifiable references. Communications are purely declarative and only mention the protocol type (introduced by the \textsf{via} keyword). Note that we added an extra instance \textsf{timer : Timer} used to simulate time elapsing. This \textit{pseudo} device is used to artificially set a clock time, whose behaviour is directly linked to the supporting platform of the gateway's for time management.
 	
