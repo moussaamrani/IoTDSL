@@ -3,17 +3,13 @@
 
 \begin{figure*}%
 %\includegraphics[width=\columnwidth]{filename}%
-\caption{Alice's Smart Home equipped with various devices.}%
+\caption{Alice's smart home equipped with various devices.}%
 \label{fig:RE}%
 \end{figure*}
 
 Building a well-calibrated \DSL is known to be difficult and error-prone. It usually requires a large expertise on a domain and its many variations before a consensus on which concepts are important and how to effectively represent them emerge. Fortunately, \MDE technologies operated substantial breakthrough over the past decade, allowing language designers to easily define their own \DSL structures and user interfaces. A \DSL is often required to exhibit a visual syntax, allegedly to simplify its understanding and manipulation by end-users. However, in order to obtain faster a functional prototype, we chose to start from a textual syntax, which is easier to manipulate and evolve for language designers. Ultimately, we plan to propose a visual syntax: the transition should be facilitated since our \DSL is developed from the start in GeMoC \cite{combemale-14}, an \textsc{Mde} framework that supports both visual and textual representations as concrete syntaxes and maintains a full synchronisation between both versions.
 
-
-
 Based on the concerns and challenges identified in section~\ref{sec:Context-Challenges}, we now introduce \IOTDSL, our \DSL devoted to facilitate the high-level manipulation of \IOT systems. At the heart of \IOTDSL are two governing principles. First, we promote a clean separation of concerns for all aspects the \DSL has to handle. As a consequence, our \DSL's structure embeds several sublanguages that are composed together to form \IOTDSL. We believe this approach to be scalable, and to support a well-controlled independent evolution of each concern without impacting the other aspects, since those aspects are composed through well-defined interfaces. Second, our \DSL relies on events, a natural paradigm for specifying various models of interactions that is classically used in embedded and critical systems, and where a clear separation between the system and its environment is performed, helping us enforce separation of concerns.
-
-
 
 Despite its early stages of development, \IOTDSL showed its ability to appropriately capture the definition of small-scale \IOT systems. We first extract a simple scenario from our project at the University of Namur to demonstrate typical usages of \IOT systems deployed inside a house. We then simultaneously explain each part of the definition of \IOTDSL, and illustrate it in dedicated examples.
 
@@ -27,17 +23,17 @@ Figure \ref{fig:RE} shows how the various devices are physically distributed ins
 \subsection{Type Definition}
 \label{sec:IoTDSL-Type}
  
-In this section, we define \IOT devices' types, \textit{i.e.} which capabilities are available to the users in terms of environment sensing and actuating. In our scenario, type definitions either come from an advanced user who is able to reason properly about a particular device and extract the relevant information, or from a preexisting devices database, either being an actual repository the system is connected to, or a library of \textit{devices-off-the-shelf}. The concepts dedicated to type definition are shown in Figure~\ref{fig:IoTDevice-MM} (green background). This part is similar to the notion of \textsf{Classifier} in \textsc{Mof}-like languages: a \textsf{Type} is either a \textsf{PrimitiveType} (integers and real numbers, strings and booleans), or a user-defined \textsf{DeclaredType}. We distinguish between general \textsf{Gateway}s, which centralise information and processing, from \textsf{Node}s, which possess capabilities and are deployed in the environment. A \textsf{Capability} is basically a \textsc{Mof}-like operation with a signature, expressed through a list of (input/output typed) \textsf{Parameter}s that either capture data from the environment, or act on it. A \textsf{Node} can mix both kinds of capabilities, allowing us to represent in a uniform fashion composite devices that expose complex behaviours.
+In this section, we define \IOT devices' types, \textit{i.e.} which capabilities are available to the users in terms of environment sensing and actuating. In our scenario, type definitions either come from an advanced user who is able to reason properly about a particular device and extract the relevant information, or from a preexisting devices database, either being an actual repository the system is connected to, or a library of \textit{devices-off-the-shelf}. The concepts dedicated to type definition are shown in Figure~\ref{fig:IoTDevice-MM} (green background). This part is similar to the notion of \textsf{Classifier} in \textsc{Mof}-like languages: a \textsf{Type} is either a \textsf{PrimitiveType} (integers and real numbers, strings and booleans), or a user-defined \textsf{DeclaredType}. We distinguish between general \textsf{Gateway}s, which centralise information and processing, from \textsf{Node}s, which possess capabilities and are deployed in the environment. A \textsf{Capability} is basically a \textsc{Mof}-like operation with a signature, expressed through a list of \textsf{Parameter}s that either capture data from the environment, or act on it. A \textsf{Node} can mix both kinds of capabilities, allowing us to represent in a uniform fashion composite devices that expose complex behaviours.
 
-\begin{figure*}%
+\begin{figure*}[h!]%
 \includegraphics[width=\textwidth]{IoTDevice}%
-\caption{Metamodel of \IOTDSL, separated in three concerns: in green, \emph{Type Definition} captures devices' capabilities; in purple, \emph{Network Configuration} details how device instances are connected to each others; and in yellow, \emph{Business Rules} defines the functionalities expected from the IoT installation.}%
+\caption{Metamodel of \IOTDSL, separated in three concerns: \emph{Type Definition} captures devices' capabilities (top green part), \emph{Network Configuration} details how device instances are connected to each others (middle purple part), \emph{Business Rules} defines the functionalities expected from the IoT installation (bottom yellow part).}%
 \label{fig:IoTDevice-MM}%
 \end{figure*}
 
-For now, type definitions are defined as specific files that can be imported and combined easily within an \IOT specification. Ultimately, we will propose a graphical interface that would facilitate the browsing of library components and their seamless integration into \IOT systems.
+For now, type definitions are defined as specific files that can be imported and combined easily within an \IOT specification. We plan to propose a graphical interface to facilitate the browsing and integration of library components into \IOT systems.
 
-Figure \ref{fig:RE-TypeDeclarations} shows how the devices used in the Running Example are declared in \IOTDSL: each device is introduced by the keyword \textsf{device}, has a name and capabilities that correspond to reporting events (\textsf{sensing}) or operating over the environment (\textsf{actuating}). A special device, introduced by the keyword \textsf{gateway}, centralises data from all devices connected to it (cf. Section \ref{sec:IoTDSL-NetworkConfiguration}). Note that this is the visible part of \IOTDSL: in the background, the events declared for all devices need to be mapped to concrete low-level events that the devices actually use. For that purpose, \IOTDSL contains a mapping language aimed at reconciling high- and low-level events that is not detailed here for space reasons.
+Listing~\ref{lis:RE-TypeDeclarations} shows how the devices used in the Running Example are declared in \IOTDSL. Each device is introduced by the keyword \textsf{device}, has a name and capabilities that correspond to reporting events (\textsf{sensing}) or operating over the environment (\textsf{actuating}). A special device, introduced by the keyword \textsf{gateway}, centralises data from all devices connected to it (cf. Section \ref{sec:IoTDSL-NetworkConfiguration}). Note that this is the visible part of \IOTDSL: in the background, the events declared for all devices need to be mapped to concrete low-level events that the devices actually use. For that purpose, \IOTDSL contains a mapping language aimed at reconciling high- and low-level events that is not detailed here for space reasons.
 
 \begin{center}
 \begin{minipage}[t]{.42\linewidth}
@@ -80,17 +76,17 @@ gateway Central
 
 \end{lstlisting}
 \end{minipage}
-\captionof{lstlisting}{Type Declarations in \IOTDSL: Devices declare capabilities (i.e. sensing or actuating) as high-level events to be manipulated by end-users.}
-\label{fig:RE-TypeDeclarations}
+\captionof{lstlisting}{Type declarations in \IOTDSL: \textsf{sensing} or \textsf{actuating} capabilities as high-level events.}
+\label{lis:RE-TypeDeclarations}
 \end{center}
 
 
 \subsection{Network Configuration}
 \label{sec:IoTDSL-NetworkConfiguration}
 
-This part defines how devices are connected (cf. Figure \ref{fig:IoTDevice-MM}, purple): an actual device within a system is represented by a \textsf{NodeInstance} and is typed by a \textsf{Node} or a \textsf{Gateway}; instances communicate with other \IOT devices or gateways through predefined \textsf{CommunicationPath}s: such a path defines, among other information, the protocol(s) used for communication. We rely on existing platforms such as OpenRemote or SmartThings to handle the communication protocols intricate details, since those details are, from an end-user viewpoint, technical aspects rather than essential matters. By knowing which protocols are used between each pair of devices, we can perform data conversion in the proper format required by the protocols automatically: most of those protocols are already implemented in General-Purpose Programming Languages (\textsc{Gpl}s), like Java or C, to name a few of them.
+The configuration-related constructs are specified in the purple-part of Figure~\ref{fig:IoTDevice-MM}. A concrete device is materialised by a \textsf{NodeInstance} and is typed by an abstract \textsf{Node}, \textit{e.g.} a \textsf{Device} or a \textsf{Gateway}. Instances may communicate with other \IOT devices through predefined \textsf{CommunicationPath}s. Such paths define, among others, one or more protocols used for communication. We actually rely on existing platforms, such as OpenRemote~\cite{fixme} or SmartThings~\cite{fixme} to handle the intricate details of the communication protocols since these details are, from an end-user viewpoint, technical aspects rather than essential matters. By knowing which protocols are used between each pair of devices, we can perform data conversion in the proper format required by the protocols automatically: most of those protocols are already implemented in General-Purpose Programming Languages (\textsc{Gpl}s), like Java or C, to name a few of them.
 
-\begin{lstlisting}[label=fig:RE-Network,language=iotdsl,caption=Network Configuration for the devices present in Alice's House]	
+\begin{lstlisting}[label=lis:RE-Network,language=iotdsl,caption=Network Configuration for Alice's House]	
 configuration MyHome {
   node gw 					   : Central
   node livingTemp      : TemperaturSensor
@@ -100,7 +96,7 @@ configuration MyHome {
   node corridorLight   : LightBulb
   node livingLight     : LightBulb
   node timer           : Timer
-  node alarme          : Alarme
+  node alarm           : Alarm
   node corridorDetector: PresenceDetector
   node livingDetector  : PresenceDetector
 
@@ -110,27 +106,25 @@ configuration MyHome {
   from frontdoor to gw via MQTT
   from light to gw via MQTT
   from timer to gw via DDS
-  from alarme to gw via DDS
+  from alarm to gw via DDS
   from bodydetector to gw via MQTT
 }
 \end{lstlisting}	
 
-From a practical viewpoint, we can easily imagine that network configurations are automatically established if devices follow the recommendation of discovery protocols (cf. \cite{} for an overview). By concentrating the connections on a gateway in charge of centralising the upcoming or leaving devices, e.g., phones that enter or leave a house, or devices that (dis)connect, it becomes possible to gather information on new devices and connect them appropriately to other devices in the network according to their capabilities, communication protocols, and so on.
+From a practical point of view, we can easily imagine that network configurations are automatically established if devices follow the recommendation of discovery protocols~\cite{}. By concentrating the connections on a gateway in charge of centralising the joining and leaving devices, \textit{e.g.}, phones that enter or leave a house, it becomes possible to gather information on new devices and connect them appropriately to other devices in the network according to their capabilities, communication protocols, and so on. Although \IOTDSL empowers \textsf{Node}s to be passed as \textsf{Parameter}s, enabling devices' definition to be discovered thanks to the \textsf{Gateway}.
 
-Figure \ref{fig:RE-Network} shows the connection between devices, as illustrated in Figure \ref{fig:RE}: a specific device is considered as an instance of a type, as declared in Section \ref{sec:IoTDSL-Type}, which allows to distinguish various devices with the same set of capabilities through identifiable references (reference names are just here for illustration purposes); the communication is purely declarative and only mentions the protocol type (after the \textsf{via} keyword). Note that this configuration introduces an extra instance \textsf{timer:Timer} used to simulate time elapse: this allows us to artificially introduce time through a specific ``fake'' device, whose behaviour is linked directly to the gateway's supporting platform for time management.
-
-
+Listing~\ref{lis:RE-Network} shows the connection between the devices presented in Figure~\ref{fig:RE}. A specific device is considered as an instance of a defined type such that particular devices with the same set of capabilities may be distinguished via identifiable references. Communications are purely declarative and only mention the protocol type (introduced by the \textsf{via} keyword). Note that we added an extra instance \textsf{timer : Timer} used to simulate time elapsing. This \textit{pseudo} device is used to artificially set a clock time, whose behaviour is directly linked to the supporting platform of the gateway's for time management.
 	
 \subsection{Business Rules}
 \label{sec:IoTDSL-BusinessRules}
 
-This last part of our \DSL is the heart of \IOT systems manipulation (cf. Figure \ref{fig:IoTDevice-MM}, yellow). It relies on an event-based framework consisting of a set of \textsf{Rule}s that implements various functionalities the end-user wants to achieve: rules' \textsf{trigger}s are cyclically evaluated against the surrounding environment, whenever a \textsf{trigger} \textsf{Expression} becomes true, it executes the appropriate \textsf{reaction} associated to the rule. A \textsf{trigger} is defined by an expression, whose precise definition is omitted here, since it simply follows classical expression languages from any \textsc{Gpl} for navigating nodes, and evaluating boolean and arithmetic expressions\footnote{Note that detecting the \emph{absence} of events is left for future work, since this is a rather tricky problem, as a consequence, the current expression language does not integrate boolean negation yet.}.A \textsf{reaction} defines a sequential or parallel combination of capabilities, allowing to order an action by, or to require a data from some identifiable devices. For example, a \textsf{reaction} may be to make blinking all lights in a house, or only the ones a certain type.
-	
-For now, our approach is purely centric: rules are gathered into a gateway. For efficiency and resource consumption reasons, we are also exploring how to automatically identify parts of the business logics that can be deported into specific nodes with sufficient processing and power resources, in order to communicate through the network the information that is truly relevant for other devices.
+This last part of our \DSL is the heart of \IOT systems manipulation and is detailed in the in the bottom yellow part of Figure~\ref{fig:IoTDevice-MM}. It relies on an event-based framework consisting of a set of \textsf{Rule}s that implement various functionalities an end-user wants to achieve. Rules' \textsf{trigger}s are cyclically evaluated against the surrounding environment. Whenever a \textsf{trigger} \textsf{Expression} becomes true, it executes the appropriate \textsf{reaction} associated to the rule. A \textsf{trigger} is defined as an expression, whose precise definition is omitted here since it simply follows any expression language available in \textsc{Gpl}s for navigating nodes and evaluating boolean or arithmetic expressions\footnote{Note that the evaluation of the \emph{absence} of events is left for future work, since this is a rather tricky problem. As a consequence, the current expression language does not integrate boolean negation yet.}.A \textsf{reaction} defines a sequential or parallel combination of capabilities, enabling to sort actions by, or require data from some identifiable devices. An typical \textsf{reaction} may be to switch on all lights in a house, or only the ones of a certain type.
 
-We now explain how the scenario of the running example are translated in business rules in \IOTDSL. We identified three different situations where Alice needs to specify what she expects from the devices of her house:
+For now, our approach is purely middleware-oriented: rules are gathered into a gateway. For efficiency and resource consumption reasons, we are also exploring how to automatically identify parts of the business logics that can be exported to advanced nodes with sufficient processing and power resources, in order to lower network and gateway overuses.
+
+We now explain how the scenario presented in the running example is translated in business rules in \IOTDSL. We identified three different situations where Alice needs to specify what she expects from the devices of her house:
 \begin{enumerate}
-	\item When Alice enters home (and thus opens the front door), she wants the lights in the hallway and the living room to automatically switch on. 
+	\item When Alice enters home (and thus opens the front door), she wants the lights in the hallway and the living room to be automatically switched on. 
 
 \begin{lstlisting}[language=iotdsl]
 rule SwitchLightsWhenEnter:
@@ -147,8 +141,7 @@ rule SwitchLightsWhenEnter:
 rule PresentInLiving:	
   when (presenceTimer.timeout()) do {
      livingDetector.isPresent() || 
-       (presenceTimer.reset; 
-       presenceTimer.set(TIMEDETECT))
+       (presenceTimer.reset ; presenceTimer.set(TIMEDETECT))
   }
 rule MonitorLivingTempInStop:
   when (livingDetector.detected() 
@@ -167,7 +160,8 @@ rule MonitorLivingTempOutStart:
   }
 \end{lstlisting}
 	
-	\item There is a critical fire situation when smoke is detected in the kitchen while temperature is maintained beyong 40°C for at least five minutes.
+	\item There is a critical fire situation when smoke is detected in the kitchen while temperature is upper 40°C for at least five minutes.
 \end{enumerate}
 
-These rules show some specificities of \IOTDSL's Rule language. First, it is possible to define local or global variables and reuse them as part of parameters or expressions (cf. Rules \textsf{PresentInLiving} or \textsf{MonitorLivingInStop}, among others). Second, it is possible to compose reactions either in sequence (Class \textsf{SeqComposition} in the metamodel of Figure \ref{fig:IoTDevice-MM}, textually represented as \textsf{\textbf{;}}) or in parallel (Class \textsf{ParallelComposition}, represented as \textsf{\textbf{||}}), like Rule \textsf{PresentInLiving} demonstrates. Third, \IOTDSL's expression language integrates a simple mechanism for events time management: the \textsf{before} and \textsf{after} event modifiers check that an event happens in a reasonable time windows before/after the one it is combined to (in Rules \textsf{SwitchLightWhenEnter} and \textsf{MonitorLivingTempOutStart}, events are combined with \textsf{and} for checking quasi-simultaneity). Fourth, because \IOTDSL cannot check the non-occurence of events, time management is crucial for ensuring a sound detection of interesting non-events: for example here, Rule \textsf{PresentInLiving} is used to periodically check for presence in the living room (with the actuation \textsf{isPresent()}); but when nobody is detected, we still have to maintain the temperature above \textsf{OUT\_MIN} = 16°C. By detecting that \textsf{timeout()} occured previously, we still are capable of adjusting the living room temperature adequately.
+
+These rules show some particularities of \IOTDSL's Rule language. First, it is possible to define local or global variables and reuse them as part of parameters or expressions (cf. Rules \textsf{PresentInLiving} or \textsf{MonitorLivingInStop}, among others). Second, it is possible to compose reactions either in sequence (class \textsf{SeqComposition} in the metamodel of Figure \ref{fig:IoTDevice-MM}, textually represented as \textsf{\textbf{;}}) or in parallel (class \textsf{ParallelComposition}, represented as \textsf{\textbf{||}}), like Rule \textsf{PresentInLiving} demonstrates. Third, \IOTDSL's expression language integrates a simple mechanism for events time management: the \textsf{before} and \textsf{after} event modifiers check that an event happens in a reasonable time windows before/after the one it is combined to (in Rules \textsf{SwitchLightWhenEnter} and \textsf{MonitorLivingTempOutStart}, events are combined with \textsf{and} for checking quasi-simultaneity). Fourth, because \IOTDSL cannot check the non-occurrence of events, time management is crucial for ensuring a sound detection of interesting non-events: for example here, Rule \textsf{PresentInLiving} is used to periodically check for presence in the living room (with the actuation \textsf{isPresent()}); but when nobody is detected, we still have to maintain the temperature above \textsf{OUT\_MIN} = 16°C. By detecting that \textsf{timeout()} occurred previously, we still are capable of adjusting the living room temperature adequately.
