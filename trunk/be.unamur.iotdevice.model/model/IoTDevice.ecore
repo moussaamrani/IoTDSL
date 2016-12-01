@@ -15,13 +15,15 @@
     <eLiterals name="IP"/>
     <eLiterals name="ZWAVE" value="1"/>
     <eLiterals name="ZIGBEE" value="2"/>
+    <eLiterals name="MQTT" value="4"/>
+    <eLiterals name="DDS" value="8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cloud" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Gateway" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Router" eSuperTypes="#//Node"/>
   <eClassifiers xsi:type="ecore:EClass" name="Device" eSuperTypes="#//Node">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
-        eType="#//Capability" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
+        eType="#//Feature" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IoTModel">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
@@ -41,15 +43,14 @@
         eType="#//Enumeration" eOpposite="#//Enumeration/literals"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" abstract="true" eSuperTypes="#//Type"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Capability" abstract="true" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Capability" abstract="true" eSuperTypes="#//Feature">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
         eType="#//Parameter" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sensing" eSuperTypes="#//Capability"/>
   <eClassifiers xsi:type="ecore:EClass" name="Actuating" eSuperTypes="#//Capability"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeReference"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//NamedTypedReference">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="inout" lowerBound="1" eType="#//PARAMDIR"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NetworkConfiguration" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
@@ -142,7 +143,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" lowerBound="1" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TypeReference">
+  <eClassifiers xsi:type="ecore:EClass" name="TypeReference" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dtype" eType="#//DeclaredType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ptype" eType="#//PrimitiveType"
         containment="true"/>
@@ -155,5 +156,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="CollectionLiteral" eSuperTypes="#//LiteralExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" upperBound="-1"
         eType="#//Target" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//Feature"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//NamedTypedReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedTypedReference" abstract="true"
+      eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//TypeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="PARAMDIR">
+    <eLiterals name="OUT"/>
+    <eLiterals name="IN"/>
+    <eLiterals name="INOUT"/>
   </eClassifiers>
 </ecore:EPackage>
