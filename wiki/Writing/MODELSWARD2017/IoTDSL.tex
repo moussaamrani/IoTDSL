@@ -21,18 +21,22 @@ Based on the concerns and challenges identified in section~\ref{sec:Context-Chal
 Despite its early stages of development, \IOTDSL showed its ability to appropriately capture the definition of small-scale \IOT systems. We first extract a simple scenario from our project at the University of Namur to demonstrate typical usages of \IOT systems deployed inside a house. We then simultaneously explain each part of the definition of \IOTDSL, and illustrate it in dedicated examples.
 
 
+\vspace{-0.3cm}
 \subsection{Running Example}
 \label{sec:IoTDSL-Example}
+\vspace{-0.3cm}
 
-To illustrate our proposal, we consider a smart home equipped with several devices, just like Alice's situation in Section \ref{sec:Context-Challenges}, as illustrated in Figure \ref{fig:RE}. At the entrance, the door is equipped with a lock detector, allowing to know when the door is opened or closed. The hallway contains motion detectors, so that the lights in the hallway as well as in the living room automatically switch on when she enters her house. Furthermore, the living room also contains a presence detector because Alice wants the temperature to be automatically monitored when she's occupying the room, being maintained between 20°C and 22°C; otherwise, when she is not home, the temperature may not drop below 16°C. For security reasons, Alice's kitchen contains a smoke detector and a temperature monitor. When she cooks, it happens that she burns something; but she wants to make sure to detect any departing fire: she considers a critical situation when the temperature remains above 40°C consistently during five minutes while there is also smoke in the kitchen. 
+To illustrate our proposal, we consider a smart home equipped with several devices, just like Alice's situation in Section \ref{sec:Context-Challenges}, as illustrated in Figure \ref{fig:RE}. At the entrance, the door is equipped with a lock detector, allowing to know when the door is opened or closed. The hallway contains presence detectors, so that the lights in the hallway as well as in the living room automatically switch on when she enters her house. Furthermore, the living room also contains a presence detector because Alice wants the temperature to be automatically monitored when she's occupying the room, being maintained between 20°C and 22°C; otherwise, when she is not home, the temperature may not drop below 16°C. For security reasons, Alice's kitchen contains a smoke detector and a temperature monitor. When she cooks, it happens that she burns something; but she wants to make sure to detect any departing fire: she considers a critical situation when the temperature remains above 40°C consistently during five minutes while there is also smoke in the kitchen. 
 
 
 Figure \ref{fig:RE} shows how the various devices are physically distributed inside an archetypal representation of a smart home, and how each device communicates with a centralised gateway. In our \DSL, the gateway concentrates the data received from the devices deployed inside the home, and keeps the business logic running, \textit{i.e.} receiving data from and acting through the devices. 
 
 
+\vspace{-0.3cm}
 \subsection{Type Definition}
 \label{sec:IoTDSL-Type}
- 
+\vspace{-0.3cm}
+
 
 
 In this section, we define \IOT devices' types, \textit{i.e.} which capabilities are available to the users in terms of environment sensing and actuating. In our scenario, type definitions either come from an advanced user who is able to reason properly about a particular device and extract the relevant information, or from a preexisting devices database, either being an actual repository the system is connected to, or a library of \textit{devices-off-the-shelf}. The concepts dedicated to type definition are shown in Figure~\ref{fig:IoTDevice-MM} (green background). This part is similar to the notion of \textsf{Classifier} in \textsc{Mof}-like languages: a \textsf{Type} is either a \textsf{PrimitiveType} (integers and real numbers, strings and booleans), or a user-defined \textsf{DeclaredType}. We distinguish between general \textsf{Gateway}s, which centralise information and processing, from \textsf{Node}s, which possess capabilities and are deployed in the environment. A \textsf{Capability} is basically a \textsc{Mof}-like operation with a signature, expressed through a list of \textsf{Parameter}s that either capture data from the environment, or act on it. A \textsf{Node} can mix both kinds of capabilities, allowing us to represent in a uniform fashion composite devices that expose complex behaviours.
@@ -43,15 +47,12 @@ Listing~\ref{lis:RE-TypeDeclarations} shows how the devices used in the Running 
 
 \vspace{-0.5cm}
 \begin{center}
-\begin{minipage}[t]{.42\linewidth}
+\begin{minipage}[t]{.38\linewidth}
 \begin{lstlisting}[language=iotdsl]	
+gateway Central
 device DoorLock {
   sensing opened()
   sensing closed()
-}
-device PresenceDetector {
-  sensing detected()
-  actuating isPresent()
 }
 device LightBulb {
   actuating on()
@@ -61,24 +62,28 @@ device LightBulb {
 device TempSensor {
   sensing getTemp()
 }
+device SmokeDetector{
+  sensing smoke()
+}
 \end{lstlisting}
 \end{minipage}\hfill
-\begin{minipage}[t]{.49\linewidth}
+\begin{minipage}[t]{.52\linewidth}
 \begin{lstlisting}[language=iotdsl, firstnumber=17]
 device Heater {
-  actuating warm(delay:Integer)
+  actuating warm(in delay:Int)
   actuating stop()
 }
 device Alarm {
   actuating sound()
-  actuating call(msg:String)
 }
 device Timer {
-  actuating reset()
-  actuating set(delay:Integer)
+  actuating set(in delay:Int)
   sensing timeout()
 }
-gateway Central
+device PresenceDetector {
+  sensing detected()
+  actuating isPresent(out: present:Bool)
+}
 
 
 \end{lstlisting}
@@ -88,8 +93,10 @@ gateway Central
 \end{center}
 
 
+\vspace{-0.3cm}
 \subsection{Network Configuration}
 \label{sec:IoTDSL-NetworkConfiguration}
+\vspace{-0.3cm}
 
 The configuration-related constructs are specified in the purple-part of Figure~\ref{fig:IoTDevice-MM}. A concrete device is materialised by a \textsf{NodeInstance} and is typed by an abstract \textsf{Node}, \textit{e.g.} a \textsf{Device} or a \textsf{Gateway}. Instances may communicate with other \IOT devices through predefined \textsf{CommunicationPath}s. Such paths define, among others, one or more protocols used for communication. We actually rely on existing platforms, such as OpenRemote\footnote{\url{http://www.openremote.org}} or SmartThings\footnote{\url{https://www.smartthings.com/}} to handle the intricate details of the communication protocols since these details are, from an end-user viewpoint, technical aspects rather than essential matters. By knowing which protocols are used between each pair of devices, we can perform data conversion in the proper format required by the protocols automatically: most of those protocols are already implemented in General-Purpose Programming Languages (\textsc{Gpl}s), like Java or C, to name a few of them. The variety of available protocols in \IOT infrastructures makes it difficult to mix disparate technologies. 
 %This \textsf{Gateway} is actually meant to serve as a mapper to couple distinct devices 
@@ -108,6 +115,7 @@ configuration MyHome {
   node alarm           : Alarm
   node corridorDetector: PresenceDetector
   node livingDetector  : PresenceDetector
+  node smokeDetector   : SmokeDetector
 
   from livingTemperature to gw via MQTT
   from HomeTemperature to gw via DDS
@@ -117,6 +125,7 @@ configuration MyHome {
   from timer to gw via DDS
   from alarm to gw via DDS
   from bodydetector to gw via MQTT
+  from smokeDetector to gw via MQTT
 }
 \end{lstlisting}	
 
@@ -125,10 +134,12 @@ From a practical point of view, we can easily imagine that network configuration
 
 Listing~\ref{lis:RE-Network} shows the connection between the devices presented in Figure~\ref{fig:RE}. A specific device is considered as an instance of a defined type such that particular devices with the same set of capabilities may be distinguished via identifiable references. Communications are purely declarative and only mention the protocol type (introduced by the \textsf{via} keyword). Note that we added an extra instance \textsf{timer : Timer} used to simulate time elapsing. This \textit{pseudo} device is used to artificially set a clock time, whose behaviour is directly linked to the supporting platform of the gateway's for time management.
 	
+\vspace{-0.3cm}
 \subsection{Business Rules}
 \label{sec:IoTDSL-BusinessRules}
+\vspace{-0.3cm}
 
-This last part of our \DSL is the heart of \IOT systems manipulation and is detailed in the in the bottom yellow part of Figure~\ref{fig:IoTDevice-MM}. It relies on an event-based framework consisting of a set of \textsf{Rule}s that implement various functionalities an end-user wants to achieve. Rules' \textsf{trigger}s are cyclically evaluated against the surrounding environment. Whenever a \textsf{trigger} \textsf{Expression} becomes true, it executes the appropriate \textsf{reaction} associated to the rule. A \textsf{trigger} is defined as an expression, whose precise definition is omitted here since it simply follows any expression language available in \textsc{Gpl}s for navigating nodes and evaluating boolean or arithmetic expressions\footnote{Note that the evaluation of the \emph{absence} of events is left for future work, since this is a rather tricky problem. As a consequence, the current expression language does not integrate boolean negation yet.}.A \textsf{reaction} defines a sequential or parallel combination of capabilities, enabling to sort actions by, or require data from some identifiable devices. An typical \textsf{reaction} may be to switch on all lights in a house, or only the ones of a certain type.
+This last part of our \DSL is the heart of \IOT systems manipulation and is detailed in the in the bottom yellow part of Figure~\ref{fig:IoTDevice-MM}. It relies on an event-based framework consisting of a set of \textsf{Rule}s that implement various functionalities an end-user wants to achieve. Rules' \textsf{trigger}s are cyclically evaluated against the surrounding environment. Whenever a \textsf{trigger} \textsf{Expression} becomes true, it executes the appropriate \textsf{reaction} associated to the rule. A \textsf{trigger} is defined as an expression, whose precise definition is omitted here since it simply follows any expression language available in \textsc{Gpl}s for navigating nodes and evaluating boolean or arithmetic expressions (note our \DSL does not contain boolean negation, since detecting the \emph{absence} of events is known in \textsc{Cep} as being difficult). A \textsf{reaction} defines a sequential or parallel combination of capabilities, enabling to sort actions by, or require data from some identifiable devices. An typical \textsf{reaction} may be to switch on all lights in a house, or only the ones of a certain type.
 
 For now, our approach is purely middleware-oriented: rules are gathered into a gateway. For efficiency and resource consumption reasons, we are also exploring how to automatically identify parts of the business logics that can be exported to advanced nodes with sufficient processing and power resources, in order to lower network and gateway overuses.
 
@@ -138,8 +149,7 @@ We now explain how the scenario presented in the running example is translated i
 
 \begin{lstlisting}[language=iotdsl]
 rule SwitchLightsWhenEnter:
-  when (frontdoor.opened() and 
-      after corridorDetector.detected()) do {
+  when (frontdoor.opened() and after corridorDetector.detected()) do {
     corridorLight.on() || livingLight.on()
   }
 \end{lstlisting}	
@@ -149,29 +159,33 @@ rule SwitchLightsWhenEnter:
 	
 \begin{lstlisting}[language=iotdsl]
 rule PresentInLiving:	
-  when (presenceTimer.timeout()) do {
-     livingDetector.isPresent() || 
-       (presenceTimer.reset ; presenceTimer.set(TIMEDETECT))
+  when (timer.timeout()) do {
+     livingDetector.isPresent() || presenceTimer.set(TIMEDETECT)
   }
 rule MonitorLivingTempInStop:
-  when (livingDetector.detected() 
-      and livingTemp.getTemp > IN_MAX) do {
+  when (livingDetector.detected() and livingTemp.getTemp > IN_MAX) do {
     livingHeater.stop()
   }
 rule MonitorLivingTempInStart:
-  when (livingDetector.detected() 
-      and livingTemp.getTemp < IN_MIN) do {
+  when (livingDetector.detected() and livingTemp.getTemp < IN_MIN) do {
     livingHeater.warm(TIMEHEAT)
   }
 rule MonitorLivingTempOutStart:
-  when (presenceTimer.timeout() 
-      and before livingTemp.getTemp < OUT_MIN) do {
+  when (timer.timeout() and before livingTemp.getTemp < OUT_MIN) do {
     livingHeater.warm(TIMEHEAT)
   }
 \end{lstlisting}
 	
 	\item There is a critical fire situation when smoke is detected in the kitchen while temperature is upper 40°C for at least five minutes.
+
+\begin{lstlisting}[language=iotdsl]
+rule AlarmWhenSmokeAndHighTemp:	
+  when (kitchenTemp.getTemp() > 45 
+        within 5 min from smokeDetector.smoke()) do {
+     alarm.sound()
+  }
+\end{lstlisting}
 \end{enumerate}
 
 
-These rules show some particularities of \IOTDSL's Rule language. First, it is possible to define local or global variables and reuse them as part of parameters or expressions (cf. Rules \textsf{PresentInLiving} or \textsf{MonitorLivingInStop}, among others). Second, it is possible to compose reactions either in sequence (class \textsf{SeqComposition} in the metamodel of Figure \ref{fig:IoTDevice-MM}, textually represented as \textsf{\textbf{;}}) or in parallel (class \textsf{ParallelComposition}, represented as \textsf{\textbf{||}}), like Rule \textsf{PresentInLiving} demonstrates. Third, \IOTDSL's expression language integrates a simple mechanism for events time management: the \textsf{before} and \textsf{after} event modifiers check that an event happens in a reasonable time windows before/after the one it is combined to (in Rules \textsf{SwitchLightWhenEnter} and \textsf{MonitorLivingTempOutStart}, events are combined with \textsf{and} for checking quasi-simultaneity). Fourth, because \IOTDSL cannot check the non-occurrence of events, time management is crucial for ensuring a sound detection of interesting non-events: for example here, Rule \textsf{PresentInLiving} is used to periodically check for presence in the living room (with the actuation \textsf{isPresent()}); but when nobody is detected, we still have to maintain the temperature above \textsf{OUT\_MIN} = 16°C. By detecting that \textsf{timeout()} occurred previously, we still are capable of adjusting the living room temperature adequately.
+These rules show some particularities of \IOTDSL's Rule language. First, it is possible to define local or global variables and reuse them as part of parameters or expressions (cf. Rules \textsf{PresentInLiving} or \textsf{MonitorLivingInStop}, among others). Second, it is possible to compose reactions either in sequence (class \textsf{SeqComposition} in the metamodel of Figure \ref{fig:IoTDevice-MM}, textually represented as \textsf{\textbf{;}}) or in parallel (class \textsf{ParallelComposition}, represented as \textsf{\textbf{||}}), like Rule \textsf{PresentInLiving} demonstrates. Third, \IOTDSL's expression language integrates a simple mechanism for events time management: the \textsf{before} and \textsf{after} event modifiers check that an event happens in a reasonable time window before/after the one it is combined to (in Rules \textsf{SwitchLightWhenEnter} and \textsf{MonitorLivingTempOutStart}, events are combined with \textsf{and} for checking quasi-simultaneity); while the \textsf{within...from} construct detects the occurence of an event within a given duration after another event (cf. Rule \textsf{AlarmWhenSmokeAndHighTemp}). Fourth, because \IOTDSL cannot check the non-occurrence of events, time management is crucial for ensuring a sound detection of interesting non-events: for example here, Rule \textsf{PresentInLiving} is used to periodically check for presence in the living room (with the actuation \textsf{isPresent()}); but when nobody is detected, we still have to maintain the temperature above \textsf{OUT\_MIN} = 16°C. By detecting that \textsf{timeout()} occurred previously, we still are capable of adjusting the living room temperature adequately.
