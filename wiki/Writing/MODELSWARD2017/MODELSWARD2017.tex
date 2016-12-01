@@ -5,7 +5,7 @@
 \usepackage{multirow, textcomp}
 \usepackage{color, xcolor}
 
-\usepackage{boxedminipage, xspace}
+\usepackage{boxedminipage, xspace, url}
 
 \usepackage{graphics, graphicx, xcolor, setspace}
 \graphicspath{{img/}{model/}}
@@ -32,16 +32,6 @@
 
 
 
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
-\usepackage{inconsolata}
-
-\newcommand{\IOT}{IoT\xspace}
-\newcommand{\IOTDSL}{IoTD\textsc{sl}\xspace}
-\newcommand{\DSL}{\textsc{Dsl}\xspace}
-\newcommand{\MDE}{\textsc{Mde}\xspace}
-
 \usepackage{xcolor}
 \definecolor{myblue}{HTML}{406E86}
 \definecolor{codeblue}{HTML}{004385}
@@ -51,9 +41,20 @@
 \definecolor{codeviolet}{HTML}{7F0055}
 \definecolor{darkblue}{HTML}{08088A}
 \definecolor{mygrey}{HTML}{4D4D4D}
-
+\usepackage{inconsolata}
 \usepackage{listingsutf8}
 \usepackage{caption}[2015/09/20]
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
+
+\newcommand{\IOT}{IoT\xspace}
+\newcommand{\IOTDSL}{IoTD\textsc{sl}\xspace}
+\newcommand{\DSL}{\textsc{Dsl}\xspace}
+\newcommand{\DSLS}{\textsc{Dsl}s\xspace}
+\newcommand{\MDE}{\textsc{Mde}\xspace}
+
+
 
 \lstdefinelanguage{iotdsl}{
   morecomment=[l]{//},
@@ -102,9 +103,9 @@
 \email{\{Moussa.Amrani, Abdelmounaim.Debieche, Vincent.Englebert, Fabian.Gilson\}@unamur.be}
 }}
 
-\keywords{model-driven engineering, internet of things, domain-specific language, rule based semantics}
+\keywords{Model-Driven Engineering, Internet of Things, Domain-Specific Language, Rule-based Semantics}
 
-\abstract{Hidden behind the Internet of Things, many actors are activelly filling the market with devices and services. From this profusion of actors, a large amount of technologies and APIs, sometimes proprietary, are available, making difficult the interoperability and configuration of systems for \IOT technicians. In order to define and manipulate devices' definitions, we propose \IOTDSL, a Domain Specific Language meant to specify, assemble and describe the behaviour of interconnected \IOT devices. Relying on a high-level rule-based language, users in charge of the deployment of \IOT infrastructures are able to describe and combine in a declarative manner structural configurations as well as event-based semantics for devices. This way, language users are freed from technical aspects, playing with high-level representations of devices, while the complexity of the concrete implementation is handle in a dedicated layer where high-level rules are mapped to vendor's API.}
+\abstract{Hidden behind the Internet of Things (\IOT), many actors are activelly filling the market with devices and services. From this profusion of actors, a large amount of technologies and APIs, sometimes proprietary, are available, making difficult the interoperability and configuration of systems for \IOT technicians. In order to define and manipulate devices deployed in environments like homes, we propose \IOTDSL, a Domain-Specific Language meant to specify, assemble and describe the behaviour of interconnected devices. Relying on a high-level rule-based language, users in charge of the deployment of \IOT infrastructures are able to describe and combine in a declarative manner structural configurations as well as event-based semantics for devices. This way, language users are freed from technical aspects, playing with high-level representations of devices, while the complexity of the concrete implementation is handle in a dedicated layer where high-level rules are mapped to vendor's API.}
 
 \onecolumn 
 \maketitle 
@@ -116,7 +117,6 @@
 \input{IoTDSL}
 \input{RW}
 \input{Conclusion}
-\section*{\uppercase{Acknowledgements}}
 \input{Reference}
 
 \end{document}
