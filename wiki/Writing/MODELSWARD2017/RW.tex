@@ -1,16 +1,4 @@
 \section{Related Work and Discussion}
 \label{sec:RW}
 
-As presented in Section~\ref{sec:Context-Challenges}, \IOTDSL has been designed to tackle various challenges identified as crucial features for the adoption of \IOT technologies and \textsc{Dsl}s. We will now cross over all aforementioned challenges and compare our proposal regarding existing research.
-
-\begin{description}
-  \item[Device Description] In \IOTDSL, devices are described in a common \textit{Classifier} - \textit{Type} - \textit{Instance} layered specification. Such conceptual modelling trend traces back to the Model Driven Architecture initiative (\textsc{MDA})~\cite{omg-mda-01} and allows modellers to easily distinguish between typing and running instances concepts. A second benefit of that separation is the ability of creating reusable \textit{libraries} of conceptual components, so \IOT devices by extension. By raising the abstraction level and hiding technical constraints to end-users, \IOTDSL is designed to serve as a handy modelling mean for end users.
-  \item[Network Description] Obviously, \IOTDSL allows to represent structural configurations, deployable in concrete situations. Moreover, by abstracting the communication complexity into dedicated modelling construct, it is aimed to facilitate future evolution and re-configuration of existing solutions. As pointed earlier, the variety of available protocols in \IOT infrastructure makes it difficult to mix disparate technologies. The \textsf{Gateway} is actually meant to serve as a mapper to couple distinct devices\footnote{One may argue that using \textit{concentrators} exposes single-point-of-failures, but in nowadays configurations, replication and fallbacks are clearly not an issue anymore, and such structures may be represented in \IOTDSL.}.
-  \item[Dynamics] Behavioural specifications are key aspects in \IOTDSL. We decided to rely on event-based \textit{rules} instead of state machines for their conciseness and readability, though rules may be converted to state machines automatically. Together with high-level \textit{operations} descriptions, they offer a more concise mean to describe dynamic aspects of \IOT configurations, without loosing formal model verification capabilities.
-  \item[Capability Discovery]
-  \item[Complex Even Processing]
-  \item[Scalability]
-  \item[Data management]
-  \item[Non-Functionnal Properties]
-\end{description}
 
