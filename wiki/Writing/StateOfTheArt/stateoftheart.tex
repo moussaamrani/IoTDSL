@@ -1,0 +1,85 @@
+\documentclass[runningheads,a4paper]{llncs}
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{xcolor, color}
+
+\usepackage{url}
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%   TODO & COMMENTS
+\usepackage{todonotes}
+
+\newif\ifdraft\drafttrue % Change to \draftfalse% for removing comments
+\ifdraft
+   \newcommand\todos[1]{\medskip\todo[inline]{TODO (all): #1}}
+   \newcommand\moussa[1]{\medskip\todo[color=green!40,inline]{\textbf{Moussa ---} \protect{#1}}}
+   \newcommand\amanuel[1]{\medskip\todo[color=blue!40,inline]{\textbf{Amanuel ---} #1}}
+   \newcommand\vincent[1]{\medskip\todo[color=green!40,inline]{\textbf{Vincent ---} #1}}
+   \newcommand\abdel[1]{\medskip\todo[color=green!40,inline]{\textbf{Abdel ---} #1}}
+\else
+   \newcommand\todos[1]{}
+   \newcommand\moussa[1]{}
+	\newcommand\amanuel[1]{}
+	\newcommand\vincent[1]{}
+	\newcommand\abdel[1]{}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+\title{Interoperability at the Application Layer in the Internet of Things}
+\titlerunning{}
+
+\author{
+Abdelmounaim DEBIECHE \and 
+Moussa Amani \and
+Vincent Englebert }
+%
+\authorrunning{Interoperability at the Application Layer in the Internet of Things}
+% (feature abused for this document to repeat the title also on left hand pages)
+
+\urldef{\mailsa}\path|{Abdelmounaim.Debieche,Moussa.Amrani, Vincent.Englebert}@unamur.be|
+
+  
+
+\institute{University of Namur, PReCISE Research Center, Belgium\\
+\mailsa \\ 
+Vrije Universiteit Brussel\\
+ ETRO, Belgium\\
+\mailsb}
+
+\toctitle{An MDE Approach for the Well-Being of Ageing People}
+%\tocauthor{Authors' Instructions}
+
+
+
+\def\textem#1{\emph{#1}}
+%Abstract
+\input{Abstract}
+%RESEARCH PROBLEM
+\input{RP}
+%outline of objectives
+\input{OO}
+%state of the art
+\input{SA}
+
+%methodology
+\input{Methodology}
+%expected outcome
+\input{EO}
+%stage of the research
+\input{SR}
+
+
+\bibliographystyle{splncs03}
+\bibliography{./bibfile}
+\end{document}
