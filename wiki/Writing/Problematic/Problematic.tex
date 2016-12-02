@@ -19,11 +19,14 @@
 \ifdraft
    \newcommand\todos[1]{\medskip\todo[inline]{TODO (all): #1}}
    \newcommand\moussa[1]{\medskip\todo[color=green!40,inline]{\textbf{Moussa ---} \protect{#1}}}
-  
+   \newcommand\amanuel[1]{\medskip\todo[color=blue!40,inline]{\textbf{Amanuel ---} #1}}
+   \newcommand\vincent[1]{\medskip\todo[color=green!40,inline]{\textbf{Vincent ---} #1}}
    \newcommand\abdel[1]{\medskip\todo[color=green!40,inline]{\textbf{Abdel ---} #1}}
 \else
    \newcommand\todos[1]{}
    \newcommand\moussa[1]{}
+	\newcommand\amanuel[1]{}
+	\newcommand\vincent[1]{}
 	\newcommand\abdel[1]{}
 \fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,12 +41,13 @@
 
 \author{
 Abdelmounaim DEBIECHE \and 
-Moussa Amani  }
+Moussa Amani \and
+Vincent Englebert }
 %
 \authorrunning{Interoperability at the Application Layer in the Internet of Things}
 % (feature abused for this document to repeat the title also on left hand pages)
 
-\urldef{\mailsa}\path|{Abdelmounaim.Debieche,Moussa.Amrani}@unamur.be
+\urldef{\mailsa}\path|{Abdelmounaim.Debieche,Moussa.Amrani, Vincent.Englebert}@unamur.be|
 
   
 
@@ -67,7 +71,7 @@ Vrije Universiteit Brussel\\
 \input{Methodology}
 
 
-\input{Solutionoftechnicalprobelm}
+\input{SOTP}
 
 
 \bibliographystyle{splncs03}
