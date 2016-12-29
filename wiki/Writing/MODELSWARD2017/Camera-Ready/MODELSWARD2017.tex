@@ -4,11 +4,10 @@
 \usepackage{boxedminipage}
 \usepackage{multirow, textcomp}
 \usepackage{color, xcolor}
-
 \usepackage{boxedminipage, xspace, url}
 
 \usepackage{graphics, graphicx, xcolor, setspace}
-\graphicspath{{img/}{model/}}
+\graphicspath{{../img/}{model/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -44,6 +43,9 @@
 \usepackage{inconsolata}
 \usepackage{listingsutf8}
 \usepackage{caption}[2015/09/20]
+\usepackage{enumitem}
+
+
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
@@ -55,7 +57,10 @@
 \newcommand{\MDE}{\textsc{Mde}\xspace}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% IoTDSL Syntax Definition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstdefinelanguage{iotdsl}{
   morecomment=[l]{//},
   morecomment=[s]{/*}{*/},
@@ -92,6 +97,10 @@
   literate={~} {$\sim$}{1},
   showlines=true
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 \begin{document}
 
