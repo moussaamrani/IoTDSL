@@ -1,0 +1,94 @@
+ 	Paper Reviews 	
+""
+Paper Title: Towards Rule-based Semantics for the Internet of Things
+Paper #: 83 		
+Paper Selection State: Short Paper (20 minutes oral presentation) 		
+My Status: Author 		
+Number of Reviews: 2
+""
+
+	Review #: 1	
+""
+Criterium	Description	Value
+Abstract and Introduction are adequate?	 	Yes
+Conclusions/Future Work are convincing?	 	Yes
+Figures are adequate ?	in number and quality	No
+Improve critical discussion ?	validation	Yes
+Improve English?	 	No
+Needs comparative evaluation?	 	Yes
+Needs more experimental results?	 	Yes
+Originality	Newness of the ideas expressed	3
+Overall Rating	Weighted value of above items	4
+Paper formatting needs adjustment?	 	No
+Presentation	Structure/Length/English	5
+References are up-to-date and appropriate?	 	Yes
+Relevance	Paper fits one or more of the topic areas?	5
+Significance	Is the problem worth the given attention?	5
+Technical Quality	Theoretical soundness/methodology	3
+Scale: 1:Lowest Value;6:Highest Value
+
+Observations for Author
+
+This paper addresses an important issue for future internet of things
+applications and architecture. The main aim is to propose a prototype
+Domain specific language called IoTDsL designed to capture IoT devices
+capabilities and their deployment configurations, while offering end users
+a declarative way to express how these devices interact to realize their
+own specific scenarios. Smart home scenarios are illustrated.The ideas and
+the approach seem interesting and relevant to the theme of the conference.
+In general, there are a lot of points in the paper. The paper is clearly
+presented and structured, and is easy to read.
+
+
+""
+	Review #: 2	
+""
+Criterium	Description	Value
+Abstract and Introduction are adequate?	 	Yes
+Conclusions/Future Work are convincing?	 	Yes
+Figures are adequate ?	in number and quality	Yes
+Improve critical discussion ?	validation	Yes
+Improve English?	 	No
+Needs comparative evaluation?	 	No
+Needs more experimental results?	 	No
+Originality	Newness of the ideas expressed	3
+Overall Rating	Weighted value of above items	4
+Paper formatting needs adjustment?	 	No
+Presentation	Structure/Length/English	4
+References are up-to-date and appropriate?	 	Yes
+Relevance	Paper fits one or more of the topic areas?	5
+Significance	Is the problem worth the given attention?	5
+Technical Quality	Theoretical soundness/methodology	4
+Scale: 1:Lowest Value;6:Highest Value
+
+Observations for Author
+
+The paper introduces IoTDSL, which is a domain-specific language developed
+by the authors to represent some aspects of IoT-based systems. The paper is
+generally well-written and the topic of the paper is highly relevant.
+IoTDSL is in its early stages of development and needs to be properly
+validated, since being able to represent relatively simple domotics
+scenarios is not enough as evidence for the suitability and soundness of
+the language. Furthermore it is unclear which kind of implementation code
+should be generated from these models and how complex the transformations
+should be in order to generate this code. In addition, many languages can
+be found in the literature with similar characteristics and purpose.
+However I think that the requirements and the modelling choices taken up by
+the authors are interesting enough, and will be able to stir up interesting
+discussions. I think that this paper is thus acceptable as a position
+paper. I find the title of this paper misleading. Although the proposed DSL
+surely has a semantics (as any language), the authors have discussed this
+semantics quite intuitively, and concentrated on the requirements and
+components of the languages, with some simple illustrative examples.
+’Towards a DSL for IoT ...’ would have been as much less misleading title.
+I would also appreciate if the authors discussed how the 'business rules'
+part relates to languages based on Event-Condition-Action (ECA) rules. In
+an ECA rule, an event triggers an action under a condition, which can be
+any boolean condition, including negative ones (e.g., something that did
+not happen before). The inability to represent non-occurrences was
+mentioned as one the limitations of IoTDSL, and it could be (partly)
+covered in this way. Some small typos: Page 1: possibility to benefits ->
+possibility to benefit Page 7: detects the occurence -> detects the
+occurrence
+
+
