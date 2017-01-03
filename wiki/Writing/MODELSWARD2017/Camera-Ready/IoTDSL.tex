@@ -13,7 +13,7 @@ Despite its early stage of development, \IOTDSL shows its ability to capture the
 
 To illustrate our proposal, we consider a smart home equipped with several devices illustrated in Figure \ref{fig:RE}. At the entrance, the door is equipped with a lock detector, checking when the door is opened or closed. The hallway contains presence detectors, so that the lights in the hallway as well as in the living room automatically switch on when Alice gets back home. Furthermore, the living room also contains a presence detector because Alice wants the temperature to be automatically monitored when she's occupying the room, being maintained between 20°C and 22°C. Otherwise, when she is not home, the temperature may not drop below 16°C. For security reasons, Alice's kitchen contains a smoke detector and a temperature monitor. When she cooks, it happens that she burns something; but she wants to make sure to detect any departing fire: she considers a critical situation when the temperature remains above 40°C consistently during five minutes while there is also smoke in the kitchen. 
 
-\begin{figure}[!h]%
+\begin{figure}[t]%
   \includegraphics[width=\linewidth]{MaisonAvecDevices.png}%
   \caption{Alice's smart home equipped with various devices, interacting through a centralised gateway.}%
   \label{fig:RE}%
