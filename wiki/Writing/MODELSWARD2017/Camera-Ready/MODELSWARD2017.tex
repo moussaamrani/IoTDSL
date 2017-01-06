@@ -1,37 +1,19 @@
 \documentclass[a4paper,twoside]{article}
 
-\usepackage{amsfonts, amssymb, mathabx}
-\usepackage{boxedminipage}
-\usepackage{multirow, textcomp}
-\usepackage{color, xcolor}
-\usepackage{boxedminipage, xspace, url}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{inconsolata}
+\usepackage{listingsutf8}
+\usepackage{caption}[2015/09/20]
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
 
-\usepackage{graphics, graphicx, xcolor, setspace}
 \graphicspath{{../img/}{model/}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%   TODO & COMMENTS
-
-\usepackage{todonotes}
-
-\newif\ifdraft\drafttrue
-\ifdraft
-   \newcommand\todos[1]{\medskip\todo[inline]{TODO (all): #1}}
-   \newcommand\moussa[1]{\medskip\todo[color=green!40,inline]{TODO (Moussa): #1}}
-   \newcommand\nicolas[1]{\medskip\todo[color=purple!40,inline]{TODO (Nicolas): #1}}
-   \newcommand\xavier[1]{\medskip\todo[color=blue!40,inline]{TODO (Xavier): #1}}
-\else
-   \newcommand\todos[1]{}
-   \newcommand\moussa[1]{}
-   \newcommand\nicolas[1]{}
-   \newcommand\xavier[1]{}
-\fi
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
-\usepackage{xcolor}
 \definecolor{myblue}{HTML}{406E86}
 \definecolor{codeblue}{HTML}{004385}
 \definecolor{codegrey}{HTML}{4D4D4D}
@@ -40,15 +22,6 @@
 \definecolor{codeviolet}{HTML}{7F0055}
 \definecolor{darkblue}{HTML}{08088A}
 \definecolor{mygrey}{HTML}{4D4D4D}
-\usepackage{inconsolata}
-\usepackage{listingsutf8}
-\usepackage{caption}[2015/09/20]
-\usepackage{enumitem}
-
-
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
 
 \newcommand{\IOT}{IoT\xspace}
 \newcommand{\IOTDSL}{\textsf{IoTD\scriptsize\MakeUppercase{sl}}\xspace}
@@ -60,6 +33,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% IoTDSL Syntax Definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \lstdefinelanguage{iotdsl}{
   morecomment=[l]{//},
   morecomment=[s]{/*}{*/},
@@ -100,20 +74,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 \begin{document}
 
 \renewcommand{\thelstlisting}{\arabic{lstlisting}}
 
-\title{Towards Domain-Specific Languages for Handling IoT Systems}
+\title{Towards User-Centric DSLs to Manage IoT Systems}
 \author{\authorname{Moussa Amrani\sup{1}, Fabian Gilson\sup{1}, Abdelmounaïm Debieche\sup{1}, Vincent Englebert\sup{1}}
 \affiliation{\sup{1}University of Namur, Belgium\\
-\email{\{Moussa.Amrani, Abdelmounaim.Debieche, Vincent.Englebert, Fabian.Gilson\}@unamur.be}
+\email{\{moussa.amrani, fabian.gilson, abdelmounaim.debieche, vincent.englebert\}@unamur.be}
 }}
 
 \keywords{Model-Driven Engineering, Internet of Things, Domain-Specific Language, Rule-based Semantics}
 
-\abstract{Hidden behind the Internet of Things (\IOT), many actors are activelly filling the market with devices and services. From this profusion of actors, a large amount of technologies and APIs, sometimes proprietary, are available, making difficult the interoperability and configuration of systems for \IOT technicians. In order to define and manipulate devices deployed in domestic environments, we propose \IOTDSL, a Domain-Specific Language meant to specify, assemble and describe the behaviour of interconnected devices. Relying on a high-level rule-based language, users in charge of the deployment of \IOT infrastructures are able to describe and combine in a declarative manner structural configurations as well as event-based semantics for devices. This way, language users are freed from technical aspects, playing with high-level representations of devices, while the complexity of the concrete implementation is handle in a dedicated layer where high-level rules are mapped to vendor's API.}
+\abstract{Hidden behind the Internet of Things (\IOT), many actors are activelly filling the market with devices and services. From this profusion of actors, a large amount of technologies and APIs, sometimes proprietary, are available, making difficult the interoperability and configuration of systems for \IOT technicians. In order to define and manipulate devices deployed in domestic environments, we propose \IOTDSL, a Domain-Specific Language meant to specify, assemble and describe the behaviour of interconnected devices. Relying on a high-level rule-based language, users in charge of the deployment of \IOT infrastructures are able to describe and combine in a declarative manner structural configurations as well as event-based semantics for devices. This way, language users are freed from technical aspects, playing with high-level representations of devices, while the complexity of the concrete implementation is handled in a dedicated layer where high-level rules are mapped to vendor's API.}
 
 \onecolumn 
 \maketitle 
