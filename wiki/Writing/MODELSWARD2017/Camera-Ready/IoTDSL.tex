@@ -1,7 +1,7 @@
 \section{IoTDSL}
 \label{sec:IoTDSL}
 
-Building a well-calibrated \DSL is known to be difficult and error-prone. It usually requires a broad expertise on a domain before a consensus emerges on which concepts are first-class citizens and how to effectively represent them. Fortunately, \MDE technologies operated substantial breakthrough over the past decade, allowing language designers to define their own \DSL structures and user interfaces more easily. Visual syntax is often a needed feature to any language, allegedly to simplify its understanding and manipulation. However, in order to rapidly obtain a functional prototype, we chose to start from a textual syntax, way easier to manipulate and evolve for language designers. At last, we plan to propose a visual syntax: the transition should be facilitated since our \DSL is developed under \textit{GeMoC} \cite{Bousse-Degueule-Vojtisek-etAl:2016}, a \textsc{Mde} framework that supports both visual and textual representations as concrete syntaxes and maintains a full synchronisation between them.
+Building a well-calibrated \DSL is known to be difficult and error-prone. It usually requires a broad expertise on a domain before a consensus emerges on which concepts are first-class citizens and how to effectively represent them. Fortunately, \MDE technologies operated substantial breakthrough over the past decade, allowing language designers to define their own \DSL structures and user interfaces more easily. Visual syntax is often a needed feature to any language, allegedly to simplify its understanding and manipulation. However, in order to rapidly obtain a functional prototype, we chose to start from a textual syntax, way easier to manipulate and evolve for language designers. At last, we plan to propose a visual syntax: the transition should be facilitated since our \DSL is developed under \textit{GeMoC} \cite{bousse-16}, a \textsc{Mde} framework that supports both visual and textual representations as concrete syntaxes and maintains a full synchronisation between them.
 
 Based on the challenges identified in section~\ref{sec:Context-Challenges}, we now introduce \IOTDSL, our \DSL devoted to facilitate the high-level manipulation of \IOT systems. At the heart of \IOTDSL are two governing principles. First, we promote a clean separation of concerns for all aspects the \DSL has to handle, embedding several sublanguages. We believe this approach to be scalable, and to support independent evolutions of each concern without impacting the other aspects, since those aspects are composed through well-defined interfaces. Second, our \DSL relies on events, a natural paradigm for specifying various models of interactions that is widely used in embedded and critical systems, and where a clear separation between the system and its environment is performed, further empowering the separation of concerns.
 
@@ -58,6 +58,8 @@ device TempSensor {
 device SmokeDetector{
   sensing smoke()
 }
+
+
     \end{lstlisting}
   \end{minipage}\hfill
   \begin{minipage}[t]{.52\linewidth}
@@ -77,7 +79,6 @@ device PresenceDetector {
   sensing detected()
   actuating isPresent(out p:Bool)
 }
-
     \end{lstlisting}
   \end{minipage}
   \captionof{lstlisting}{Type declarations in \IOTDSL: \textsf{sensing} or \textsf{actuating} capabilities as high-level events.}
@@ -94,11 +95,10 @@ Listing~\ref{lis:RE-TypeDeclarations} illustrates how devices are declared in \I
 
 The configuration-related constructs are specified in the purple-part of Figure~\ref{fig:IoTDevice-MM}. A concrete device is materialised by a \textsf{NodeInstance} and is typed by an abstract \textsf{Node}, \textit{e.g.} a \textsf{Device} or a \textsf{Gateway}. Instances may communicate with other \IOT devices through predefined \textsf{CommunicationPath}s. Such paths define, among others, one or more protocols used to interact. We actually rely on existing platforms, such as OpenRemote\footnote{\url{http://www.openremote.org}} or SmartThings\footnote{\url{https://www.smartthings.com/}} to handle the intricate details of the protocols since such details are, from an end-user point of view, technical aspects rather than essential matters. By knowing which protocols are used between each pair of devices, we can automatically perform data conversion in the proper format required by the protocols: most of those protocols are already implemented in \textit{General-Purpose Programming Languages} (\textsc{Gpl}s), like Java or C.
 
-Concretely, we can easily imagine that network configurations are automatically established if devices follow the recommendation of discovery protocols~\cite{J:AlFuqaha-etAl:2014}. By concentrating the connections on a gateway in charge of centralising joining and leaving devices, \textit{e.g.}, phones that enter or leave a house, it becomes possible to gather information on new devices and connect them appropriately to other devices in the network according to their capabilities, communication protocols, and so on. Although \IOTDSL empowers \textsf{Node}s to be passed as \textsf{Parameter}s, enabling devices' definition to be discovered thanks to the \textsf{Gateway}.
+Concretely, we can easily imagine that network configurations are automatically established if devices follow the recommendation of discovery protocols~\cite{alfuqaha-15}. By concentrating the connections on a gateway in charge of centralising joining and leaving devices, \textit{e.g.}, phones that enter or leave a house, it becomes possible to gather information on new devices and connect them appropriately to other devices in the network according to their capabilities, communication protocols, and so on. Although \IOTDSL empowers \textsf{Node}s to be passed as \textsf{Parameter}s, enabling devices' definition to be discovered thanks to the \textsf{Gateway}.
 
 Listing~\ref{lis:RE-Network} shows the connection between the devices presented in Figure~\ref{fig:RE}. A specific device is considered as an instance of a defined type such that particular devices with the same set of capabilities may be distinguished via identifiable references. Communications are purely declarative and only mention the protocol type (introduced by the \textsf{via} keyword). Note that we added an extra instance \textsf{timer : Timer} used to simulate time periods. This \textit{pseudo} device is used to artificially set a clock time, whose behaviour is directly linked to the supporting platform of the gateways for time management.
 	
-\vspace*{0.1cm}  
 \begin{lstlisting}[label=lis:RE-Network,language=iotdsl,caption=Network Configuration for Alice's House]	
 configuration MyHome {
   node gw 					   : Central

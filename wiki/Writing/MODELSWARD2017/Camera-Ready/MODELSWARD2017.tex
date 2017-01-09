@@ -10,9 +10,24 @@
 \usepackage[utf8]{inputenc}
 \usepackage{xcolor}
 \usepackage{xspace}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{calc}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{pslatex}
+\usepackage{apalike}
 \usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
 
-\graphicspath{{../img/}{model/}}
+\subfigtopskip=0pt
+\subfigcapskip=0pt
+\subfigbottomskip=0pt
+
+
+\graphicspath{{img/}}
 
 \definecolor{myblue}{HTML}{406E86}
 \definecolor{codeblue}{HTML}{004385}
@@ -47,7 +62,7 @@
 }
 
 \lstset{
-  basicstyle=\fontsize{6}{6}\ttfamily,
+  basicstyle=\fontsize{7}{7}\ttfamily,
   basewidth={0.55em,0.45em},
   keywordstyle=\bfseries\color{codeviolet},
   commentstyle=\itshape\color{mygrey},
@@ -79,8 +94,8 @@
 \renewcommand{\thelstlisting}{\arabic{lstlisting}}
 
 \title{Towards User-Centric DSLs to Manage IoT Systems}
-\author{\authorname{Moussa Amrani\sup{1}, Fabian Gilson\sup{1}, Abdelmounaïm Debieche\sup{1}, Vincent Englebert\sup{1}}
-\affiliation{\sup{1}University of Namur, Belgium\\
+\author{\authorname{Moussa Amrani\sup{1}, Fabian Gilson\sup{1}, Abdelmounaim Debieche\sup{1}, Vincent Englebert\sup{1}}
+\affiliation{\sup{1}University of Namur, PReCISE Research Center, Namur, Belgium\\
 \email{\{moussa.amrani, fabian.gilson, abdelmounaim.debieche, vincent.englebert\}@unamur.be}
 }}
 
