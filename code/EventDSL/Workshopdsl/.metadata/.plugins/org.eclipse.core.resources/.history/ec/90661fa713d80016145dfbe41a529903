@@ -1,0 +1,52 @@
+grammar org.xtext.example.cep.Cep with org.eclipse.xtext.common.Terminals
+
+generate cep "http://www.xtext.org/example/cep/Cep"
+
+Model: 
+    (rule+=Rule)*; 
+ 
+
+
+/* mode de test */ 
+
+Rule: 
+ 'Define' ComplexEvent
+ 'From'   Pattern=ID
+ 'From'   Patternn
+ 'Where'  conditionExpression=ID ';'
+// 'consuming'  listOfConsumption  
+;
+
+
+ComplexEvent:
+	name=ID '(' (params+=CEParameter (',' params+=CEParameter)*)? ')'
+;
+
+CEParameter returns CEParameter:
+	name=ID ':' type=TypeReference
+;
+
+TypeReference:
+	ptype = PrimitiveType 
+;
+
+PrimitiveType:
+	IntegerType | BooleanType | StringType | RealType
+;
+
+IntegerType: {IntegerType} name="integer";
+BooleanType: {BooleanType} name="boolean";
+StringType:  {StringType}  name="string";
+RealType:    {RealType} name="real";
+
+ Patternn:
+ 	IntegerType 
+ 	
+ ;
+
+
+
+
+
+	
+

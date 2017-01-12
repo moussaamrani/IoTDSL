@@ -1,0 +1,81 @@
+grammar org.xtext.example.cep.Cep with org.eclipse.xtext.common.Terminals
+
+generate cep "http://www.xtext.org/example/cep/Cep"
+
+Model: 
+    (rule+=Rule)*; 
+ 
+
+
+/* mode de test */ 
+
+Rule: 
+ 'Define' ComplexEvent
+ 'From'   Pattern = Expression
+ 'Where'  conditionExpression=ID ';'
+// 'consuming'  listOfConsumption  
+;
+
+
+ComplexEvent:
+	name=ID '(' (params+=CEParameter (',' params+=CEParameter)*)? ')'
+;
+
+CEParameter returns CEParameter:
+	name=ID ':' type=TypeReference
+;
+
+TypeReference:
+	ptype = PrimitiveType 
+;
+
+PrimitiveType:
+	IntegerType | BooleanType | StringType | RealType
+;
+
+IntegerType: {IntegerType} name="integer";
+BooleanType: {BooleanType} name="boolean";
+StringType:  {StringType}  name="string";
+RealType:    {RealType} name="real";
+
+
+
+
+
+Expression returns Expression: OrExpression;
+
+OrExpression returns Expression:
+		AndExpression ({OrExpression.lhs=current} op="or" rhs=AndExpression)*
+;
+
+AndExpression returns Expression:
+	EqualityExpression ({AndExpression.lhs=current} op="and"  rhs=EqualityExpression)*
+;
+
+EqualityExpression returns Expression:
+	RelationalExpression ({EqualityExpression.lhs=current} op=("=="|"!=") rhs=RelationalExpression)*
+;
+
+RelationalExpression returns Expression:
+	AdditiveExpression (
+		  {ComparativeExpression.lhs=current} op=("<"|">"|"<="|">=") rhs=AdditiveExpression
+	)*
+;
+
+AdditiveExpression returns Expression:
+	MultiplicativeExpression ({AdditiveExpression.lhs=current} op=("+"|"-") rhs=MultiplicativeExpression)*
+;
+
+MultiplicativeExpression returns Expression:
+	UnaryExpression ({MultiplicativeExpression.lhs=current} op=("*"|"/") rhs=UnaryExpression)*
+;
+
+UnaryExpression returns Expression:
+	  {NotExpression}   op="not" operand=UnaryExpression |
+	  {PlusExpression}  op="+"   operand=UnaryExpression |
+	  {MinusExpression} op="-"   operand=UnaryExpression | 
+	  CapabilitySelection
+;
+
+	
+

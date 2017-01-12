@@ -1,0 +1,9 @@
+grammar org.xtext.example.cep.Cep with org.eclipse.xtext.common.Terminals
+
+generate cep "http://www.xtext.org/example/cep/Cep"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
