@@ -1,0 +1,138 @@
+grammar org.xtext.example.cep.Cep with org.eclipse.xtext.common.Terminals
+
+generate cep "http://www.xtext.org/example/cep/Cep"
+
+Model: 
+	
+	(events += Event)* 
+	
+	(eventInstance += EventInstance)*
+	
+	(rule += Rule)*
+
+ ;
+
+
+PrimitiveType:
+	IntegerType | BooleanType | StringType 
+	 
+	//|RealType
+;
+
+
+
+IntegerType: {IntegerType} name="integer";
+BooleanType: {BooleanType} name="boolean";
+StringType:  {StringType}  name="string";
+//RealType:    {RealType}    name="real";
+
+
+Event:
+	'Event' name=ValidID 	  
+	 
+	 '{'
+	      (attributEvent += AttributEvent)*
+	 '}'
+;
+
+
+AttributEvent:
+	name=ValidID ':' type=PrimitiveType
+;
+//ajouter une expréssion 
+
+EventInstance:
+	evenementInstance=[Event] '@' timeStampExpression=INT '{' (attributInstance += AttributInstance)* '}' ';'
+;
+
+AttributInstance:
+	
+	attributNameInstance=ValidID '=' attributExpression = Atomic
+;
+
+
+
+
+FLOAT:
+	INT'.'INT
+;
+
+
+
+Rule:
+	'define' nameOfRule=ValidID '(' ')'
+	'from'   expressionEvent = ExpressionEventComposition
+	'where'
+	
+;
+
+ExpressionEventComposition: OrExpressionEvent;
+	
+OrExpressionEvent returns ExpressionEventComposition :
+	
+	AndExpressionEvent ({OrExpressionEvent.left=current} op='or' right=AndExpressionEvent)*
+;
+
+AndExpressionEvent returns ExpressionEventComposition:
+	PrimaryExpressionEvent  ({AndExpressionEvent.left=current} "and" right=PrimaryExpressionEvent )*
+;
+
+
+PrimaryExpressionEvent:
+	                ExpressionEvent    |
+	                temporalExpression 
+	                 
+	
+;
+
+
+ExpressionEvent:
+	event=[Event] '(' expressionAttributComposition=ExpressionAttributComposition')'
+;
+
+ExpressionAttributComposition:
+	
+;
+
+temporalExpression:
+	 
+	WithinFromExpression | NotBetweenExpression
+;
+
+
+
+WithinFromExpression:
+	op=("each"|"last"|"first") expressionEvent=ExpressionEvent 'within' timer=Time 'from' event=[Event]
+;
+
+
+
+Time:
+	valu=INT op=("sec"|"min"|"h")
+;
+
+
+
+
+NotBetweenExpression:
+	op = "not" expressionEvent=ExpressionEvent 'between'   firstEvent=[Event]       'and'  secondEvent=[Event] 
+;
+
+
+
+Atomic:
+       {IntConstant} value=INT |
+       {StringConstant} value=STRING |
+   //  {FloatConstant} value=FLOAT |
+       {BoolConstant} value=('true'|'false')  |
+       {EventRef}   event=[Event]
+        ;
+
+
+
+ValidID:
+	ID
+;
+
+	
+
