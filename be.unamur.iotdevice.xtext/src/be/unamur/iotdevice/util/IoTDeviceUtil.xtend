@@ -13,9 +13,11 @@ import IoTDevice.IoTModel
 import IoTDevice.NetworkConfiguration
 import IoTDevice.NodeInstance
 import IoTDevice.Parameter
+import IoTDevice.Property
 import IoTDevice.Rule
 import IoTDevice.Sensing
 import IoTDevice.Target
+import IoTDevice.TypeReference
 import IoTDevice.UnaryExpression
 import org.eclipse.emf.ecore.EObject
 
@@ -30,16 +32,24 @@ class IoTDeviceUtil {
 		MM.types.filter(typeof(Enumeration))
 	}
 	
+	def static capabilities(Device device){
+		device.features.filter(typeof(Capability))
+	}
+	
+	def static properties(Device device){
+		device.features.filter(typeof(Property))
+	}
+	
 	def static sensing(Device device){
-		device.capabilities.filter(typeof(Sensing))
+		device.features.filter(typeof(Sensing))
 	}
 
 	def static actuating(Device device){
-		device.capabilities.filter(typeof(Actuating))
+		device.features.filter(typeof(Actuating))
 	}
 	
 	def static devices(NetworkConfiguration config){
-		config.nodes.filter[type instanceof Device]
+		config.nodes.filter(typeof(Device))
 	}
 
 	def static containingMetamodel(EObject e) {
@@ -50,8 +60,8 @@ class IoTDeviceUtil {
 		literal.getContainerOfType(typeof(Enumeration))	
 	}
 
-	def static containingDevice(Capability cap){
-		cap.getContainerOfType(typeof(Device))	
+	def static containingDevice(EObject e){
+		e.getContainerOfType(typeof(Device))	
 	}
 
 	def static containingCapability(Parameter param){
@@ -101,5 +111,13 @@ class IoTDeviceUtil {
 	
 	def static isEqual(EqualityExpression exp){
 		exp.op == '=='
+	}
+	
+	def static isPrimitiveType(TypeReference typeref){
+		typeref.ptype != null
+	}
+	
+	def static isDeclaredType(TypeReference typeref){
+		typeref.dtype != null
 	}
 }

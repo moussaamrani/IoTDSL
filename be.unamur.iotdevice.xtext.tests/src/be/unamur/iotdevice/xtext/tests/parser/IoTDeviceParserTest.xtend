@@ -1,7 +1,7 @@
 package be.unamur.iotdevice.xtext.tests.parser
 
 import IoTDevice.IoTModel
-import be.unamur.iotdevice.IoTDeviceInjectorProvider
+//import be.unamur.iotdevice.IoTDeviceInjectorProvider
 import javax.inject.Inject
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
@@ -11,7 +11,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(typeof(XtextRunner))
-@InjectWith(typeof(IoTDeviceInjectorProvider))
+//@InjectWith(typeof(IoTDeviceInjectorProvider))
 class IoTDeviceParserTest {
 	@Inject extension ParseHelper<IoTModel>
 //	@Inject extension IoTDeviceTypeProvider
@@ -86,6 +86,25 @@ class IoTDeviceParserTest {
 			
 		'''.parse.assertNoErrors	
 	}
+
+	@Test
+	def void testParsingSimpleConfigurationWithVarDecls(){
+		'''
+			device Phone{}
+			gateway Central
+
+			configuration MyHome{
+				node gw : Central
+				node ipPhone : Phone
+				node aPhone  : Phone
+				from ipPhone to gw via IP
+				
+				var phones = [ipPhone, aPhone]
+			}
+			
+		'''.parse.assertNoErrors	
+	}
+
 
 	@Test
 	def void testParsingSimpleRuleWithOnlyReactionAndTrue(){
