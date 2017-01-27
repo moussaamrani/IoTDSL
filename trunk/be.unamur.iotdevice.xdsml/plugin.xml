@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
   <extension point="org.gemoc.gemoc_language_workbench.sequential.xdsml">
-    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="be.unamur.iotdevice.xdsml.IoTDevice" xdsmlFilePath="/be.unamur.iotdevice.xdsml/bin/be/unamur/iotdevice/xdsml/IoTDevice.melange" />
+    <XDSML_Definition modelLoader_class="org.gemoc.executionframework.extensions.sirius.modelloader.DefaultModelLoader" name="be.unamur.iotdevice.xdsml.IoTDevice" xdsmlFilePath="/be.unamur.iotdevice.xdsml/src/be/unamur/iotdevice/xdsml/IoTDevice.melange" />
   </extension>
   <extension point="fr.inria.diverse.melange.modeltype">
     <modeltype id="be.unamur.iotdevice.xdsml.IoTDeviceMT" uri="http://iotdevicemt/" />

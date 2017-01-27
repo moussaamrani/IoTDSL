@@ -41,7 +41,16 @@ Router returns Router:
 	{Router} 'router' name=ValidID;
 
 Device returns Device:
-	{Device} 'device' name=ValidID '{' capabilities+=Capability* '}';
+	{Device} 'device' name=ValidID '{' (features += Feature*) '}';
+	
+Feature:
+	Property | Capability
+;
+
+
+Property returns Property:
+	'property' name=ValidID ':' type=TypeReference
+;
 
 Capability returns Capability:
 	Sensing | Actuating;
@@ -73,7 +82,7 @@ PrimitiveType:
 IntegerType: {IntegerType} name="integer";
 BooleanType: {BooleanType} name="boolean";
 StringType:  {StringType}  name="string";
-RealType:    {RealType} name="real";
+RealType:    {RealType}    name="real";
 
 
 
@@ -101,7 +110,7 @@ VariableDeclaration returns VariableDeclaration:
 ;
 
 enum Protocol returns Protocol:
-				IP = 'IP' | ZWAVE = 'ZWAVE' | ZIGBEE = 'ZIGBEE';
+				IP = 'IP' | ZWAVE = 'ZWAVE' | ZIGBEE = 'ZIGBEE' | MQTT = "MQTT" | DDS = "DDS";
 
 
 

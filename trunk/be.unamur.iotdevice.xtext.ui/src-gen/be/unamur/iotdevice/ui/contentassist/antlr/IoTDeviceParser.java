@@ -40,6 +40,7 @@ public class IoTDeviceParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getDeclaredTypeAccess().getAlternatives(), "rule__DeclaredType__Alternatives");
 					put(grammarAccess.getNodeAccess().getAlternatives(), "rule__Node__Alternatives");
+					put(grammarAccess.getFeatureAccess().getAlternatives(), "rule__Feature__Alternatives");
 					put(grammarAccess.getCapabilityAccess().getAlternatives(), "rule__Capability__Alternatives");
 					put(grammarAccess.getTypeReferenceAccess().getAlternatives(), "rule__TypeReference__Alternatives");
 					put(grammarAccess.getPrimitiveTypeAccess().getAlternatives(), "rule__PrimitiveType__Alternatives");
@@ -60,6 +61,7 @@ public class IoTDeviceParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGatewayAccess().getGroup(), "rule__Gateway__Group__0");
 					put(grammarAccess.getRouterAccess().getGroup(), "rule__Router__Group__0");
 					put(grammarAccess.getDeviceAccess().getGroup(), "rule__Device__Group__0");
+					put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
 					put(grammarAccess.getSensingAccess().getGroup(), "rule__Sensing__Group__0");
 					put(grammarAccess.getSensingAccess().getGroup_4(), "rule__Sensing__Group_4__0");
 					put(grammarAccess.getSensingAccess().getGroup_4_1(), "rule__Sensing__Group_4_1__0");
@@ -120,7 +122,9 @@ public class IoTDeviceParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGatewayAccess().getNameAssignment_2(), "rule__Gateway__NameAssignment_2");
 					put(grammarAccess.getRouterAccess().getNameAssignment_2(), "rule__Router__NameAssignment_2");
 					put(grammarAccess.getDeviceAccess().getNameAssignment_2(), "rule__Device__NameAssignment_2");
-					put(grammarAccess.getDeviceAccess().getCapabilitiesAssignment_4(), "rule__Device__CapabilitiesAssignment_4");
+					put(grammarAccess.getDeviceAccess().getFeaturesAssignment_4(), "rule__Device__FeaturesAssignment_4");
+					put(grammarAccess.getPropertyAccess().getNameAssignment_1(), "rule__Property__NameAssignment_1");
+					put(grammarAccess.getPropertyAccess().getTypeAssignment_3(), "rule__Property__TypeAssignment_3");
 					put(grammarAccess.getSensingAccess().getNameAssignment_2(), "rule__Sensing__NameAssignment_2");
 					put(grammarAccess.getSensingAccess().getParametersAssignment_4_0(), "rule__Sensing__ParametersAssignment_4_0");
 					put(grammarAccess.getSensingAccess().getParametersAssignment_4_1_1(), "rule__Sensing__ParametersAssignment_4_1_1");

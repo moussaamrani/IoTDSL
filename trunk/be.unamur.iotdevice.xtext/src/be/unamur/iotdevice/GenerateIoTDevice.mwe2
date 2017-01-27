@@ -46,7 +46,7 @@ Workflow {
 
 			// serializer 2.0
 			fragment = serializer.SerializerFragment auto-inject {
-				//generateStub = false
+			// generateStub = false
 			}
 
 			// the old serialization component

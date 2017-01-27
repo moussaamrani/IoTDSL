@@ -17,7 +17,6 @@ Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: be.unamur.iotdevice,
  be.unamur.iotdevice.services,
- be.unamur.iotdevice.serializer,
  be.unamur.iotdevice.parser.antlr,
  be.unamur.iotdevice.parser.antlr.internal,
  be.unamur.iotdevice.validation,
