@@ -1,0 +1,299 @@
+\section{TESLA Language \cite{Cugola-Margara:2010}}
+\label{sec:DSL-TESLA}
+
+\subsection{Subscription}
+\label{sec:Subscription}
+
+Subscribe to an event (in fact, to event notifications of a
+certain type) eventually filtered
+
+\begin{lstlisting}[language=iotdsl]
+Subscribe(Temp, Room = "Room1" AND Value > 20)
+\end{lstlisting}
+
+\subsection{Rule}
+\label{sec:Rule}
+
+\begin{itemize}
+	\item Define a new Complex Event \textsf{CE} that possesses typed attributes
+			$(att_n)_{n\in\mathbb{N}}$ from \textsf{Pattern}, with \textsf{CE}'s attributes binding defined in the where clause, while consuming events $(e_i)_i$.
+
+\begin{lstlisting}[language=iotdsl]
+define CE(att1: Type1, ..., attN: TypeN)
+from Pattern
+where att1= f\_1, ..., attN= f\_n
+consuming e1,..,en
+\end{lstlisting}
+
+	\item To ensure that CE's definition is consistent with regular low-level (aka.
+			simple) events, we assume that events are declared as follows:
+
+\begin{lstlisting}[language=iotdsl]
+E(
+  att1 : Type1
+  ...
+  attN : TypeN
+)
+\end{lstlisting}
+
+	\item The examples suggest that type declaration for CE's attributes is sometimes inferred. Is it reasonable to do that?
+\end{itemize}
+
+
+
+
+
+
+
+\subsection{Selecting a Single Event SE}
+\label{sec:SelectingASingleEventSE}
+
+This construction filters relevant event notifications according to their attributes' values.
+
+\begin{lstlisting}[language=iotdsl]
+define Overflow(Name)
+from WaterLevel(level > 20) as WL
+where Name = WL.name
+\end{lstlisting}
+
+\medskip
+\noindent
+\textbf{Questions:}
+\begin{itemize}
+	\item Which syntax is better for selection?
+	\begin{itemize}
+		\item from WaterLevel(level > 20)
+		\item from WaterLevel.level > 20
+		\item from WaterLevel[()] with level > 20
+	\end{itemize}
+	\item How about best practice: 
+	\begin{itemize}
+		\item defined event's attribute names start with a uppercase letter;
+		\item used event's attribute names start with a lowercase letter.
+	\end{itemize}
+\end{itemize}
+
+\subsection{Composing Events}
+\label{sec:ComposingEvents}
+
+For composing events, the language relies on both \emph{conjunction} (\textsf{and}) and \emph{sequence} between events, as well as \emph{windows} (\textsf{each-within-from}) defining the maximum timeframe between patterns.
+
+\begin{lstlisting}[language=iotdsl]
+define Fire(Val)
+from   Smoke() and
+       each Temp(val > 45) within 5min from Smoke
+where  Val = Temp.val
+
+define Fire(Val)
+from   Smoke() and
+       last Temp(val > 45) within 5min from Smoke
+where  Val = Temp.val
+
+define CE()
+from   A() and 
+       each B() within 10min from A
+
+define CE()
+from   A(va > 1) and 
+       each B(vb > 2) within 2 min from A and 
+		 each E() within 3 min from B
+
+define D()
+from   A() and 
+       each  B() within 5min from A and
+       last  C() within 3min from A and
+       last  D() within 6min from B and
+       first E() within 2min from D and
+             E() within 8min from A
+
+define CE()
+from   A(va > 1) and 
+       each B(vb > 2) within 2 min from A and 
+       each C(vc < 3) within 4 min from A and 
+       each D(vd = 5) within 4 min from B and 
+       D within 5 min from C and 
+       each E() within 3 min from B
+\end{lstlisting}
+
+\medskip
+\noindent
+\textbf{Questions:}
+\begin{itemize}
+	\item Same about selection's best syntax
+	\item How to detect cycles/well-formed expressions?\\
+			=> Partial Order Occurence Graph defined structurally from the rule
+\end{itemize}
+
+\subsection{Parameterisation}
+\label{sec:Parameterisation}
+
+This construction introduces constraints over the values of different event notifications.
+
+\begin{lstlisting}[language=iotdsl]
+define Fire(Val)
+from   Smoke(area = \$x) and
+       each Temp(val > 45 and area = \$x) within 5min from Smoke
+where  Val = Temp.val
+\end{lstlisting}
+
+
+\subsection{Negation}
+\label{sec:Negation}
+
+This construction prescribes the absence of certain events.
+
+\begin{lstlisting}[language=iotdsl]
+define Fire(Val)
+from   Smoke(area = \$x) and
+       each Temp(val > 45 and area = \$x) within 5min from Smoke and
+       not Rain(area = \$x) between Temp and Smoke
+where  Val = Temp.val
+
+define Fire(Val)
+from   Smoke(area = \$x) and
+       each Temp(val > 45 and area = \$x) within 5min from Smoke and
+       not Rain(area = \$x) within 5min from Smoke
+where  Val = Temp.val
+\end{lstlisting}
+
+\begin{itemize}
+	\item Interval expressed either with within-from or with between-and; the
+latter already assumes that the first argument precedes the second\\
+=> How do we check that?
+\end{itemize}
+
+\subsection{Consumption}
+\label{sec:Consumption}
+
+This construction specifies the consumption policy for matched events.
+
+\begin{lstlisting}[language=iotdsl]
+define Fire(Val)
+from   Smoke() and 
+       each Temp(val > 45) within 5min from Smoke
+where  Val = Temp.val
+consuming Temp
+\end{lstlisting}
+
+
+\subsubsection{Aggregation}
+\label{sec:Aggregation}
+
+This construction introduces constraints involving some aggregated value.
+
+\begin{lstlisting}[language=iotdsl]
+define AvgTemp(Val)
+from   Timer(M \% 5 == 0)
+where  Val = Avg(Temp().val) within 5min from Timer
+
+define HighVal(Name, Val)
+from   Stock(name = \$y, val = \$x) as S and
+       last Opening() within 1day from Stock and
+       \$x > Avg(Stock(name = \$y).val) between Opening and Stock
+where  Val = S.val, Name = S.name
+\end{lstlisting}
+
+\subsubsection{Iteration}
+\label{sec:Iteration}
+
+This construction allows to capture several iterations of the same event.
+
+\begin{lstlisting}[language=iotdsl]
+define RepA(Times, Val)
+from   A()
+where  Times = 1 and Val = A.val
+
+define RepA(Times, Val)
+from   A(\$x) and 
+       last RepA(Val <= \$x) within 3min from A
+where  Times = RepA.Times + 1 and Val = \$x
+consuming RepA
+
+define B(Times)
+from   RepA()
+where  Times = RepA.times
+\end{lstlisting}
+
+\medskip
+\noindent
+\textbf{Questions:}
+\begin{itemize}
+	\item How to propose syntactic sugar to improve iteration specification?
+\end{itemize}
+
+\subsection{Alternative Syntax}
+\label{sec:AS}
+
+\subsubsection{Used for Automated Rule Generation \cite{Margara-Cugola-Tamburrelli:2014}}
+\label{sec:AS-RG}
+
+This construction introduces a window of 5 minutes to accept two events \textsf{Temp} and \textsf{Smoke} (\emph{conjunction}), such that the temp value exceeds 50\textdegree C within the same area as where \textsf{Smoke} is detected.
+
+\begin{lstlisting}[language=iotdsl]
+within 5min { Smoke(area=$a) and Temp(area=$a and value>50) }
+\end{lstlisting}
+
+This construction uses the same conjunction but shows a simple syntactic construction \textsf{->} to capture event \emph{sequence}, stating that both \textsf{Temp} and \textsf{Wind} should occur before \textsf{Smoke}.
+
+\begin{lstlisting}[language=iotdsl]
+within 5min { Smoke() and Temp(value>50) and Wind(speed>20) } where { Temp->Smoke, Wind->Smoke }
+\end{lstlisting}
+
+The following construction uses an \emph{aggregation} and a \emph{negation}.
+
+\begin{lstlisting}[language=iotdsl]
+within 5min { Smoke() and Avg(Temp.value)>50 and not Rain(mm>2) } where { Temp->Smoke }
+\end{lstlisting}
+
+\subsubsection{Used for Analysis \cite{Cugola-Margara-Pezze-Pradella:2015}}
+\label{sec:AS-Analysis}
+
+Rules are defined as an assignment between the complex event's signature (aka. \emph{head}) and the pattern that defines it. Attributes are defined through functions whose parameters are part of the \textsf{pattern}. The \textsf{pattern} can also include complex events, thus forming \emph{hierarchies}:
+
+\begin{lstlisting}[language=iotdsl]
+CE(a1=f1(..), ..., an=fn(...)) := pattern
+\end{lstlisting}
+
+\begin{description}
+	\item[Selection] An \textsf{Overheat} occurs when both the CPU and GPU load exceeds 80\%, or the CPU alone reaches 100\% (Note here that classical precedence over boolean ops is not respected?)
+	
+	\begin{lstlisting}[language=iotdsl]
+Overheat() := Host(cpu_load>80 and gpu_load>80 or cpu_load=100)
+\end{lstlisting}
+
+	\item[Sequence] This op introduces a partial order between events based on timestamps (equivalent to \textsf{->} in \ref{sec:AS-RG}).
+	
+	\begin{lstlisting}[language=iotdsl]
+Overheat() := CPU(load>80) then GPU(load>80)
+\end{lstlisting}
+	
+	\item[Logical Connectors] Only conjuntion and disjunction are allowed, irrespective of the occurence order of events; the last event detected assigns its timestamp to the composite.
+	
+	\begin{lstlisting}[language=iotdsl]
+Overheat() := CPU(load>80) and GPU(load>80)
+\end{lstlisting}
+	
+	\item[Window] Only time window is considered for the pattern to occur.
+	
+	\begin{lstlisting}[language=iotdsl]
+Overheat() := [CPU(load>80) and GPU(load>80)] 5m..10m
+\end{lstlisting}
+	
+	\item[Parameters] Classical \textsf{\$} notation for parameters.
+	
+	\begin{lstlisting}[language=iotdsl]
+Overheat() := CPU(load>80 and host_id=$h) and GPU(load>80 and host_id=$h)
+\end{lstlisting}
+	
+	\item[Aggregation] The general syntax is the following: \textsf{P and f(A(c)) op v}, where \textsf{f} is an aggregation function, \textsf{c} a selection constraint, \textsf{op} a relational operator and \textsf{v} a value. If \textsf{f\_v} is the value of the aggregated function \textsf{f} computed over all events of type \textsf{A} captured by the selection constraint \textsf{c} and occuring in the time interval that includes all events used to satisfy \textsf{P}, the the pattern is satisfied iff \textsf{P} is satisfied and \textsf{f\v} satisfies the relation \textsf{f\_v op v}. 
+	
+	\begin{lstlisting}[language=iotdsl]
+Overheat() := (CPU(load>80) then GPU(load>80)) and avg(CPU().load)>50
+\end{lstlisting}
+	
+	\item[Negation] Restricted to appear as part of a conjunction: it reduces the scope of the event's non-occurence to the time window defined by the other part of the conjunction.
+	
+	\begin{lstlisting}[language=iotdsl]
+Overheat() := (CPU(load>80) then GPU(load>80)) and not CPU(load<=80)
+\end{lstlisting}
+\end{description}

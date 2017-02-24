@@ -1,0 +1,41 @@
+\chapter{Formal Verification}
+\label{sec:FV}
+
+\section{Related Work}
+\label{sec:FV-RW}
+
+\subsection{Constraint-Based Analysis of Events (\textsc{Cave}) \cite{Cugola-Margara-Pezze-Pradella:2015}}
+\label{FV-RW-CAVE}
+
+\begin{itemize}
+	\item Canonised language for expressing CEP Rule Definition, based on \emph{selection}, \emph{sequence}, \textsc{logical connectives}, \emph{time windows}, \emph{parameterisation}, \emph{aggregates}, \emph{negation}, and allowing hierarchies of events (i.e. complex events as part of a detecting pattern).
+	
+	\item Comparison between the existing techniques: \emph{model-checking} (mostly in \textsc{Rex} \cite{Ericsson-Berndtsson:2007,Ericsson-Pettersson-Berndtsson-Seirio:2007}) through \textsc{Uppaal} appears to be intractable (state explosion); and \textsc{Smt/Sat}-based techniques (including the authors' early attempt in \cite{Cugola-Margara:2010}) that appear to be exponential in the number of events/rules.
+	
+	\item Clean definition (with some underspecified parts) of a translation between the Rule language and \textsc{Smt} constraints in terms of configuration: 
+	\begin{itemize}
+		\item the property language simply follows the rule \textsc{Dsl};
+		\item the tool only generates thos constraints that are directly sufficient and necessary from the rules' semantics;
+	\end{itemize}
+	
+	\item Interesting validation (even the methodology is interesting!) to assess the tool's performance.
+\end{itemize}
+
+\subsection{Model-Checking Approaches \cite{Ericsson-Nilsson-Andler:2003,Ericsson-Berndtsson:2007,PhD:Ericsson:2009}}
+\label{sec:FV-RW-MC}
+
+\subsection{Event Processing Network}
+\label{sec:FV-RW-EPN}
+
+\begin{itemize}
+	\item Static and Dynamic Analysis \cite{Rabinovich-Etzion-etAl:2010}
+	\item Translation into Petri Nets \cite{Weidlich-Mendling-Gal:2013}
+\end{itemize}
+
+\subsection{Active DBMS}
+\label{sec:ActiveDBMS}
+
+\begin{description}
+	\item[Language-Related Properties] Termination, Confluence, Triggered Rules Upperlimit
+	\item[Application-Specific Properties]  
+\end{description}
