@@ -1,9 +1,9 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.IoTDSLPackage;
-import IoTDSL.PrimitiveType;
+import iotdsl.IoTDSLPackage;
+import iotdsl.PrimitiveType;
 
 import org.eclipse.emf.ecore.EClass;
 

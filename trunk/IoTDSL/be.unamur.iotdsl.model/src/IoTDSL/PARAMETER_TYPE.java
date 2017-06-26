@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>PARAMETER TYPE</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see IoTDSL.IoTDSLPackage#getPARAMETER_TYPE()
+ * @see iotdsl.IoTDSLPackage#getPARAMETER_TYPE()
  * @model
  * @generated
  */

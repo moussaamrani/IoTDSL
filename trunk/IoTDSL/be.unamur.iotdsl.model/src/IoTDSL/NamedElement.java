@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.NamedElement#getName <em>Name</em>}</li>
+ *   <li>{@link iotdsl.NamedElement#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see IoTDSL.IoTDSLPackage#getNamedElement()
+ * @see iotdsl.IoTDSLPackage#getNamedElement()
  * @model abstract="true"
  * @generated
  */
@@ -31,14 +31,14 @@ public interface NamedElement extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see IoTDSL.IoTDSLPackage#getNamedElement_Name()
+	 * @see iotdsl.IoTDSLPackage#getNamedElement_Name()
 	 * @model
 	 * @generated
 	 */
 	String getName();
 
 	/**
-	 * Sets the value of the '{@link IoTDSL.NamedElement#getName <em>Name</em>}' attribute.
+	 * Sets the value of the '{@link iotdsl.NamedElement#getName <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Name</em>' attribute.

@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * A representation of the literals of the enumeration '<em><b>EVENT TYPE</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see IoTDSL.IoTDSLPackage#getEVENT_TYPE()
+ * @see iotdsl.IoTDSLPackage#getEVENT_TYPE()
  * @model
  * @generated
  */

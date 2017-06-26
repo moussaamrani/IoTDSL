@@ -1,11 +1,11 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.DeclaredType;
-import IoTDSL.IoTDSLPackage;
-import IoTDSL.PrimitiveType;
-import IoTDSL.TypeReference;
+import iotdsl.DeclaredType;
+import iotdsl.IoTDSLPackage;
+import iotdsl.PrimitiveType;
+import iotdsl.TypeReference;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -24,15 +24,15 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.impl.TypeReferenceImpl#getDtype <em>Dtype</em>}</li>
- *   <li>{@link IoTDSL.impl.TypeReferenceImpl#getPtype <em>Ptype</em>}</li>
+ *   <li>{@link iotdsl.impl.TypeReferenceImpl#getDtype <em>Dtype</em>}</li>
+ *   <li>{@link iotdsl.impl.TypeReferenceImpl#getPtype <em>Ptype</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class TypeReferenceImpl extends MinimalEObjectImpl.Container implements TypeReference {
+public class TypeReferenceImpl extends MinimalEObjectImpl.Container implements TypeReference {
 	/**
-	 * The cached value of the '{@link #getDtype() <em>Dtype</em>}' containment reference.
+	 * The cached value of the '{@link #getDtype() <em>Dtype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDtype()
@@ -76,6 +76,14 @@ public abstract class TypeReferenceImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	public DeclaredType getDtype() {
+		if (dtype != null && dtype.eIsProxy()) {
+			InternalEObject oldDtype = (InternalEObject)dtype;
+			dtype = (DeclaredType)eResolveProxy(oldDtype);
+			if (dtype != oldDtype) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, IoTDSLPackage.TYPE_REFERENCE__DTYPE, oldDtype, dtype));
+			}
+		}
 		return dtype;
 	}
 
@@ -84,14 +92,8 @@ public abstract class TypeReferenceImpl extends MinimalEObjectImpl.Container imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDtype(DeclaredType newDtype, NotificationChain msgs) {
-		DeclaredType oldDtype = dtype;
-		dtype = newDtype;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IoTDSLPackage.TYPE_REFERENCE__DTYPE, oldDtype, newDtype);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public DeclaredType basicGetDtype() {
+		return dtype;
 	}
 
 	/**
@@ -100,17 +102,10 @@ public abstract class TypeReferenceImpl extends MinimalEObjectImpl.Container imp
 	 * @generated
 	 */
 	public void setDtype(DeclaredType newDtype) {
-		if (newDtype != dtype) {
-			NotificationChain msgs = null;
-			if (dtype != null)
-				msgs = ((InternalEObject)dtype).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IoTDSLPackage.TYPE_REFERENCE__DTYPE, null, msgs);
-			if (newDtype != null)
-				msgs = ((InternalEObject)newDtype).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IoTDSLPackage.TYPE_REFERENCE__DTYPE, null, msgs);
-			msgs = basicSetDtype(newDtype, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IoTDSLPackage.TYPE_REFERENCE__DTYPE, newDtype, newDtype));
+		DeclaredType oldDtype = dtype;
+		dtype = newDtype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, IoTDSLPackage.TYPE_REFERENCE__DTYPE, oldDtype, dtype));
 	}
 
 	/**
@@ -164,8 +159,6 @@ public abstract class TypeReferenceImpl extends MinimalEObjectImpl.Container imp
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case IoTDSLPackage.TYPE_REFERENCE__DTYPE:
-				return basicSetDtype(null, msgs);
 			case IoTDSLPackage.TYPE_REFERENCE__PTYPE:
 				return basicSetPtype(null, msgs);
 		}
@@ -181,7 +174,8 @@ public abstract class TypeReferenceImpl extends MinimalEObjectImpl.Container imp
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case IoTDSLPackage.TYPE_REFERENCE__DTYPE:
-				return getDtype();
+				if (resolve) return getDtype();
+				return basicGetDtype();
 			case IoTDSLPackage.TYPE_REFERENCE__PTYPE:
 				return getPtype();
 		}

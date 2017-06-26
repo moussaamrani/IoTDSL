@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -13,17 +13,17 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.Device#getFeatures <em>Features</em>}</li>
+ *   <li>{@link iotdsl.Device#getFeatures <em>Features</em>}</li>
  * </ul>
  *
- * @see IoTDSL.IoTDSLPackage#getDevice()
+ * @see iotdsl.IoTDSLPackage#getDevice()
  * @model
  * @generated
  */
 public interface Device extends Node {
 	/**
 	 * Returns the value of the '<em><b>Features</b></em>' containment reference list.
-	 * The list contents are of type {@link IoTDSL.Feature}.
+	 * The list contents are of type {@link iotdsl.Feature}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Features</em>' containment reference list isn't clear,
@@ -31,7 +31,7 @@ public interface Device extends Node {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Features</em>' containment reference list.
-	 * @see IoTDSL.IoTDSLPackage#getDevice_Features()
+	 * @see iotdsl.IoTDSLPackage#getDevice_Features()
 	 * @model containment="true"
 	 * @generated
 	 */

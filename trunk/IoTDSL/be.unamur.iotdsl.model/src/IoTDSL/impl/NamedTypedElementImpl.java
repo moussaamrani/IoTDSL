@@ -1,10 +1,10 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.IoTDSLPackage;
-import IoTDSL.NamedTypedElement;
-import IoTDSL.TypeReference;
+import iotdsl.IoTDSLPackage;
+import iotdsl.NamedTypedElement;
+import iotdsl.TypeReference;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -22,7 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.impl.NamedTypedElementImpl#getType <em>Type</em>}</li>
+ *   <li>{@link iotdsl.impl.NamedTypedElementImpl#getType <em>Type</em>}</li>
  * </ul>
  *
  * @generated

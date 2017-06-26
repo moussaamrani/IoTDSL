@@ -1,10 +1,10 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.Device;
-import IoTDSL.Feature;
-import IoTDSL.IoTDSLPackage;
+import iotdsl.Device;
+import iotdsl.Feature;
+import iotdsl.IoTDSLPackage;
 
 import java.util.Collection;
 
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.impl.DeviceImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link iotdsl.impl.DeviceImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated

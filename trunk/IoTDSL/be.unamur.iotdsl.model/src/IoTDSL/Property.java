@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 
 /**
@@ -9,9 +9,9 @@ package IoTDSL;
  * <!-- end-user-doc -->
  *
  *
- * @see IoTDSL.IoTDSLPackage#getProperty()
+ * @see iotdsl.IoTDSLPackage#getProperty()
  * @model
  * @generated
  */
-public interface Property extends Feature {
+public interface Property extends Feature, NamedTypedElement {
 } // Property
