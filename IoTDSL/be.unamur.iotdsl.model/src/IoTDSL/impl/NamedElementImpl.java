@@ -1,9 +1,9 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.IoTDSLPackage;
-import IoTDSL.NamedElement;
+import iotdsl.IoTDSLPackage;
+import iotdsl.NamedElement;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.impl.NamedElementImpl#getName <em>Name</em>}</li>
+ *   <li>{@link iotdsl.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated

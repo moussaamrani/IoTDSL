@@ -1,7 +1,8 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -9,9 +10,9 @@ package IoTDSL;
  * <!-- end-user-doc -->
  *
  *
- * @see IoTDSL.IoTDSLPackage#getFeature()
+ * @see iotdsl.IoTDSLPackage#getFeature()
  * @model abstract="true"
  * @generated
  */
-public interface Feature extends NamedTypedElement {
+public interface Feature extends EObject {
 } // Feature

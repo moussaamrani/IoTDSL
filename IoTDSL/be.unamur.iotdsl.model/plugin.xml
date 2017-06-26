@@ -9,8 +9,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated IoTDSL -->
       <package
-            uri="http://www.unamur.be/IoTDSL"
-            class="IoTDSL.IoTDSLPackage"
+            uri="http://www.unamur.be/iotdsl"
+            class="iotdsl.IoTDSLPackage"
             genModel="model/IoTDSL.genmodel"/>
    </extension>
 

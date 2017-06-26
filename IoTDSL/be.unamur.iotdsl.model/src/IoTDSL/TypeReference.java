@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,36 +13,36 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.TypeReference#getDtype <em>Dtype</em>}</li>
- *   <li>{@link IoTDSL.TypeReference#getPtype <em>Ptype</em>}</li>
+ *   <li>{@link iotdsl.TypeReference#getDtype <em>Dtype</em>}</li>
+ *   <li>{@link iotdsl.TypeReference#getPtype <em>Ptype</em>}</li>
  * </ul>
  *
- * @see IoTDSL.IoTDSLPackage#getTypeReference()
- * @model abstract="true"
+ * @see iotdsl.IoTDSLPackage#getTypeReference()
+ * @model
  * @generated
  */
 public interface TypeReference extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Dtype</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Dtype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Dtype</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Dtype</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dtype</em>' containment reference.
+	 * @return the value of the '<em>Dtype</em>' reference.
 	 * @see #setDtype(DeclaredType)
-	 * @see IoTDSL.IoTDSLPackage#getTypeReference_Dtype()
-	 * @model containment="true"
+	 * @see iotdsl.IoTDSLPackage#getTypeReference_Dtype()
+	 * @model
 	 * @generated
 	 */
 	DeclaredType getDtype();
 
 	/**
-	 * Sets the value of the '{@link IoTDSL.TypeReference#getDtype <em>Dtype</em>}' containment reference.
+	 * Sets the value of the '{@link iotdsl.TypeReference#getDtype <em>Dtype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Dtype</em>' containment reference.
+	 * @param value the new value of the '<em>Dtype</em>' reference.
 	 * @see #getDtype()
 	 * @generated
 	 */
@@ -58,14 +58,14 @@ public interface TypeReference extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ptype</em>' containment reference.
 	 * @see #setPtype(PrimitiveType)
-	 * @see IoTDSL.IoTDSLPackage#getTypeReference_Ptype()
+	 * @see iotdsl.IoTDSLPackage#getTypeReference_Ptype()
 	 * @model containment="true"
 	 * @generated
 	 */
 	PrimitiveType getPtype();
 
 	/**
-	 * Sets the value of the '{@link IoTDSL.TypeReference#getPtype <em>Ptype</em>}' containment reference.
+	 * Sets the value of the '{@link iotdsl.TypeReference#getPtype <em>Ptype</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Ptype</em>' containment reference.

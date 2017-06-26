@@ -1,8 +1,8 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.*;
+import iotdsl.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
@@ -70,6 +70,7 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 			case IoTDSLPackage.PROPERTY: return createProperty();
 			case IoTDSLPackage.EVENT: return createEvent();
 			case IoTDSLPackage.PARAMETER: return createParameter();
+			case IoTDSLPackage.TYPE_REFERENCE: return createTypeReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -83,8 +84,6 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case IoTDSLPackage.EVENT_TYPE:
-				return createEVENT_TYPEFromString(eDataType, initialValue);
 			case IoTDSLPackage.PARAMETER_TYPE:
 				return createPARAMETER_TYPEFromString(eDataType, initialValue);
 			default:
@@ -100,8 +99,6 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case IoTDSLPackage.EVENT_TYPE:
-				return convertEVENT_TYPEToString(eDataType, instanceValue);
 			case IoTDSLPackage.PARAMETER_TYPE:
 				return convertPARAMETER_TYPEToString(eDataType, instanceValue);
 			default:
@@ -244,19 +241,9 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EVENT_TYPE createEVENT_TYPEFromString(EDataType eDataType, String initialValue) {
-		EVENT_TYPE result = EVENT_TYPE.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertEVENT_TYPEToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public TypeReference createTypeReference() {
+		TypeReferenceImpl typeReference = new TypeReferenceImpl();
+		return typeReference;
 	}
 
 	/**

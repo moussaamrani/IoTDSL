@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see IoTDSL.IoTDSLFactory
+ * @see iotdsl.IoTDSLFactory
  * @model kind="package"
  * @generated
  */
@@ -31,7 +31,7 @@ public interface IoTDSLPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNAME = "IoTDSL";
+	String eNAME = "iotdsl";
 
 	/**
 	 * The package namespace URI.
@@ -39,7 +39,7 @@ public interface IoTDSLPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://www.unamur.be/IoTDSL";
+	String eNS_URI = "http://www.unamur.be/iotdsl";
 
 	/**
 	 * The package namespace name.
@@ -47,7 +47,7 @@ public interface IoTDSLPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "IoTDSL";
+	String eNS_PREFIX = "iotdsl";
 
 	/**
 	 * The singleton instance of the package.
@@ -55,14 +55,14 @@ public interface IoTDSLPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	IoTDSLPackage eINSTANCE = IoTDSL.impl.IoTDSLPackageImpl.init();
+	IoTDSLPackage eINSTANCE = iotdsl.impl.IoTDSLPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.IoTModelImpl <em>Io TModel</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.IoTModelImpl <em>Io TModel</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.IoTModelImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getIoTModel()
+	 * @see iotdsl.impl.IoTModelImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getIoTModel()
 	 * @generated
 	 */
 	int IO_TMODEL = 0;
@@ -95,11 +95,11 @@ public interface IoTDSLPackage extends EPackage {
 	int IO_TMODEL_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.NamedElementImpl <em>Named Element</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.NamedElementImpl <em>Named Element</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.NamedElementImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getNamedElement()
+	 * @see iotdsl.impl.NamedElementImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getNamedElement()
 	 * @generated
 	 */
 	int NAMED_ELEMENT = 1;
@@ -132,11 +132,11 @@ public interface IoTDSLPackage extends EPackage {
 	int NAMED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.TypeImpl <em>Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.TypeImpl <em>Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.TypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getType()
+	 * @see iotdsl.impl.TypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getType()
 	 * @generated
 	 */
 	int TYPE = 3;
@@ -169,11 +169,11 @@ public interface IoTDSLPackage extends EPackage {
 	int TYPE_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.PrimitiveTypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getPrimitiveType()
+	 * @see iotdsl.impl.PrimitiveTypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getPrimitiveType()
 	 * @generated
 	 */
 	int PRIMITIVE_TYPE = 2;
@@ -206,11 +206,11 @@ public interface IoTDSLPackage extends EPackage {
 	int PRIMITIVE_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.DeclaredTypeImpl <em>Declared Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.DeclaredTypeImpl <em>Declared Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.DeclaredTypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getDeclaredType()
+	 * @see iotdsl.impl.DeclaredTypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getDeclaredType()
 	 * @generated
 	 */
 	int DECLARED_TYPE = 4;
@@ -243,11 +243,11 @@ public interface IoTDSLPackage extends EPackage {
 	int DECLARED_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.StringTypeImpl <em>String Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.StringTypeImpl <em>String Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.StringTypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getStringType()
+	 * @see iotdsl.impl.StringTypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getStringType()
 	 * @generated
 	 */
 	int STRING_TYPE = 5;
@@ -280,11 +280,11 @@ public interface IoTDSLPackage extends EPackage {
 	int STRING_TYPE_OPERATION_COUNT = PRIMITIVE_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.BooleanTypeImpl <em>Boolean Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.BooleanTypeImpl <em>Boolean Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.BooleanTypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getBooleanType()
+	 * @see iotdsl.impl.BooleanTypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getBooleanType()
 	 * @generated
 	 */
 	int BOOLEAN_TYPE = 6;
@@ -317,11 +317,11 @@ public interface IoTDSLPackage extends EPackage {
 	int BOOLEAN_TYPE_OPERATION_COUNT = PRIMITIVE_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.VoidTypeImpl <em>Void Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.VoidTypeImpl <em>Void Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.VoidTypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getVoidType()
+	 * @see iotdsl.impl.VoidTypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getVoidType()
 	 * @generated
 	 */
 	int VOID_TYPE = 7;
@@ -354,11 +354,11 @@ public interface IoTDSLPackage extends EPackage {
 	int VOID_TYPE_OPERATION_COUNT = PRIMITIVE_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.RealTypeImpl <em>Real Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.RealTypeImpl <em>Real Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.RealTypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getRealType()
+	 * @see iotdsl.impl.RealTypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getRealType()
 	 * @generated
 	 */
 	int REAL_TYPE = 8;
@@ -391,11 +391,11 @@ public interface IoTDSLPackage extends EPackage {
 	int REAL_TYPE_OPERATION_COUNT = PRIMITIVE_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.IntegerTypeImpl <em>Integer Type</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.IntegerTypeImpl <em>Integer Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.IntegerTypeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getIntegerType()
+	 * @see iotdsl.impl.IntegerTypeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getIntegerType()
 	 * @generated
 	 */
 	int INTEGER_TYPE = 9;
@@ -428,11 +428,11 @@ public interface IoTDSLPackage extends EPackage {
 	int INTEGER_TYPE_OPERATION_COUNT = PRIMITIVE_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.EnumerationImpl <em>Enumeration</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.EnumerationImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getEnumeration()
+	 * @see iotdsl.impl.EnumerationImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getEnumeration()
 	 * @generated
 	 */
 	int ENUMERATION = 10;
@@ -474,11 +474,11 @@ public interface IoTDSLPackage extends EPackage {
 	int ENUMERATION_OPERATION_COUNT = DECLARED_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.EnumerationLiteralImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getEnumerationLiteral()
+	 * @see iotdsl.impl.EnumerationLiteralImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getEnumerationLiteral()
 	 * @generated
 	 */
 	int ENUMERATION_LITERAL = 11;
@@ -511,11 +511,11 @@ public interface IoTDSLPackage extends EPackage {
 	int ENUMERATION_LITERAL_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.NodeImpl <em>Node</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.NodeImpl <em>Node</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.NodeImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getNode()
+	 * @see iotdsl.impl.NodeImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getNode()
 	 * @generated
 	 */
 	int NODE = 12;
@@ -548,11 +548,11 @@ public interface IoTDSLPackage extends EPackage {
 	int NODE_OPERATION_COUNT = DECLARED_TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.GatewayImpl <em>Gateway</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.GatewayImpl <em>Gateway</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.GatewayImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getGateway()
+	 * @see iotdsl.impl.GatewayImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getGateway()
 	 * @generated
 	 */
 	int GATEWAY = 13;
@@ -585,11 +585,11 @@ public interface IoTDSLPackage extends EPackage {
 	int GATEWAY_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.DeviceImpl <em>Device</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.DeviceImpl <em>Device</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.DeviceImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getDevice()
+	 * @see iotdsl.impl.DeviceImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getDevice()
 	 * @generated
 	 */
 	int DEVICE = 14;
@@ -631,11 +631,140 @@ public interface IoTDSLPackage extends EPackage {
 	int DEVICE_OPERATION_COUNT = NODE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.NamedTypedElementImpl <em>Named Typed Element</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.FeatureImpl <em>Feature</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.NamedTypedElementImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getNamedTypedElement()
+	 * @see iotdsl.impl.FeatureImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getFeature()
+	 * @generated
+	 */
+	int FEATURE = 15;
+
+	/**
+	 * The number of structural features of the '<em>Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Feature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link iotdsl.impl.PropertyImpl <em>Property</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see iotdsl.impl.PropertyImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getProperty()
+	 * @generated
+	 */
+	int PROPERTY = 16;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__NAME = FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TYPE = FEATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Property</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link iotdsl.impl.EventImpl <em>Event</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see iotdsl.impl.EventImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getEvent()
+	 * @generated
+	 */
+	int EVENT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__NAME = FEATURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__PARAMETERS = FEATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Is Sensing</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT__IS_SENSING = FEATURE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Event</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EVENT_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link iotdsl.impl.NamedTypedElementImpl <em>Named Typed Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see iotdsl.impl.NamedTypedElementImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getNamedTypedElement()
 	 * @generated
 	 */
 	int NAMED_TYPED_ELEMENT = 19;
@@ -677,158 +806,11 @@ public interface IoTDSLPackage extends EPackage {
 	int NAMED_TYPED_ELEMENT_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.FeatureImpl <em>Feature</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.ParameterImpl <em>Parameter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.FeatureImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getFeature()
-	 * @generated
-	 */
-	int FEATURE = 15;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__NAME = NAMED_TYPED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__TYPE = NAMED_TYPED_ELEMENT__TYPE;
-
-	/**
-	 * The number of structural features of the '<em>Feature</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_FEATURE_COUNT = NAMED_TYPED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Feature</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE_OPERATION_COUNT = NAMED_TYPED_ELEMENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link IoTDSL.impl.PropertyImpl <em>Property</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.PropertyImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getProperty()
-	 * @generated
-	 */
-	int PROPERTY = 16;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__NAME = FEATURE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__TYPE = FEATURE__TYPE;
-
-	/**
-	 * The number of structural features of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Property</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link IoTDSL.impl.EventImpl <em>Event</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.EventImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getEvent()
-	 * @generated
-	 */
-	int EVENT = 17;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__NAME = FEATURE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__TYPE = FEATURE__TYPE;
-
-	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT__PARAMETERS = FEATURE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Event</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EVENT_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link IoTDSL.impl.ParameterImpl <em>Parameter</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.ParameterImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getParameter()
+	 * @see iotdsl.impl.ParameterImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getParameter()
 	 * @generated
 	 */
 	int PARAMETER = 18;
@@ -852,13 +834,22 @@ public interface IoTDSLPackage extends EPackage {
 	int PARAMETER__TYPE = NAMED_TYPED_ELEMENT__TYPE;
 
 	/**
+	 * The feature id for the '<em><b>Kind</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__KIND = NAMED_TYPED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = NAMED_TYPED_ELEMENT_FEATURE_COUNT + 0;
+	int PARAMETER_FEATURE_COUNT = NAMED_TYPED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Parameter</em>' class.
@@ -870,17 +861,17 @@ public interface IoTDSLPackage extends EPackage {
 	int PARAMETER_OPERATION_COUNT = NAMED_TYPED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+	 * The meta object id for the '{@link iotdsl.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.impl.TypeReferenceImpl
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getTypeReference()
+	 * @see iotdsl.impl.TypeReferenceImpl
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getTypeReference()
 	 * @generated
 	 */
 	int TYPE_REFERENCE = 20;
 
 	/**
-	 * The feature id for the '<em><b>Dtype</b></em>' containment reference.
+	 * The feature id for the '<em><b>Dtype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -916,340 +907,342 @@ public interface IoTDSLPackage extends EPackage {
 	int TYPE_REFERENCE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link IoTDSL.EVENT_TYPE <em>EVENT TYPE</em>}' enum.
+	 * The meta object id for the '{@link iotdsl.PARAMETER_TYPE <em>PARAMETER TYPE</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see IoTDSL.EVENT_TYPE
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getEVENT_TYPE()
+	 * @see iotdsl.PARAMETER_TYPE
+	 * @see iotdsl.impl.IoTDSLPackageImpl#getPARAMETER_TYPE()
 	 * @generated
 	 */
-	int EVENT_TYPE = 21;
-
-	/**
-	 * The meta object id for the '{@link IoTDSL.PARAMETER_TYPE <em>PARAMETER TYPE</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see IoTDSL.PARAMETER_TYPE
-	 * @see IoTDSL.impl.IoTDSLPackageImpl#getPARAMETER_TYPE()
-	 * @generated
-	 */
-	int PARAMETER_TYPE = 22;
+	int PARAMETER_TYPE = 21;
 
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.IoTModel <em>Io TModel</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.IoTModel <em>Io TModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Io TModel</em>'.
-	 * @see IoTDSL.IoTModel
+	 * @see iotdsl.IoTModel
 	 * @generated
 	 */
 	EClass getIoTModel();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link IoTDSL.IoTModel#getTypes <em>Types</em>}'.
+	 * Returns the meta object for the containment reference list '{@link iotdsl.IoTModel#getTypes <em>Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Types</em>'.
-	 * @see IoTDSL.IoTModel#getTypes()
+	 * @see iotdsl.IoTModel#getTypes()
 	 * @see #getIoTModel()
 	 * @generated
 	 */
 	EReference getIoTModel_Types();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.NamedElement <em>Named Element</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Named Element</em>'.
-	 * @see IoTDSL.NamedElement
+	 * @see iotdsl.NamedElement
 	 * @generated
 	 */
 	EClass getNamedElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link IoTDSL.NamedElement#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link iotdsl.NamedElement#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see IoTDSL.NamedElement#getName()
+	 * @see iotdsl.NamedElement#getName()
 	 * @see #getNamedElement()
 	 * @generated
 	 */
 	EAttribute getNamedElement_Name();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.PrimitiveType <em>Primitive Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.PrimitiveType <em>Primitive Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Primitive Type</em>'.
-	 * @see IoTDSL.PrimitiveType
+	 * @see iotdsl.PrimitiveType
 	 * @generated
 	 */
 	EClass getPrimitiveType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Type <em>Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Type</em>'.
-	 * @see IoTDSL.Type
+	 * @see iotdsl.Type
 	 * @generated
 	 */
 	EClass getType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.DeclaredType <em>Declared Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.DeclaredType <em>Declared Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Declared Type</em>'.
-	 * @see IoTDSL.DeclaredType
+	 * @see iotdsl.DeclaredType
 	 * @generated
 	 */
 	EClass getDeclaredType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.StringType <em>String Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.StringType <em>String Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>String Type</em>'.
-	 * @see IoTDSL.StringType
+	 * @see iotdsl.StringType
 	 * @generated
 	 */
 	EClass getStringType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.BooleanType <em>Boolean Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.BooleanType <em>Boolean Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Boolean Type</em>'.
-	 * @see IoTDSL.BooleanType
+	 * @see iotdsl.BooleanType
 	 * @generated
 	 */
 	EClass getBooleanType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.VoidType <em>Void Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.VoidType <em>Void Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Void Type</em>'.
-	 * @see IoTDSL.VoidType
+	 * @see iotdsl.VoidType
 	 * @generated
 	 */
 	EClass getVoidType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.RealType <em>Real Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.RealType <em>Real Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Real Type</em>'.
-	 * @see IoTDSL.RealType
+	 * @see iotdsl.RealType
 	 * @generated
 	 */
 	EClass getRealType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.IntegerType <em>Integer Type</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.IntegerType <em>Integer Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Integer Type</em>'.
-	 * @see IoTDSL.IntegerType
+	 * @see iotdsl.IntegerType
 	 * @generated
 	 */
 	EClass getIntegerType();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Enumeration <em>Enumeration</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Enumeration <em>Enumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Enumeration</em>'.
-	 * @see IoTDSL.Enumeration
+	 * @see iotdsl.Enumeration
 	 * @generated
 	 */
 	EClass getEnumeration();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link IoTDSL.Enumeration#getLiterals <em>Literals</em>}'.
+	 * Returns the meta object for the containment reference list '{@link iotdsl.Enumeration#getLiterals <em>Literals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Literals</em>'.
-	 * @see IoTDSL.Enumeration#getLiterals()
+	 * @see iotdsl.Enumeration#getLiterals()
 	 * @see #getEnumeration()
 	 * @generated
 	 */
 	EReference getEnumeration_Literals();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.EnumerationLiteral <em>Enumeration Literal</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Enumeration Literal</em>'.
-	 * @see IoTDSL.EnumerationLiteral
+	 * @see iotdsl.EnumerationLiteral
 	 * @generated
 	 */
 	EClass getEnumerationLiteral();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Node <em>Node</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Node</em>'.
-	 * @see IoTDSL.Node
+	 * @see iotdsl.Node
 	 * @generated
 	 */
 	EClass getNode();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Gateway <em>Gateway</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Gateway <em>Gateway</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Gateway</em>'.
-	 * @see IoTDSL.Gateway
+	 * @see iotdsl.Gateway
 	 * @generated
 	 */
 	EClass getGateway();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Device <em>Device</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Device <em>Device</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Device</em>'.
-	 * @see IoTDSL.Device
+	 * @see iotdsl.Device
 	 * @generated
 	 */
 	EClass getDevice();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link IoTDSL.Device#getFeatures <em>Features</em>}'.
+	 * Returns the meta object for the containment reference list '{@link iotdsl.Device#getFeatures <em>Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Features</em>'.
-	 * @see IoTDSL.Device#getFeatures()
+	 * @see iotdsl.Device#getFeatures()
 	 * @see #getDevice()
 	 * @generated
 	 */
 	EReference getDevice_Features();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Feature <em>Feature</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Feature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Feature</em>'.
-	 * @see IoTDSL.Feature
+	 * @see iotdsl.Feature
 	 * @generated
 	 */
 	EClass getFeature();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Property <em>Property</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Property</em>'.
-	 * @see IoTDSL.Property
+	 * @see iotdsl.Property
 	 * @generated
 	 */
 	EClass getProperty();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Event <em>Event</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.Event <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Event</em>'.
-	 * @see IoTDSL.Event
+	 * @see iotdsl.Event
 	 * @generated
 	 */
 	EClass getEvent();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link IoTDSL.Event#getParameters <em>Parameters</em>}'.
+	 * Returns the meta object for the containment reference list '{@link iotdsl.Event#getParameters <em>Parameters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see IoTDSL.Event#getParameters()
+	 * @see iotdsl.Event#getParameters()
 	 * @see #getEvent()
 	 * @generated
 	 */
 	EReference getEvent_Parameters();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.Parameter <em>Parameter</em>}'.
+	 * Returns the meta object for the attribute '{@link iotdsl.Event#isIsSensing <em>Is Sensing</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Sensing</em>'.
+	 * @see iotdsl.Event#isIsSensing()
+	 * @see #getEvent()
+	 * @generated
+	 */
+	EAttribute getEvent_IsSensing();
+
+	/**
+	 * Returns the meta object for class '{@link iotdsl.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Parameter</em>'.
-	 * @see IoTDSL.Parameter
+	 * @see iotdsl.Parameter
 	 * @generated
 	 */
 	EClass getParameter();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.NamedTypedElement <em>Named Typed Element</em>}'.
+	 * Returns the meta object for the attribute '{@link iotdsl.Parameter#getKind <em>Kind</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Kind</em>'.
+	 * @see iotdsl.Parameter#getKind()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EAttribute getParameter_Kind();
+
+	/**
+	 * Returns the meta object for class '{@link iotdsl.NamedTypedElement <em>Named Typed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Named Typed Element</em>'.
-	 * @see IoTDSL.NamedTypedElement
+	 * @see iotdsl.NamedTypedElement
 	 * @generated
 	 */
 	EClass getNamedTypedElement();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link IoTDSL.NamedTypedElement#getType <em>Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link iotdsl.NamedTypedElement#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Type</em>'.
-	 * @see IoTDSL.NamedTypedElement#getType()
+	 * @see iotdsl.NamedTypedElement#getType()
 	 * @see #getNamedTypedElement()
 	 * @generated
 	 */
 	EReference getNamedTypedElement_Type();
 
 	/**
-	 * Returns the meta object for class '{@link IoTDSL.TypeReference <em>Type Reference</em>}'.
+	 * Returns the meta object for class '{@link iotdsl.TypeReference <em>Type Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Type Reference</em>'.
-	 * @see IoTDSL.TypeReference
+	 * @see iotdsl.TypeReference
 	 * @generated
 	 */
 	EClass getTypeReference();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link IoTDSL.TypeReference#getDtype <em>Dtype</em>}'.
+	 * Returns the meta object for the reference '{@link iotdsl.TypeReference#getDtype <em>Dtype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Dtype</em>'.
-	 * @see IoTDSL.TypeReference#getDtype()
+	 * @return the meta object for the reference '<em>Dtype</em>'.
+	 * @see iotdsl.TypeReference#getDtype()
 	 * @see #getTypeReference()
 	 * @generated
 	 */
 	EReference getTypeReference_Dtype();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link IoTDSL.TypeReference#getPtype <em>Ptype</em>}'.
+	 * Returns the meta object for the containment reference '{@link iotdsl.TypeReference#getPtype <em>Ptype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Ptype</em>'.
-	 * @see IoTDSL.TypeReference#getPtype()
+	 * @see iotdsl.TypeReference#getPtype()
 	 * @see #getTypeReference()
 	 * @generated
 	 */
 	EReference getTypeReference_Ptype();
 
 	/**
-	 * Returns the meta object for enum '{@link IoTDSL.EVENT_TYPE <em>EVENT TYPE</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>EVENT TYPE</em>'.
-	 * @see IoTDSL.EVENT_TYPE
-	 * @generated
-	 */
-	EEnum getEVENT_TYPE();
-
-	/**
-	 * Returns the meta object for enum '{@link IoTDSL.PARAMETER_TYPE <em>PARAMETER TYPE</em>}'.
+	 * Returns the meta object for enum '{@link iotdsl.PARAMETER_TYPE <em>PARAMETER TYPE</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for enum '<em>PARAMETER TYPE</em>'.
-	 * @see IoTDSL.PARAMETER_TYPE
+	 * @see iotdsl.PARAMETER_TYPE
 	 * @generated
 	 */
 	EEnum getPARAMETER_TYPE();
@@ -1278,11 +1271,11 @@ public interface IoTDSLPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.IoTModelImpl <em>Io TModel</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.IoTModelImpl <em>Io TModel</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.IoTModelImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getIoTModel()
+		 * @see iotdsl.impl.IoTModelImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getIoTModel()
 		 * @generated
 		 */
 		EClass IO_TMODEL = eINSTANCE.getIoTModel();
@@ -1296,11 +1289,11 @@ public interface IoTDSLPackage extends EPackage {
 		EReference IO_TMODEL__TYPES = eINSTANCE.getIoTModel_Types();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.NamedElementImpl <em>Named Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.NamedElementImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getNamedElement()
+		 * @see iotdsl.impl.NamedElementImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getNamedElement()
 		 * @generated
 		 */
 		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
@@ -1314,91 +1307,91 @@ public interface IoTDSLPackage extends EPackage {
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.PrimitiveTypeImpl <em>Primitive Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.PrimitiveTypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getPrimitiveType()
+		 * @see iotdsl.impl.PrimitiveTypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getPrimitiveType()
 		 * @generated
 		 */
 		EClass PRIMITIVE_TYPE = eINSTANCE.getPrimitiveType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.TypeImpl <em>Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.TypeImpl <em>Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.TypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getType()
+		 * @see iotdsl.impl.TypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getType()
 		 * @generated
 		 */
 		EClass TYPE = eINSTANCE.getType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.DeclaredTypeImpl <em>Declared Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.DeclaredTypeImpl <em>Declared Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.DeclaredTypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getDeclaredType()
+		 * @see iotdsl.impl.DeclaredTypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getDeclaredType()
 		 * @generated
 		 */
 		EClass DECLARED_TYPE = eINSTANCE.getDeclaredType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.StringTypeImpl <em>String Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.StringTypeImpl <em>String Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.StringTypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getStringType()
+		 * @see iotdsl.impl.StringTypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getStringType()
 		 * @generated
 		 */
 		EClass STRING_TYPE = eINSTANCE.getStringType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.BooleanTypeImpl <em>Boolean Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.BooleanTypeImpl <em>Boolean Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.BooleanTypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getBooleanType()
+		 * @see iotdsl.impl.BooleanTypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getBooleanType()
 		 * @generated
 		 */
 		EClass BOOLEAN_TYPE = eINSTANCE.getBooleanType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.VoidTypeImpl <em>Void Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.VoidTypeImpl <em>Void Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.VoidTypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getVoidType()
+		 * @see iotdsl.impl.VoidTypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getVoidType()
 		 * @generated
 		 */
 		EClass VOID_TYPE = eINSTANCE.getVoidType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.RealTypeImpl <em>Real Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.RealTypeImpl <em>Real Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.RealTypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getRealType()
+		 * @see iotdsl.impl.RealTypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getRealType()
 		 * @generated
 		 */
 		EClass REAL_TYPE = eINSTANCE.getRealType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.IntegerTypeImpl <em>Integer Type</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.IntegerTypeImpl <em>Integer Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.IntegerTypeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getIntegerType()
+		 * @see iotdsl.impl.IntegerTypeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getIntegerType()
 		 * @generated
 		 */
 		EClass INTEGER_TYPE = eINSTANCE.getIntegerType();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.EnumerationImpl <em>Enumeration</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.EnumerationImpl <em>Enumeration</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.EnumerationImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getEnumeration()
+		 * @see iotdsl.impl.EnumerationImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getEnumeration()
 		 * @generated
 		 */
 		EClass ENUMERATION = eINSTANCE.getEnumeration();
@@ -1412,41 +1405,41 @@ public interface IoTDSLPackage extends EPackage {
 		EReference ENUMERATION__LITERALS = eINSTANCE.getEnumeration_Literals();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.EnumerationLiteralImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getEnumerationLiteral()
+		 * @see iotdsl.impl.EnumerationLiteralImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getEnumerationLiteral()
 		 * @generated
 		 */
 		EClass ENUMERATION_LITERAL = eINSTANCE.getEnumerationLiteral();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.NodeImpl <em>Node</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.NodeImpl <em>Node</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.NodeImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getNode()
+		 * @see iotdsl.impl.NodeImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getNode()
 		 * @generated
 		 */
 		EClass NODE = eINSTANCE.getNode();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.GatewayImpl <em>Gateway</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.GatewayImpl <em>Gateway</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.GatewayImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getGateway()
+		 * @see iotdsl.impl.GatewayImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getGateway()
 		 * @generated
 		 */
 		EClass GATEWAY = eINSTANCE.getGateway();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.DeviceImpl <em>Device</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.DeviceImpl <em>Device</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.DeviceImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getDevice()
+		 * @see iotdsl.impl.DeviceImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getDevice()
 		 * @generated
 		 */
 		EClass DEVICE = eINSTANCE.getDevice();
@@ -1460,31 +1453,31 @@ public interface IoTDSLPackage extends EPackage {
 		EReference DEVICE__FEATURES = eINSTANCE.getDevice_Features();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.FeatureImpl <em>Feature</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.FeatureImpl <em>Feature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.FeatureImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getFeature()
+		 * @see iotdsl.impl.FeatureImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getFeature()
 		 * @generated
 		 */
 		EClass FEATURE = eINSTANCE.getFeature();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.PropertyImpl <em>Property</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.PropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.PropertyImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getProperty()
+		 * @see iotdsl.impl.PropertyImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getProperty()
 		 * @generated
 		 */
 		EClass PROPERTY = eINSTANCE.getProperty();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.EventImpl <em>Event</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.EventImpl <em>Event</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.EventImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getEvent()
+		 * @see iotdsl.impl.EventImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getEvent()
 		 * @generated
 		 */
 		EClass EVENT = eINSTANCE.getEvent();
@@ -1498,21 +1491,37 @@ public interface IoTDSLPackage extends EPackage {
 		EReference EVENT__PARAMETERS = eINSTANCE.getEvent_Parameters();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * The meta object literal for the '<em><b>Is Sensing</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.ParameterImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getParameter()
+		 * @generated
+		 */
+		EAttribute EVENT__IS_SENSING = eINSTANCE.getEvent_IsSensing();
+
+		/**
+		 * The meta object literal for the '{@link iotdsl.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see iotdsl.impl.ParameterImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getParameter()
 		 * @generated
 		 */
 		EClass PARAMETER = eINSTANCE.getParameter();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.NamedTypedElementImpl <em>Named Typed Element</em>}' class.
+		 * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.NamedTypedElementImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getNamedTypedElement()
+		 * @generated
+		 */
+		EAttribute PARAMETER__KIND = eINSTANCE.getParameter_Kind();
+
+		/**
+		 * The meta object literal for the '{@link iotdsl.impl.NamedTypedElementImpl <em>Named Typed Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see iotdsl.impl.NamedTypedElementImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getNamedTypedElement()
 		 * @generated
 		 */
 		EClass NAMED_TYPED_ELEMENT = eINSTANCE.getNamedTypedElement();
@@ -1526,17 +1535,17 @@ public interface IoTDSLPackage extends EPackage {
 		EReference NAMED_TYPED_ELEMENT__TYPE = eINSTANCE.getNamedTypedElement_Type();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
+		 * The meta object literal for the '{@link iotdsl.impl.TypeReferenceImpl <em>Type Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.impl.TypeReferenceImpl
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getTypeReference()
+		 * @see iotdsl.impl.TypeReferenceImpl
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getTypeReference()
 		 * @generated
 		 */
 		EClass TYPE_REFERENCE = eINSTANCE.getTypeReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Dtype</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Dtype</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1552,21 +1561,11 @@ public interface IoTDSLPackage extends EPackage {
 		EReference TYPE_REFERENCE__PTYPE = eINSTANCE.getTypeReference_Ptype();
 
 		/**
-		 * The meta object literal for the '{@link IoTDSL.EVENT_TYPE <em>EVENT TYPE</em>}' enum.
+		 * The meta object literal for the '{@link iotdsl.PARAMETER_TYPE <em>PARAMETER TYPE</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see IoTDSL.EVENT_TYPE
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getEVENT_TYPE()
-		 * @generated
-		 */
-		EEnum EVENT_TYPE = eINSTANCE.getEVENT_TYPE();
-
-		/**
-		 * The meta object literal for the '{@link IoTDSL.PARAMETER_TYPE <em>PARAMETER TYPE</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see IoTDSL.PARAMETER_TYPE
-		 * @see IoTDSL.impl.IoTDSLPackageImpl#getPARAMETER_TYPE()
+		 * @see iotdsl.PARAMETER_TYPE
+		 * @see iotdsl.impl.IoTDSLPackageImpl#getPARAMETER_TYPE()
 		 * @generated
 		 */
 		EEnum PARAMETER_TYPE = eINSTANCE.getPARAMETER_TYPE();

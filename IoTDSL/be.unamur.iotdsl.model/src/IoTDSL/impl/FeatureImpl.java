@@ -1,11 +1,13 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.Feature;
-import IoTDSL.IoTDSLPackage;
+import iotdsl.Feature;
+import iotdsl.IoTDSLPackage;
 
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class FeatureImpl extends NamedTypedElementImpl implements Feature {
+public abstract class FeatureImpl extends MinimalEObjectImpl.Container implements Feature {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

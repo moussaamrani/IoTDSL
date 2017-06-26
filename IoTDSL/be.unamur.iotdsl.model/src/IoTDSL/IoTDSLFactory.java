@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see IoTDSL.IoTDSLPackage
+ * @see iotdsl.IoTDSLPackage
  * @generated
  */
 public interface IoTDSLFactory extends EFactory {
@@ -19,7 +19,7 @@ public interface IoTDSLFactory extends EFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	IoTDSLFactory eINSTANCE = IoTDSL.impl.IoTDSLFactoryImpl.init();
+	IoTDSLFactory eINSTANCE = iotdsl.impl.IoTDSLFactoryImpl.init();
 
 	/**
 	 * Returns a new object of class '<em>Io TModel</em>'.
@@ -137,6 +137,15 @@ public interface IoTDSLFactory extends EFactory {
 	 * @generated
 	 */
 	Parameter createParameter();
+
+	/**
+	 * Returns a new object of class '<em>Type Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Type Reference</em>'.
+	 * @generated
+	 */
+	TypeReference createTypeReference();
 
 	/**
 	 * Returns the package supported by this factory.

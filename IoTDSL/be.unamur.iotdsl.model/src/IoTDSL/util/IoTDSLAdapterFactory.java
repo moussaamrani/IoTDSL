@@ -1,8 +1,8 @@
 /**
  */
-package IoTDSL.util;
+package iotdsl.util;
 
-import IoTDSL.*;
+import iotdsl.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see IoTDSL.IoTDSLPackage
+ * @see iotdsl.IoTDSLPackage
  * @generated
  */
 public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
@@ -172,13 +172,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.IoTModel <em>Io TModel</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.IoTModel <em>Io TModel</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.IoTModel
+	 * @see iotdsl.IoTModel
 	 * @generated
 	 */
 	public Adapter createIoTModelAdapter() {
@@ -186,13 +186,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.NamedElement <em>Named Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.NamedElement <em>Named Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.NamedElement
+	 * @see iotdsl.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
@@ -200,13 +200,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.PrimitiveType <em>Primitive Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.PrimitiveType <em>Primitive Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.PrimitiveType
+	 * @see iotdsl.PrimitiveType
 	 * @generated
 	 */
 	public Adapter createPrimitiveTypeAdapter() {
@@ -214,13 +214,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Type <em>Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Type
+	 * @see iotdsl.Type
 	 * @generated
 	 */
 	public Adapter createTypeAdapter() {
@@ -228,13 +228,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.DeclaredType <em>Declared Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.DeclaredType <em>Declared Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.DeclaredType
+	 * @see iotdsl.DeclaredType
 	 * @generated
 	 */
 	public Adapter createDeclaredTypeAdapter() {
@@ -242,13 +242,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.StringType <em>String Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.StringType <em>String Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.StringType
+	 * @see iotdsl.StringType
 	 * @generated
 	 */
 	public Adapter createStringTypeAdapter() {
@@ -256,13 +256,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.BooleanType <em>Boolean Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.BooleanType <em>Boolean Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.BooleanType
+	 * @see iotdsl.BooleanType
 	 * @generated
 	 */
 	public Adapter createBooleanTypeAdapter() {
@@ -270,13 +270,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.VoidType <em>Void Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.VoidType <em>Void Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.VoidType
+	 * @see iotdsl.VoidType
 	 * @generated
 	 */
 	public Adapter createVoidTypeAdapter() {
@@ -284,13 +284,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.RealType <em>Real Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.RealType <em>Real Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.RealType
+	 * @see iotdsl.RealType
 	 * @generated
 	 */
 	public Adapter createRealTypeAdapter() {
@@ -298,13 +298,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.IntegerType <em>Integer Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.IntegerType <em>Integer Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.IntegerType
+	 * @see iotdsl.IntegerType
 	 * @generated
 	 */
 	public Adapter createIntegerTypeAdapter() {
@@ -312,13 +312,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Enumeration <em>Enumeration</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Enumeration <em>Enumeration</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Enumeration
+	 * @see iotdsl.Enumeration
 	 * @generated
 	 */
 	public Adapter createEnumerationAdapter() {
@@ -326,13 +326,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.EnumerationLiteral <em>Enumeration Literal</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.EnumerationLiteral <em>Enumeration Literal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.EnumerationLiteral
+	 * @see iotdsl.EnumerationLiteral
 	 * @generated
 	 */
 	public Adapter createEnumerationLiteralAdapter() {
@@ -340,13 +340,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Node <em>Node</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Node <em>Node</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Node
+	 * @see iotdsl.Node
 	 * @generated
 	 */
 	public Adapter createNodeAdapter() {
@@ -354,13 +354,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Gateway <em>Gateway</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Gateway <em>Gateway</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Gateway
+	 * @see iotdsl.Gateway
 	 * @generated
 	 */
 	public Adapter createGatewayAdapter() {
@@ -368,13 +368,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Device <em>Device</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Device <em>Device</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Device
+	 * @see iotdsl.Device
 	 * @generated
 	 */
 	public Adapter createDeviceAdapter() {
@@ -382,13 +382,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Feature <em>Feature</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Feature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Feature
+	 * @see iotdsl.Feature
 	 * @generated
 	 */
 	public Adapter createFeatureAdapter() {
@@ -396,13 +396,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Property <em>Property</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Property
+	 * @see iotdsl.Property
 	 * @generated
 	 */
 	public Adapter createPropertyAdapter() {
@@ -410,13 +410,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Event <em>Event</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Event <em>Event</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Event
+	 * @see iotdsl.Event
 	 * @generated
 	 */
 	public Adapter createEventAdapter() {
@@ -424,13 +424,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.Parameter <em>Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.Parameter <em>Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.Parameter
+	 * @see iotdsl.Parameter
 	 * @generated
 	 */
 	public Adapter createParameterAdapter() {
@@ -438,13 +438,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.NamedTypedElement <em>Named Typed Element</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.NamedTypedElement <em>Named Typed Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.NamedTypedElement
+	 * @see iotdsl.NamedTypedElement
 	 * @generated
 	 */
 	public Adapter createNamedTypedElementAdapter() {
@@ -452,13 +452,13 @@ public class IoTDSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link IoTDSL.TypeReference <em>Type Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link iotdsl.TypeReference <em>Type Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see IoTDSL.TypeReference
+	 * @see iotdsl.TypeReference
 	 * @generated
 	 */
 	public Adapter createTypeReferenceAdapter() {

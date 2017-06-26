@@ -1,10 +1,10 @@
 /**
  */
-package IoTDSL.impl;
+package iotdsl.impl;
 
-import IoTDSL.Enumeration;
-import IoTDSL.EnumerationLiteral;
-import IoTDSL.IoTDSLPackage;
+import iotdsl.Enumeration;
+import iotdsl.EnumerationLiteral;
+import iotdsl.IoTDSLPackage;
 
 import java.util.Collection;
 
@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.impl.EnumerationImpl#getLiterals <em>Literals</em>}</li>
+ *   <li>{@link iotdsl.impl.EnumerationImpl#getLiterals <em>Literals</em>}</li>
  * </ul>
  *
  * @generated

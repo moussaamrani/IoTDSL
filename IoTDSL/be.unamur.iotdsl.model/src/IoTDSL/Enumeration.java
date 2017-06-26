@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -13,17 +13,17 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link IoTDSL.Enumeration#getLiterals <em>Literals</em>}</li>
+ *   <li>{@link iotdsl.Enumeration#getLiterals <em>Literals</em>}</li>
  * </ul>
  *
- * @see IoTDSL.IoTDSLPackage#getEnumeration()
+ * @see iotdsl.IoTDSLPackage#getEnumeration()
  * @model
  * @generated
  */
 public interface Enumeration extends DeclaredType {
 	/**
 	 * Returns the value of the '<em><b>Literals</b></em>' containment reference list.
-	 * The list contents are of type {@link IoTDSL.EnumerationLiteral}.
+	 * The list contents are of type {@link iotdsl.EnumerationLiteral}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Literals</em>' containment reference list isn't clear,
@@ -31,8 +31,8 @@ public interface Enumeration extends DeclaredType {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Literals</em>' containment reference list.
-	 * @see IoTDSL.IoTDSLPackage#getEnumeration_Literals()
-	 * @model containment="true" required="true"
+	 * @see iotdsl.IoTDSLPackage#getEnumeration_Literals()
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<EnumerationLiteral> getLiterals();

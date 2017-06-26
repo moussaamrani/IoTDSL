@@ -1,6 +1,6 @@
 /**
  */
-package IoTDSL;
+package iotdsl;
 
 
 /**
@@ -9,7 +9,7 @@ package IoTDSL;
  * <!-- end-user-doc -->
  *
  *
- * @see IoTDSL.IoTDSLPackage#getStringType()
+ * @see iotdsl.IoTDSLPackage#getStringType()
  * @model
  * @generated
  */

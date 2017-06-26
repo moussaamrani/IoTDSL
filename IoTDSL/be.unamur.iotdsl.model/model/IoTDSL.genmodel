@@ -1,115 +1,54 @@
 <?xml version="1.0" encoding="ASCII"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.unamur.iotdsl.model/src" modelPluginID="be.unamur.iotdsl.model" modelName="IoTDSL" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.unamur.iotdsl.model/src" modelPluginID="be.unamur.iotdsl.model"
+    modelName="IoTDSL" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>IoTDSL.ecore</foreignModel>
-  <genPackages prefix="IoTDSL" disposableProviderFactory="true">
-    <ecorePackage href="IoTDSL.ecore#/"/>
-    <genEnums typeSafeEnumCompatible="false">
-      <ecoreEnum href="IoTDSL.ecore#//EVENT_TYPE"/>
-      <genEnumLiterals>
-        <ecoreEnumLiteral href="IoTDSL.ecore#//EVENT_TYPE/SENSING"/>
-      </genEnumLiterals>
-      <genEnumLiterals>
-        <ecoreEnumLiteral href="IoTDSL.ecore#//EVENT_TYPE/ACTUATING"/>
-      </genEnumLiterals>
+  <genPackages prefix="IoTDSL" disposableProviderFactory="true" ecorePackage="IoTDSL.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IoTDSL.ecore#//PARAMETER_TYPE">
+      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//PARAMETER_TYPE/IN"/>
+      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//PARAMETER_TYPE/OUT"/>
+      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//PARAMETER_TYPE/INOUT"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false">
-      <ecoreEnum href="IoTDSL.ecore#//PARAMETER_TYPE"/>
-      <genEnumLiterals>
-        <ecoreEnumLiteral href="IoTDSL.ecore#//PARAMETER_TYPE/IN"/>
-      </genEnumLiterals>
-      <genEnumLiterals>
-        <ecoreEnumLiteral href="IoTDSL.ecore#//PARAMETER_TYPE/OUT"/>
-      </genEnumLiterals>
-      <genEnumLiterals>
-        <ecoreEnumLiteral href="IoTDSL.ecore#//PARAMETER_TYPE/INOUT"/>
-      </genEnumLiterals>
-    </genEnums>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//IoTModel"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="IoTDSL.ecore#//IoTModel/types"/>
-      </genFeatures>
+    <genClasses ecoreClass="IoTDSL.ecore#//IoTModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//IoTModel/types"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//NamedElement"/>
-      <genFeatures createChild="false">
-        <ecoreFeature xsi:type="ecore:EAttribute" href="IoTDSL.ecore#//NamedElement/name"/>
-      </genFeatures>
+    <genClasses ecoreClass="IoTDSL.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Type"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//DeclaredType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//StringType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//BooleanType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//VoidType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//RealType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//IntegerType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//Enumeration/literals"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Type"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//EnumerationLiteral"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Node"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Gateway"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Device">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//Device/features"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//DeclaredType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Feature"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Property"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Event">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//Event/parameters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//Event/isSensing"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//StringType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//Parameter/kind"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//BooleanType"/>
+    <genClasses ecoreClass="IoTDSL.ecore#//NamedTypedElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//NamedTypedElement/type"/>
     </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//VoidType"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//RealType"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//IntegerType"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Enumeration"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="IoTDSL.ecore#//Enumeration/literals"/>
-      </genFeatures>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//EnumerationLiteral"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Node"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Gateway"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Device"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="IoTDSL.ecore#//Device/features"/>
-      </genFeatures>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Feature"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Property"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Event"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="IoTDSL.ecore#//Event/parameters"/>
-      </genFeatures>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//Parameter"/>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//NamedTypedElement"/>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="IoTDSL.ecore#//NamedTypedElement/type"/>
-      </genFeatures>
-    </genClasses>
-    <genClasses>
-      <ecoreClass href="IoTDSL.ecore#//TypeReference"/>
-      <genFeatures property="None" notify="false" createChild="false">
-        <ecoreFeature xsi:type="ecore:EReference" href="IoTDSL.ecore#//TypeReference/dtype"/>
-      </genFeatures>
-      <genFeatures property="None" children="true" createChild="true">
-        <ecoreFeature xsi:type="ecore:EReference" href="IoTDSL.ecore#//TypeReference/ptype"/>
-      </genFeatures>
+    <genClasses ecoreClass="IoTDSL.ecore#//TypeReference">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference IoTDSL.ecore#//TypeReference/dtype"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//TypeReference/ptype"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

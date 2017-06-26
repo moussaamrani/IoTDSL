@@ -1,8 +1,8 @@
 /**
  */
-package IoTDSL.util;
+package iotdsl.util;
 
-import IoTDSL.*;
+import iotdsl.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see IoTDSL.IoTDSLPackage
+ * @see iotdsl.IoTDSLPackage
  * @generated
  */
 public class IoTDSLSwitch<T> extends Switch<T> {
@@ -194,8 +194,6 @@ public class IoTDSLSwitch<T> extends Switch<T> {
 			case IoTDSLPackage.FEATURE: {
 				Feature feature = (Feature)theEObject;
 				T result = caseFeature(feature);
-				if (result == null) result = caseNamedTypedElement(feature);
-				if (result == null) result = caseNamedElement(feature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -212,7 +210,6 @@ public class IoTDSLSwitch<T> extends Switch<T> {
 				Event event = (Event)theEObject;
 				T result = caseEvent(event);
 				if (result == null) result = caseFeature(event);
-				if (result == null) result = caseNamedTypedElement(event);
 				if (result == null) result = caseNamedElement(event);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
