@@ -1,0 +1,126 @@
+\documentclass[a4paper,twoside]{llncs}
+
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{inconsolata}
+\usepackage{listingsutf8}
+\usepackage{caption}[2015/09/20]
+\usepackage{enumitem}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{calc}
+%\usepackage{amssymb}
+%\usepackage{amstext}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{pslatex}
+\usepackage{apalike}
+%\usepackage{SCITEPRESS}     % Please add other packages that you may need BEFORE the SCITEPRESS.sty package.
+
+\subfigtopskip=0pt
+\subfigcapskip=0pt
+\subfigbottomskip=0pt
+
+
+\graphicspath{{../img/}}
+
+\definecolor{myblue}{HTML}{406E86}
+\definecolor{codeblue}{HTML}{004385}
+\definecolor{codegrey}{HTML}{4D4D4D}
+\definecolor{rulerline}{HTML}{A0A2AC}
+\definecolor{codegreen}{HTML}{518D71}
+\definecolor{codeviolet}{HTML}{7F0055}
+\definecolor{darkblue}{HTML}{08088A}
+\definecolor{mygrey}{HTML}{4D4D4D}
+
+\newcommand{\IOT}{IoT\xspace}
+\newcommand{\IOTDSL}{\textsf{IoTD\scriptsize\MakeUppercase{sl}}\xspace}
+\newcommand{\DSL}{\textsc{Dsl}\xspace}
+\newcommand{\DSLS}{\textsc{Dsl}s\xspace}
+\newcommand{\MDE}{\textsc{Mde}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% IoTDSL Syntax Definition
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\lstdefinelanguage{iotdsl}{
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[d]",
+  morestring=[d]',
+  morekeywords={
+    configuration, node, from, to, via,
+    sensing, actuating, gateway, device,
+    rule, when, before, after, and, do, in, out, within
+  }
+}
+
+\lstset{
+  basicstyle=\fontsize{7}{7}\ttfamily,
+  basewidth={0.55em,0.45em},
+  keywordstyle=\bfseries\color{codeviolet},
+  commentstyle=\itshape\color{mygrey},
+  stringstyle=\color{darkblue},
+  identifierstyle=\color{black},
+  numbers=left,
+  numberstyle=\tiny\color{rulerline},
+  stepnumber=1, 
+  numbersep=5pt,
+  firstnumber=1, 
+  frame=lines,
+  rulecolor=\color{rulerline},
+  tabsize=2,
+  breaklines=true,
+  aboveskip=4pt,
+  belowskip=4pt,
+  showspaces=false,
+  showstringspaces=false,
+  captionpos=b,
+  literate={~} {$\sim$}{1},
+  showlines=true
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+
+\title{Towards User-Centric DSLs to Manage IoT Systems}
+\author{Moussa Amrani\inst{1} \and Fabian Gilson\inst{1} \and Abdelmounaim Debieche\inst{1}\and Vincent Englebert\inst{1}}
+
+\institute{
+	University of Namur, PReCISE Research Center, Namur, Belgium\\
+	\email{\{moussa.amrani, fabian.gilson, abdelmounaim.debieche, vincent.englebert\}@unamur.be}
+}
+
+%\author{\authorname{Moussa Amrani\sup{1}, Fabian Gilson\sup{1}, Abdelmounaim Debieche\sup{1}, Vincent Englebert\sup{1}}
+%\affiliation{\sup{1}University of Namur, PReCISE Research Center, Namur, Belgium\\
+%\email{\{moussa.amrani, fabian.gilson, abdelmounaim.debieche, vincent.englebert\}@unamur.be}
+%}}
+
+%\keywords{Model-Driven Engineering, Internet of Things, Domain-Specific Language, Rule-based Semantics}
+
+\maketitle 
+
+\begin{abstract}
+Hidden behind the Internet of Things (\IOT), many actors are activelly filling the market with devices and services. From this profusion of actors, a large amount of technologies and APIs, sometimes proprietary, are available, making difficult the interoperability and configuration of systems for \IOT technicians. In order to define and manipulate devices deployed in domestic environments, we propose \IOTDSL, a Domain-Specific Language meant to specify, assemble and describe the behaviour of interconnected devices. Relying on a high-level rule-based language, users in charge of the deployment of \IOT infrastructures are able to describe and combine in a declarative manner structural configurations as well as event-based semantics for devices. This way, language users are freed from technical aspects, playing with high-level representations of devices, while the complexity of the concrete implementation is handled in a dedicated layer where high-level rules are mapped to vendor's API.
+\end{abstract}
+
+
+
+\input{Introduction}
+\input{Context-Challenges}
+\input{IoTDSL}
+\input{RW}
+\input{Conclusion}
+\input{Reference}
+
+\end{document}
