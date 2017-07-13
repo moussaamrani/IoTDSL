@@ -92,7 +92,7 @@ configuration SmartHouse {
 		\end{lstlisting}
 	\end{minipage}\hfill%
 	\begin{minipage}[b]{.45\textwidth}
-		\begin{lstlisting}[language=iotdsl, firstnumber=15]
+		\begin{lstlisting}[language=iotdsl, firstnumber=17]
 	from alarm			   to middle via IP
 	from frontDoor 	   to middle via IP
 	from parentDoor    to middle via IP
@@ -108,7 +108,7 @@ configuration SmartHouse {
 	from hallMotion    to middle via IP
 }
 		\end{lstlisting}
-		\vspace*{.2cm}
+		\vspace*{.3cm}
 	\end{minipage}
 	\captionof{lstlisting}{Network Configuration in \IOTDSL for our smart house.}
 	\label{lis:RE-Network}
@@ -137,9 +137,9 @@ rule SwitchLightsWhenEnter:
 \end{lstlisting}
 
 
-\subsubsection*{Light on when child wake up at night}
+\subsubsection*{Light on when child wakes up at night}
 	
-When Alice's child wake up at night, she would like to have the lights in the bathroom to be switched on to prevent her from falling or injuring ourselves, and then switched off when she gets back to sleep.
+When Alice's child wakes up at night, she would like to have the light in the bathroom to be switched on to prevent her from falling or injuring herself. Analogously, she wants the light to be switched off when she gets back to sleep afterwards.
 	
 \begin{lstlisting}[language=iotdsl]
 rule SwitchBathroomLightOnAtNight:	
@@ -149,7 +149,7 @@ rule SwitchBathroomLightOnAtNight:
   }
   
 rule SwitchBathroomLightOffAtNight:	
-	when (not hallMotion.moving() within 3 min from childDoor.closed()) do {
+	when (not hallMotion.moving() within 3 min from childDoor.closed() not outLight.light(l)) do {
 		bathroomBulb.off()
 	}
 \end{lstlisting}
