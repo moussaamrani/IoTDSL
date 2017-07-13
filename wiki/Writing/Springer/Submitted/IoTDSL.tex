@@ -143,13 +143,14 @@ When Alice's child wakes up at night, she would like to have the light in the ba
 	
 \begin{lstlisting}[language=iotdsl]
 rule SwitchBathroomLightOnAtNight:	
-  when (not outLight.light(l) and not livingLight.light(l) and childDoor.opened() 
+  when (outLight.light(l) == false and livingLight.light(l) == false and childDoor.opened() 
   		and after hallMotion.moving()) do {
   	bathroomBulb.on()
   }
   
 rule SwitchBathroomLightOffAtNight:	
-	when (not hallMotion.moving() within 3 min from childDoor.closed() not outLight.light(l)) do {
+	when (not hallMotion.moving() within 3 min from childDoor.closed() 
+			and outLight.light(l) == false) do {
 		bathroomBulb.off()
 	}
 \end{lstlisting}
