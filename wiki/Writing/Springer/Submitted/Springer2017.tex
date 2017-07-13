@@ -43,6 +43,7 @@
 \newcommand{\DSL}{\textsc{Dsl}\xspace}
 \newcommand{\DSLS}{\textsc{Dsl}s\xspace}
 \newcommand{\MDE}{\textsc{Mde}\xspace}
+\newcommand{\CEP}{\textsc{Cep}\xspace}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,7 +58,7 @@
   morekeywords={
     configuration, node, from, to, via,
     sensing, actuating, gateway, device,
-    rule, when, before, after, and, do, in, out, within
+    rule, when, before, after, and, do, in, out, within, not
   }
 }
 
@@ -93,25 +94,18 @@
 
 \renewcommand{\thelstlisting}{\arabic{lstlisting}}
 
-\title{Towards User-Centric DSLs to Manage IoT Systems}
-\author{Moussa Amrani\inst{1} \and Fabian Gilson\inst{1} \and Abdelmounaim Debieche\inst{1}\and Vincent Englebert\inst{1}}
+\title{Complex Event Processing for User-Centric Management of IoT Systems}
+\author{Moussa Amrani\inst{1} \and Fabian Gilson\inst{1} \and Vincent Englebert\inst{1}}
 
 \institute{
 	University of Namur, PReCISE Research Center, Namur, Belgium\\
-	\email{\{moussa.amrani, fabian.gilson, abdelmounaim.debieche, vincent.englebert\}@unamur.be}
+	\email{\{moussa.amrani, fabian.gilson, vincent.englebert\}@unamur.be}
 }
-
-%\author{\authorname{Moussa Amrani\sup{1}, Fabian Gilson\sup{1}, Abdelmounaim Debieche\sup{1}, Vincent Englebert\sup{1}}
-%\affiliation{\sup{1}University of Namur, PReCISE Research Center, Namur, Belgium\\
-%\email{\{moussa.amrani, fabian.gilson, abdelmounaim.debieche, vincent.englebert\}@unamur.be}
-%}}
-
-%\keywords{Model-Driven Engineering, Internet of Things, Domain-Specific Language, Rule-based Semantics}
 
 \maketitle 
 
 \begin{abstract}
-Hidden behind the Internet of Things (\IOT), many actors are activelly filling the market with devices and services. From this profusion of actors, a large amount of technologies and APIs, sometimes proprietary, are available, making difficult the interoperability and configuration of systems for \IOT technicians. In order to define and manipulate devices deployed in domestic environments, we propose \IOTDSL, a Domain-Specific Language meant to specify, assemble and describe the behaviour of interconnected devices. Relying on a high-level rule-based language, users in charge of the deployment of \IOT infrastructures are able to describe and combine in a declarative manner structural configurations as well as event-based semantics for devices. This way, language users are freed from technical aspects, playing with high-level representations of devices, while the complexity of the concrete implementation is handled in a dedicated layer where high-level rules are mapped to vendor's API.
+	The amount of available connectible devices and Internet of Things (\IOT) solutions is increasing as such equipments are becoming popular and widely available on the market. This growth in popularity goes together with a keen interest for \textit{smart homes} where individuals deploy \textit{ad hoc} solutions in their houses. However, the task to translate the users' needs into a concrete \IOT infrastructure is not straightforward and often require to deal with proprietary APIs and technical details, so that the link to user requirements may be lost as well as the validity of their interaction properties can scarcely be verified. In order to define and manipulate devices deployed in domestic environments, we propose \IOTDSL, a Domain-Specific Language relying on a high-level rule-based language. Users in charge of the deployment of \IOT infrastructures are able to describe and combine in a declarative manner structural configurations as well as event-based semantics for devices. Modellers are then freed from technical aspects, playing with high-level representations of devices. The events orchestration is transferred to a dedicated component where high-level rules are automatically translated into a Complex Event Processing (\CEP) facility meant to evaluate and trigger runtime events. Additionally, simulation code can be generated to play with user-defined configurations.
 \end{abstract}
 
 
