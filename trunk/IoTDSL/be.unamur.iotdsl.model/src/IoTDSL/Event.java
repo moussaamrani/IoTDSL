@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link iotdsl.Event#getParameters <em>Parameters</em>}</li>
- *   <li>{@link iotdsl.Event#isIsSensing <em>Is Sensing</em>}</li>
+ *   <li>{@link iotdsl.Event#getKind <em>Kind</em>}</li>
  * </ul>
  *
  * @see iotdsl.IoTDSLPackage#getEvent()
@@ -39,30 +39,33 @@ public interface Event extends Feature, NamedElement {
 	EList<Parameter> getParameters();
 
 	/**
-	 * Returns the value of the '<em><b>Is Sensing</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * Returns the value of the '<em><b>Kind</b></em>' attribute.
+	 * The default value is <code>"SENSING"</code>.
+	 * The literals are from the enumeration {@link iotdsl.EventType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Is Sensing</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Kind</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Sensing</em>' attribute.
-	 * @see #setIsSensing(boolean)
-	 * @see iotdsl.IoTDSLPackage#getEvent_IsSensing()
-	 * @model default="true" required="true"
+	 * @return the value of the '<em>Kind</em>' attribute.
+	 * @see iotdsl.EventType
+	 * @see #setKind(EventType)
+	 * @see iotdsl.IoTDSLPackage#getEvent_Kind()
+	 * @model default="SENSING" required="true"
 	 * @generated
 	 */
-	boolean isIsSensing();
+	EventType getKind();
 
 	/**
-	 * Sets the value of the '{@link iotdsl.Event#isIsSensing <em>Is Sensing</em>}' attribute.
+	 * Sets the value of the '{@link iotdsl.Event#getKind <em>Kind</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Sensing</em>' attribute.
-	 * @see #isIsSensing()
+	 * @param value the new value of the '<em>Kind</em>' attribute.
+	 * @see iotdsl.EventType
+	 * @see #getKind()
 	 * @generated
 	 */
-	void setIsSensing(boolean value);
+	void setKind(EventType value);
 
 } // Event

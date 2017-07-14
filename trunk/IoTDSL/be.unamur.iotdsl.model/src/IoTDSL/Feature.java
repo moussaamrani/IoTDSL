@@ -15,4 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Feature extends EObject {
+
 } // Feature

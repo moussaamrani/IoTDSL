@@ -6,16 +6,12 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>IoTDSL.ecore</foreignModel>
   <genPackages prefix="IoTDSL" disposableProviderFactory="true" ecorePackage="IoTDSL.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IoTDSL.ecore#//PARAMETER_TYPE">
-      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//PARAMETER_TYPE/IN"/>
-      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//PARAMETER_TYPE/OUT"/>
-      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//PARAMETER_TYPE/INOUT"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IoTDSL.ecore#//EventType">
+      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//EventType/SENSING"/>
+      <genEnumLiterals ecoreEnumLiteral="IoTDSL.ecore#//EventType/ACTUATING"/>
     </genEnums>
     <genClasses ecoreClass="IoTDSL.ecore#//IoTModel">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//IoTModel/types"/>
-    </genClasses>
-    <genClasses ecoreClass="IoTDSL.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="IoTDSL.ecore#//PrimitiveType"/>
     <genClasses ecoreClass="IoTDSL.ecore#//Type"/>
@@ -38,17 +34,18 @@
     <genClasses ecoreClass="IoTDSL.ecore#//Property"/>
     <genClasses ecoreClass="IoTDSL.ecore#//Event">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//Event/parameters"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//Event/isSensing"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//Event/kind"/>
     </genClasses>
-    <genClasses ecoreClass="IoTDSL.ecore#//Parameter">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//Parameter/kind"/>
-    </genClasses>
+    <genClasses ecoreClass="IoTDSL.ecore#//Parameter"/>
     <genClasses ecoreClass="IoTDSL.ecore#//NamedTypedElement">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//NamedTypedElement/type"/>
     </genClasses>
     <genClasses ecoreClass="IoTDSL.ecore#//TypeReference">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference IoTDSL.ecore#//TypeReference/dtype"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IoTDSL.ecore#//TypeReference/ptype"/>
+    </genClasses>
+    <genClasses ecoreClass="IoTDSL.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IoTDSL.ecore#//NamedElement/name"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

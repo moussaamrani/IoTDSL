@@ -2,7 +2,6 @@
  */
 package iotdsl;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Enumeration Literal</b></em>'.
@@ -14,4 +13,5 @@ package iotdsl;
  * @generated
  */
 public interface EnumerationLiteral extends NamedElement {
+
 } // EnumerationLiteral

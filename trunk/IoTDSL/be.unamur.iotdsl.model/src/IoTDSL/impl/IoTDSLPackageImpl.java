@@ -8,6 +8,7 @@ import iotdsl.Device;
 import iotdsl.Enumeration;
 import iotdsl.EnumerationLiteral;
 import iotdsl.Event;
+import iotdsl.EventType;
 import iotdsl.Feature;
 import iotdsl.Gateway;
 import iotdsl.IntegerType;
@@ -47,13 +48,6 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 	 * @generated
 	 */
 	private EClass ioTModelEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass namedElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,7 +187,14 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum parameteR_TYPEEEnum = null;
+	private EClass namedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum eventTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -272,24 +273,6 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 	 */
 	public EReference getIoTModel_Types() {
 		return (EReference)ioTModelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNamedElement() {
-		return namedElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getNamedElement_Name() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -468,7 +451,7 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEvent_IsSensing() {
+	public EAttribute getEvent_Kind() {
 		return (EAttribute)eventEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -479,15 +462,6 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 	 */
 	public EClass getParameter() {
 		return parameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getParameter_Kind() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -540,8 +514,26 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getPARAMETER_TYPE() {
-		return parameteR_TYPEEEnum;
+	public EClass getNamedElement() {
+		return namedElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getEventType() {
+		return eventTypeEEnum;
 	}
 
 	/**
@@ -574,9 +566,6 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 		// Create classes and their features
 		ioTModelEClass = createEClass(IO_TMODEL);
 		createEReference(ioTModelEClass, IO_TMODEL__TYPES);
-
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
 		primitiveTypeEClass = createEClass(PRIMITIVE_TYPE);
 
@@ -612,10 +601,9 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 
 		eventEClass = createEClass(EVENT);
 		createEReference(eventEClass, EVENT__PARAMETERS);
-		createEAttribute(eventEClass, EVENT__IS_SENSING);
+		createEAttribute(eventEClass, EVENT__KIND);
 
 		parameterEClass = createEClass(PARAMETER);
-		createEAttribute(parameterEClass, PARAMETER__KIND);
 
 		namedTypedElementEClass = createEClass(NAMED_TYPED_ELEMENT);
 		createEReference(namedTypedElementEClass, NAMED_TYPED_ELEMENT__TYPE);
@@ -624,8 +612,11 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 		createEReference(typeReferenceEClass, TYPE_REFERENCE__DTYPE);
 		createEReference(typeReferenceEClass, TYPE_REFERENCE__PTYPE);
 
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
 		// Create enums
-		parameteR_TYPEEEnum = createEEnum(PARAMETER_TYPE);
+		eventTypeEEnum = createEEnum(EVENT_TYPE);
 	}
 
 	/**
@@ -680,9 +671,6 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 		initEClass(ioTModelEClass, IoTModel.class, "IoTModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIoTModel_Types(), this.getType(), null, "types", null, 1, -1, IoTModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -717,10 +705,9 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 
 		initEClass(eventEClass, Event.class, "Event", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEvent_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEvent_IsSensing(), ecorePackage.getEBoolean(), "isSensing", "true", 1, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEvent_Kind(), this.getEventType(), "kind", "SENSING", 1, 1, Event.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameter_Kind(), this.getPARAMETER_TYPE(), "kind", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(namedTypedElementEClass, NamedTypedElement.class, "NamedTypedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNamedTypedElement_Type(), this.getTypeReference(), null, "type", null, 1, 1, NamedTypedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -729,11 +716,13 @@ public class IoTDSLPackageImpl extends EPackageImpl implements IoTDSLPackage {
 		initEReference(getTypeReference_Dtype(), this.getDeclaredType(), null, "dtype", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeReference_Ptype(), this.getPrimitiveType(), null, "ptype", null, 0, 1, TypeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 1, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
-		initEEnum(parameteR_TYPEEEnum, iotdsl.PARAMETER_TYPE.class, "PARAMETER_TYPE");
-		addEEnumLiteral(parameteR_TYPEEEnum, iotdsl.PARAMETER_TYPE.IN);
-		addEEnumLiteral(parameteR_TYPEEEnum, iotdsl.PARAMETER_TYPE.OUT);
-		addEEnumLiteral(parameteR_TYPEEEnum, iotdsl.PARAMETER_TYPE.INOUT);
+		initEEnum(eventTypeEEnum, EventType.class, "EventType");
+		addEEnumLiteral(eventTypeEEnum, EventType.SENSING);
+		addEEnumLiteral(eventTypeEEnum, EventType.ACTUATING);
 
 		// Create resource
 		createResource(eNS_URI);

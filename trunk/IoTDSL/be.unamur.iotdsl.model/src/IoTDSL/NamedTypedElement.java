@@ -2,7 +2,6 @@
  */
 package iotdsl;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Named Typed Element</b></em>'.

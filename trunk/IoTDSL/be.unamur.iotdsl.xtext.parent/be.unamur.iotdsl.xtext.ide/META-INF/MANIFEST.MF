@@ -10,3 +10,6 @@ Require-Bundle: be.unamur.iotdsl.xtext,
  org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: be.unamur.iotdsl.xtext.ide.contentassist.antlr,
+ be.unamur.iotdsl.xtext.ide.contentassist.antlr.internal
+
