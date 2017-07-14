@@ -1,0 +1,13 @@
+gateway gw
+
+enumeration E {TOTO; TOTO;}
+enumeration E {TO;}
+
+device Temp{
+	sensing temp()
+	actuating do()
+}
+
+device Temp{
+	
+}
