@@ -10,14 +10,14 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>EVENT TYPE</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Event Type</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see iotdsl.IoTDSLPackage#getEVENT_TYPE()
+ * @see iotdsl.IoTDSLPackage#getEventType()
  * @model
  * @generated
  */
-public enum EVENT_TYPE implements Enumerator {
+public enum EventType implements Enumerator {
 	/**
 	 * The '<em><b>SENSING</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -69,36 +69,36 @@ public enum EVENT_TYPE implements Enumerator {
 	public static final int ACTUATING_VALUE = 1;
 
 	/**
-	 * An array of all the '<em><b>EVENT TYPE</b></em>' enumerators.
+	 * An array of all the '<em><b>Event Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final EVENT_TYPE[] VALUES_ARRAY =
-		new EVENT_TYPE[] {
+	private static final EventType[] VALUES_ARRAY =
+		new EventType[] {
 			SENSING,
 			ACTUATING,
 		};
 
 	/**
-	 * A public read-only list of all the '<em><b>EVENT TYPE</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Event Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<EVENT_TYPE> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<EventType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>EVENT TYPE</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Event Type</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static EVENT_TYPE get(String literal) {
+	public static EventType get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			EVENT_TYPE result = VALUES_ARRAY[i];
+			EventType result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -107,16 +107,16 @@ public enum EVENT_TYPE implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>EVENT TYPE</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Event Type</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static EVENT_TYPE getByName(String name) {
+	public static EventType getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			EVENT_TYPE result = VALUES_ARRAY[i];
+			EventType result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -125,14 +125,14 @@ public enum EVENT_TYPE implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>EVENT TYPE</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Event Type</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static EVENT_TYPE get(int value) {
+	public static EventType get(int value) {
 		switch (value) {
 			case SENSING_VALUE: return SENSING;
 			case ACTUATING_VALUE: return ACTUATING;
@@ -167,7 +167,7 @@ public enum EVENT_TYPE implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EVENT_TYPE(int value, String name, String literal) {
+	private EventType(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -211,4 +211,4 @@ public enum EVENT_TYPE implements Enumerator {
 		return literal;
 	}
 	
-} //EVENT_TYPE
+} //EventType
