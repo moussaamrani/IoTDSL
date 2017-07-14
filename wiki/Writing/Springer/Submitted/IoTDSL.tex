@@ -56,11 +56,11 @@ device Alarm {
 }
     \end{lstlisting}
 	\end{minipage}
-\captionof{lstlisting}{Type declarations in \IOTDSL: \textsf{sensing} or \textsf{actuating} capabilities as high-level events.}
+\captionof{lstlisting}{Type declarations in \IOTDSL: capabilities as high-level events.}
 \label{lis:RE-TypeDeclarations}
 \end{table}
 
-A special device, introduced with the keyword \textsf{gateway} will be in charge of centralising data from all devices connected to it, as we will show in Section \ref{sec:IoTDSL-NetworkConfiguration}. This device will be responsible of the event orchestration and will host the \CEP engine that embeds the implementation of the business rules. Also note that the above model is the \textit{user-defined} part of \IOTDSL. In the background, abstract events attached to all devices will need to be mapped to concrete low-level APIs events using a dedicated mapping language that is out of the scope of this paper.
+A special device, introduced with the keyword \textsf{gateway} will be in charge of centralising data from all devices connected to it, as we will show in Section \ref{sec:IoTDSL-NetworkConfiguration}. This device will be responsible of the event orchestration and will host the \CEP engine that embeds the implementation of the business rules. Also note that the above model is the \textit{user-defined} part of \IOTDSL. In the background, abstract events attached to all devices will need to be mapped to concrete low-level \textsc{Api}s events using a dedicated mapping language that is out of the scope of this paper.
 
 \subsection{Network Configuration}
 \label{sec:IoTDSL-NetworkConfiguration}
