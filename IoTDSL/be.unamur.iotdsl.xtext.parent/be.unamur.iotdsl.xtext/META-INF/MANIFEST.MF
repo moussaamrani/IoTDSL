@@ -8,5 +8,20 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: be.unamur.iotdsl.model,
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.5.0"
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: be.unamur.iotdsl.xtext.validation,
+ be.unamur.iotdsl.xtext.generator,
+ be.unamur.iotdsl.xtext,
+ be.unamur.iotdsl.xtext.util,
+ be.unamur.iotdsl.xtext.formatting,
+ be.unamur.iotdsl.xtext.services,
+ be.unamur.iotdsl.xtext.parser.antlr.internal,
+ be.unamur.iotdsl.xtext.scoping,
+ be.unamur.iotdsl.xtext.serializer,
+ be.unamur.iotdsl.xtext.parser.antlr
+Import-Package: org.apache.log4j

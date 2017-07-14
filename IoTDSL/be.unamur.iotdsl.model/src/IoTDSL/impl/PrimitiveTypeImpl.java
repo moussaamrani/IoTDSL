@@ -4,7 +4,6 @@ package iotdsl.impl;
 
 import iotdsl.IoTDSLPackage;
 import iotdsl.PrimitiveType;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

@@ -4,7 +4,6 @@ package iotdsl.impl;
 
 import iotdsl.EnumerationLiteral;
 import iotdsl.IoTDSLPackage;
-
 import org.eclipse.emf.ecore.EClass;
 
 /**

@@ -84,8 +84,8 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case IoTDSLPackage.PARAMETER_TYPE:
-				return createPARAMETER_TYPEFromString(eDataType, initialValue);
+			case IoTDSLPackage.EVENT_TYPE:
+				return createEventTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -99,8 +99,8 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case IoTDSLPackage.PARAMETER_TYPE:
-				return convertPARAMETER_TYPEToString(eDataType, instanceValue);
+			case IoTDSLPackage.EVENT_TYPE:
+				return convertEventTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -251,8 +251,8 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PARAMETER_TYPE createPARAMETER_TYPEFromString(EDataType eDataType, String initialValue) {
-		PARAMETER_TYPE result = PARAMETER_TYPE.get(initialValue);
+	public EventType createEventTypeFromString(EDataType eDataType, String initialValue) {
+		EventType result = EventType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -262,7 +262,7 @@ public class IoTDSLFactoryImpl extends EFactoryImpl implements IoTDSLFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertPARAMETER_TYPEToString(EDataType eDataType, Object instanceValue) {
+	public String convertEventTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

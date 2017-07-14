@@ -14,4 +14,5 @@ package iotdsl;
  * @generated
  */
 public interface PrimitiveType extends Type {
+
 } // PrimitiveType

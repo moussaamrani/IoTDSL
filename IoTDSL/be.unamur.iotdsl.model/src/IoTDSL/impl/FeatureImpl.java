@@ -4,9 +4,7 @@ package iotdsl.impl;
 
 import iotdsl.Feature;
 import iotdsl.IoTDSLPackage;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
