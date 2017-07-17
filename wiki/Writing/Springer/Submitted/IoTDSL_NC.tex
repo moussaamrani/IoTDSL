@@ -1,0 +1,54 @@
+\subsection{Network Configuration}
+\label{sec:IoTDSL-NetworkConfiguration}
+
+The configuration constructs of \IOTDSL are specified in the purple-part of Figure~\ref{fig:IoTDevice-MM}. Since we use an architecture centralised around gateways, a network \textsf{Configuration} is a graph-like structure where vertices are \textsf{Gateway}s and \textsf{NodeInstance}s (so that instances may communicate with each others), while edges represent \textsf{CommunicationPath}s (or channels). Such paths define, among others, one or more protocols used to interact. We actually rely on existing platforms, such as OpenRemote\footnote{\url{http://www.openremote.org}} or SmartThings\footnote{\url{https://www.smartthings.com/}} to handle the intricate details of the protocols since such details are, from an end-user point of view, technical aspects rather than essential matters of the configuration itself. By knowing which protocols are used between each pair of devices, we can automatically perform data conversion in the proper format required by the protocols: most of those protocols are already implemented in \textit{General-Purpose Programming Languages} (\textsc{Gpl}s), like Java or C.
+
+Listing~\ref{lis:RE-Network} shows an instantiation as well as the connection that conforms to the types given in Listing~\ref{lis:RE-TypeDeclarations} and the configuration presented in Figure~\ref{fig:scenario}.
+	
+	
+\begin{table}
+	\begin{minipage}[b]{.45\textwidth }%
+		\begin{lstlisting}[language=iotdsl]	
+configuration SmartHouse {
+	node middle   		   : Middleware
+	node alarm					 : Alarm
+	node toggle          : ToggleSwitch
+	node frontDoor			 : DoorDetector
+	node parentDoor			 : DoorDetector
+	node childDoor			 : DoorDetector
+	node balconyDoor 		 : DoorDetector
+	node outLight				 : LightSensor
+	node livingLight		 : LightSensor
+	node livingBulb			 : LightBulb
+	node bathroomBulb    : LightBulb
+	node foyerBulb       : LightBulb
+	node balconyMotion	 : MotionDetector
+	node foyerMotion  	 : MotionDetector
+	node hallMotion	     : MotionDetector
+		\end{lstlisting}
+	\end{minipage}\hfill%
+	\begin{minipage}[b]{.45\textwidth}
+		\begin{lstlisting}[language=iotdsl, firstnumber=17]
+	from alarm			   to middle via IP
+	from frontDoor 	   to middle via IP
+	from parentDoor    to middle via IP
+	from childDoor     to middle via IP
+	from balconyDoor   to middle via IP
+	from outLight      to middle via IP
+	from livingLight   to middle via IP
+	from livingBulb    to middle via IP
+	from bathroomBulb  to middle via IP
+	from corridorBulb  to middle via IP
+	from balconyMotion to middle via IP
+	from frontMotion   to middle via IP
+	from hallMotion    to middle via IP
+}
+		\end{lstlisting}
+		\vspace*{.3cm}
+	\end{minipage}
+	\captionof{lstlisting}{Network Configuration in \IOTDSL for our smart house.}
+	\label{lis:RE-Network}
+\end{table}
+	
+A specific device is considered as an instance of a defined type such that particular devices with the same set of capabilities may be distinguished via identifiable unique references. Communications are purely declarative and only mention the protocol type (introduced by the \textsf{via} keyword). In our example, we simply decided to use an \textsf{IP} protocol for all bindings. Note that a similar mapping process that the one described at the end of Section~\ref{sec:IoTDSL-Type} is required to reify abstract connections between \textsf{NodeInstances} to physical ports and protocols, but again, these mapping statements are outside of the scope of this paper. 
+
