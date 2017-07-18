@@ -3,62 +3,56 @@
 
 Business rules are the core of the manipulation of \IOT systems and compose the third part of \IOTDSL as detailed in the bottom yellow part of Figure~\ref{fig:IoTDevice-MM}. This last sub-language relies on an event-based framework that allows to specify a set of \textsf{Rule}s expressing the many functionalities an end-user wants to achieve in his/her concrete configuration. 
 
-In \IOTDSL, a rule is identified by the keyword \textsf{rule} followed by an unique identifier and its body is of the form << \texttt{\textbf{\color{codeviolet}{when}} (trigger) \textbf{\color{codeviolet}{do}} \{ reaction \}} >>, where the \textsf{trigger} specifies a boolean condition under which given \textsf{reaction} must be triggered. Rules' \textsf{trigger}s are cyclically evaluated against the surrounding environment and a \textsf{reaction} defines a sequential or parallel combination of capabilities, enabling to sort actions by, or require data from some identifiable devices. Inside the \textsf{trigger}, users typically check events to evaluate their presences, but as we will see in the following examples, they are also able to check on their absence or returned values. A typical \textsf{reaction} may be to switch on all lights in a house, or only the ones of a certain type by sending new events.
+An \IOTDSL Business Rule is identified by the keyword \textsf{rule} followed by an unique identifier, and a body of the form << \lstinline[language=iotdsl]{when (trigger) do reaction} >>. Rules' \lstinline[language=iotdsl]{trigger}s are cyclically evaluated against the surrounding environment and specify the conditions under which the corresponding \lstinline[language=iotdsl]{reaction}s have to be performed to realise the end-users' scenarios. A \lstinline[language=iotdsl]{reaction} defines actuations on the \IOT system to send or require data of identified devices, or issues events that are internally used to synchronise rules. 
 
-For now, our approach is purely middleware-oriented: rules are gathered and evaluated into a single gateway. For efficiency and resource consumption reasons, we are also exploring how to automatically identify parts of the business logic that can be exported to advanced nodes with sufficient processing and power resources in order to lower network and gateway overuses.
+%must be triggered. Rules' \textsf{trigger}s are cyclically evaluated against the surrounding environment and a \textsf{reaction} defines a sequential or parallel combination of capabilities, enabling to sort actions by, or require data from some identifiable devices. Inside the \textsf{trigger}, users typically check events to evaluate their presences, but as we will see in the following examples, they are also able to check on their absence or returned values. A typical \textsf{reaction} may be to switch on all lights in a house, or only the ones of a certain type by sending new events.
+
+Our approach is currently purely middleware-oriented: all rules are evaluated inside a single gateway that supposedly possesses enough processing power. We leave as future work the exploration of parallelisation techniques to support multiple gateways that communicate appropriately, or the possibility to decentralise parts of the computation into nodes with sufficient processing and power resources to optimise resource consumption and lighten communication. 
 
 We now illustrate how our smart house scenario presented in Section \ref{sec:Motivation} can be translated into business rules in \IOTDSL with the devices' definitions detailed in Listings~\ref{lis:RE-TypeDeclarations} and \ref{lis:RE-Network}. We identified three different situations to depict the usage of business rules and highlight the main assets of \IOTDSL.
 
-\subsubsection*{Light on when coming home}
-
-When Alice gets home (and thus opens the front door), she wants the lights to be automatically switched on in the foyer and in the living room.
-
-\begin{lstlisting}[language=iotdsl,label=lis:home-rule,caption=\IOTDSL business rule to switch on the lights when coming home]
-rule SwitchLightsWhenEnter:
-  when (frontDoor.opened() and after foyerMotion.moving()) do {
-    foyerBulb.on()
-    livingBulb.on()
-  }
-\end{lstlisting}
-
-As we are dealing with concurrent events, we introduce two special operators on top of common boolean operators, called \textsf{before} and \textsf{after}. With these event modifiers we are able to check that two events connected by a binary operator (an \texttt{and} in this particular example) appear in a reasonable time window. In the above rule, the \texttt{frontDoor} must be opened and \textit{quasi subsequently} followed by a movement detection by the \texttt{foyerMotion}.
-
-One or more events, declared in a rather imperative way may be triggered from a rule. The concrete execution semantics is left to the user, where in some cases, all events will be produced asynchronously or simultaneously, where in other they will be produced sequentially. This freedom in the language is meant to cover any execution semantics, especially because this semantics is often domain-specific and depends on technical details our end users probably do not want to deal with at that level of abstraction.
-
-\subsubsection*{Light on when child wakes up at night}
+\begin{description}[leftmargin=0cm]
+	\item[Switching entrance lights on when coming in]  When Alice gets home (and thus opens the front door), she wants the lights to be automatically switched on in the foyer and in the living room.
+	\begin{lstlisting}[language=iotdsl,label=lis:home-rule,caption=\IOTDSL business rule to switch on the lights when coming home]
+	rule SwitchLightsWhenEnter:
+		when (frontDoor.opened() and after foyerMotion.moving()) do {
+			foyerBulb.on() ;
+			livingBulb.on()
+		}
+	\end{lstlisting}
+	As we are dealing with concurrent events, we introduce two special operators on top of common boolean operators, called \textsf{before} and \textsf{after}. With these event modifiers we are able to check that two events connected by a binary operator (an \texttt{and} in this particular example) appear in a reasonable time window. In the above rule, the \texttt{frontDoor} must be opened and \textit{quasi subsequently} followed by a movement detection by the \texttt{foyerMotion}.
 	
-When Alice's child wakes up at night, she would like to have the light in the bathroom to be switched on to prevent her from falling or injuring herself. Analogously, she wants the light to be switched off when she gets back to sleep afterwards.
+	One or more events, declared in a rather imperative way may be triggered from a rule. The concrete execution semantics is left to the user, where in some cases, all events will be produced asynchronously or simultaneously, where in other they will be produced sequentially. This freedom in the language is meant to cover any execution semantics, especially because this semantics is often domain-specific and depends on technical details our end users probably do not want to deal with at that level of abstraction.
 
-\begin{lstlisting}[language=iotdsl,label=lis:night-rule,caption=\IOTDSL business rules to switch on\//off the lights at night]
-rule SwitchBathroomLightOnAtNight:	
-  when (outLight.light(l) == false and livingLight.light(l) == false 
-  		and (childDoor.opened() and after hallMotion.moving())) do {
-  	bathroomBulb.on()
-  }
+	\item[Illuminate bathroom when children wake up at night] When Alice's child wakes up at night, she would like to have the light in the bathroom to be switched on to prevent her from falling or injuring herself. Analogously, she wants the light to be switched off when she gets back to sleep afterwards.
+	\begin{lstlisting}[language=iotdsl,label=lis:night-rule,caption=\IOTDSL business rules to switch on\//off the lights at night]
+		rule SwitchBathroomLightOnAtNight:	
+			when (outLight.light(l) == false and livingLight.light(l) == false and 
+					(childDoor.opened() and after hallMotion.moving())) do {
+				bathroomBulb.on()
+			}
   
-rule SwitchBathroomLightOffAtNight:	
-	when (not hallMotion.moving() within 3 min from childDoor.closed() 
-			and outLight.light(l) == false) do {
-		bathroomBulb.off()
-	}
-\end{lstlisting}
+		rule SwitchBathroomLightOffAtNight:	
+			when (not hallMotion.moving() within 3 min from childDoor.closed() 
+					and outLight.light(l) == false) do {
+				bathroomBulb.off()
+			}
+	\end{lstlisting}
+	The first rule expresses that, at night, when both \texttt{LightSensor} are sending \texttt{false} values and when Alice's child opens her door \textit{immediately} followed by some movements in the hall, the light in the bathroom is switched on. As the \texttt{LightSensor.light()} events are typed events sending boolean values, we have to evaluate their values with the parameter \texttt{l} implicitly resolved as the event argument. We also note that at line 3, we must use parenthesis because the \textsf{after} modifier needs to know what (set of) events must precede the other(s) event(s) on the right hand side. 
 
-The first rule expresses that, at night, when both \texttt{LightSensor} are sending \texttt{false} values and when Alice's child opens her door \textit{immediately} followed by some movements in the hall, the light in the bathroom is switched on. As the \texttt{LightSensor.light()} events are typed events sending boolean values, we have to evaluate their values with the parameter \texttt{l} implicitly resolved as the event argument. We also note that at line 3, we must use parenthesis because the \textsf{after} modifier needs to know what (set of) events must precede the other(s) event(s) on the right hand side. 
+	The second rule in Listing~\ref{lis:night-rule} checks on the absence of an event \textsf{within} a given time frame after (\textit{i.e.} \textsf{from}) another event has been detected. In this rule, we state that when no more movement have been detected in the hall for three minutes after the door of the child's room has been closed, the light in the bathroom must be switched off. In \IOTDSL, users are then able to check on the absence of an event within a time frame of their choice (with a set of predefined time units). It is worth noting that the \textsf{not} qualifiers is only used to check on the absence of an event, where the \texttt{outLight.light(l) == false} checks on the return value of the event. We could have had an event returning \textsf{integer} values like \texttt{0} or \texttt{1} so the boolean expression would have been \texttt{outLight.light(l) == 0}.
 
-The second rule in Listing~\ref{lis:night-rule} checks on the absence of an event \textsf{within} a given time frame after (\textit{i.e.} \textsf{from}) another event has been detected. In this rule, we state that when no more movement have been detected in the hall for three minutes after the door of the child's room has been closed, the light in the bathroom must be switched off. In \IOTDSL, users are then able to check on the absence of an event within a time frame of their choice (with a set of predefined time units). It is worth noting that the \textsf{not} qualifiers is only used to check on the absence of an event, where the \texttt{outLight.light(l) == false} checks on the return value of the event. We could have had an event returning \textsf{integer} values like \texttt{0} or \texttt{1} so the boolean expression would have been \texttt{outLight.light(l) == 0}.
-
-\subsubsection*{Child on balcony without surveillance}
+	\item[Report unsupervised children on balcony] Alice considers that it is a critical situation if a child enters into the balcony without her knowledge, because of fall risks. To avoid that, she placed a switch button high enough that only an adult could press when accompanying a child outside. If the button is not press within 3 seconds after someone enters the balcony, an alarm should notify the situation.
+	\begin{lstlisting}[language=iotdsl,label=lis:balcony-rule,caption=\IOTDSL business rules ring the alarm when Alice's child alone on balcony]
+	rule AlarmWhenChildOnBalcony:	
+		when (not toggle.toggle() within 3 sec from 
+				(balconyDoor.opened() and after balconyMotion.moving())) do {
+			alarm.sound()
+		}
+	\end{lstlisting}
+	In other words, the above rule states that after the door of the balcony has been opened and any movement has been detected on the balcony, but no toggle button has been pressed in the next 3 seconds, the alarm must ring. This last rule is somewhat similar to the ones in Listing~\ref{lis:night-rule} except that we combine the absence of an event in a time frame directly followed by the detection of other events in a sequential or in quasi simultaneity. In \IOTDSL, users are then able to fully describe a sequential execution of events, \textit{i.e} a complete business workflow, that must be checked before triggering some \textsf{reaction}.
+\end{description}
 	
-There is a critical situation when Alice's child goes onto the balcony without supervision. To that end, Alice has placed a switch button that an adult has to press when going on the balcony. If the toggle switch is not pressed within 3 sec after someone gets onto the balcony, the alarm must ring.
 
-\begin{lstlisting}[language=iotdsl,label=lis:balcony-rule,caption=\IOTDSL business rules ring the alarm when Alice's child alone on balcony]
-rule AlarmWhenChildOnBalcony:	
-  when (not toggle.toggle() within 3 sec from 
-  		(balconyDoor.opened() and after balconyMotion.moving())) do {
-    alarm.sound()
-  }
-\end{lstlisting}
-
-In other words, the above rule states that after the door of the balcony has been opened and any movement has been detected on the balcony, but no toggle button has been pressed in the next 3 seconds, the alarm must ring. This last rule is somewhat similar to the ones in Listing~\ref{lis:night-rule} except that we combine the absence of an event in a time frame directly followed by the detection of other events in a sequential or in quasi simultaneity. In \IOTDSL, users are then able to fully describe a sequential execution of events, \textit{i.e} a complete business workflow, that must be checked before triggering some \textsf{reaction}.
 
 
