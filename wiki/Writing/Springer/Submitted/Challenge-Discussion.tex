@@ -16,14 +16,14 @@ Based on the literature, we also identified seven important challenges a \IOT mo
 	
 	\item[Scalability] As we rely on \CEP for device communication, almost the whole scalability issue is on the \CEP engine's hand. But, as we have chosen our infrastructure carefully, current monolithic solution is dividable into smaller entities that will collaborate if an \IOT network becomes large, such that some (set of) business rules will be deployed on distinct entities, minimising the work load on the middleware, even needing no middleware at all and working in a fully-decentralised way.
 	
-	\item[Data Management] 
+	\item[Data Management] To cope with an increase of exchanged data, prioritisation and decentralisation policies can be handled by our framework. On the one hand, thanks to configuration possibilities of TRex, events retention policies may be configured. On the other hand, again because TRex supports distributed evaluation of events, the workload may be scattered on the whole network. However, replicating \CEP-capable nodes may produce more events and saturate the network with data transmissions, so an appropriate trade-off must be found between having more \textit{one-to-one} communications or grouping more logic inside one node.
 	
 \end{description}
 
 However, we scarcely focus on the remaining two challenges, even if they are partially encompassed in current language.
 
 \begin{description}
-	\item[Protocol Interoperability]
+	\item[Protocol Interoperability] Concrete connections of \textit{things} is not addressed at current stage of development. Mapping rules between abstract devices definitions and concrete specifications of objects are under investigation. Furthermore, as a fully \MDE approach, \IOTDSL should provide generation capabilities of partial \textit{glue} code to map between tangible objects and our \CEP middleware.
 
-	\item[Non-Functional Properties] 
+	\item[Non-Functional Properties] As for communication-specific features, more general non-functional properties should be expressible in \IOTDSL, especially as we deal with high-level user requirements. This essential aspect is also under investigation to empower modellers with semantic refinements at the typing level and also at the technical mapping level we are currently considering.
 \end{description}
