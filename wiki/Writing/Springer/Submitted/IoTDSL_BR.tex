@@ -26,6 +26,8 @@ We now illustrate how our smart house scenario presented in Section \ref{sec:Mot
 		
 	Note that reactions are defined as a sequence that does not matter: the order in which the \lstinline[language=iotdsl]{foyerBulb} and the \lstinline[language=iotdsl]{livingBulb} switch on largely depends on the platform capacities, i.e. they can be actuated synchronously or sequentially (in which case, no guarantee is given that the definition order will be respected). At the abstraction level \IOTDSL operates, it is irrelevant since the end user wishes to see both switched on at some point, without having to consider low-level details that would enforce such behaviour.
 
+	\moussa{Add rule with temperature???}
+
 	\item[Illuminate bathroom when children wake up at night] When Alice's little boy wakes up at night, she would like to have the light in the bathroom to be switched on to prevent him from falling or injuring himself. Analogously, she wants the light to be switched off when he gets back to sleep afterwards.
 	\begin{lstlisting}[language=iotdsl,
 							label=lis:night-rule,
