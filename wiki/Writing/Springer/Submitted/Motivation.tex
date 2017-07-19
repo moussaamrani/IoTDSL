@@ -1,10 +1,26 @@
 \section{Motivation and Challenges}
 \label{sec:Motivation}
 
-In domestic configurations, \IOT devices may be used in many different ways for many purposes. These devices are usually used in combination with each other in order to fulfil larger goals required by end users. Furthermore, for the same set of devices, say a temperature sensor and a connected heating system, the way they communicate (or not) can be very dissimilar. For example, in some situations the temperature sensor will regulate the heating system, where in other circumstances, it will be used to prevent fire situations. 
+A major issue for \IOT is the rapid growth of the offer, spanning from very simple devices (e.g., temperature, light or sound sensors) to more elaborate objects that interact with their environment (e.g. building security or multimedia solutions). For domestic usage however, it is likely the case that devices would have simple capabilities, while responding to various scenarios specific to the inhabitants. Therefore, taming the complexity of smart homes requires handling the \emph{interactions} between devices, rather than their own, specific capabilities. 
 
-Considering the wide range of possible use cases for nowadays devices must be coupled to the profusion of vendors, hardware,\textsc{Api}s and so forth, which overburden the work of \IOT technicians when dealing with end user requirements. Besides the need for more standardization in \IOT specifications, there is also a crucial need for abstract definition of the semantics of \IOT configurations~\cite{park-16}. In order to illustrate our proposal, we will use an hypothetical \IOT configuration depicted in Figure~\ref{fig:scenario} where Alice's apartment is represented with a set of sensors and actuators.
+Even in this context, simple devices could be manipulated in a plethora of scenarios: for example, a simple temperature sensor that simply reports a value could be paired with a heating system to regulate rooms temperature to keep them in comfortable ranges, or detect possible fire situations in the kitchen. 
 
+At a technical level, driving such devices for realising end-users scenarios is hampered by the complexity of vendors and their proprietary data formats, the plethora of \textsc{Api}s that are quickly evolving, and the large variety of communication protocols, among others. This overburden the work of \IOT technicians when dealing with end user requirements. Besides the need for more standardization in \IOT specifications, there is also a crucial need for abstract definition of the semantics of \IOT configurations~\cite{park-16}.
+
+Our proposal consists of two facets. First, we clearly separate the responsibilities of the \emph{technicians}, who deal with the technical details relative to a specific solution deployed in a smart home \cite{park-16}; and \emph{end-users}, who control the devices according to their changing, evolving needs. Second, we provide users a way to interact with their home at an abstract level: far from knowing how each and every device works, users manipulate them only as an abstract level where interactions are carried through events.
+
+In this section, we show a typical smart home instalment with affordable, simple devices, then outline the main components of a \DSL that captures \IOT systems. We then list the main challenges such an \IOT \DSL should address to effectively provide a viable solution.
+
+%In domestic configurations, \IOT devices may be used in many different ways for many purposes. These devices are usually used in combination with each other in order to fulfil larger goals required by end users. Furthermore, for the same set of devices, say a temperature sensor and a connected heating system, the way they communicate (or not) can be very dissimilar. For example, in some situations the temperature sensor will regulate the heating system, where in other circumstances, it will be used to prevent fire situations. 
+
+%Considering the wide range of possible use cases for nowadays devices must be coupled to the profusion of vendors, hardware,\textsc{Api}s and so forth, which overburden the work of \IOT technicians when dealing with end user requirements. Besides the need for more standardization in \IOT specifications, there is also a crucial need for abstract definition of the semantics of \IOT configurations~\cite{park-16}. 
+
+\subsection{Typical \IOT Scenarios}
+\label{sec:Motivation-Scenarios}
+
+Figure \ref{fig:scenario} describes a typical instalment at Alice's smart home, the fictional character we use in our case study. Alice asks her technician to deploy simple devices: light sensors and light bulbs to lighten the rooms; motion and door detectors to check human presence; an alarm that produces a sound in case of emergency; and a toogle button installed in the balcony for security purposes. 
+
+%In order to illustrate our proposal, we will use a hypothetical \IOT configuration depicted in Figure~\ref{fig:scenario} where Alice's apartment is represented with a set of sensors and actuators.
 \begin{figure}%
 	\centering  
 	\includegraphics[width=.9\linewidth]{scenario.png}%
@@ -12,7 +28,14 @@ Considering the wide range of possible use cases for nowadays devices must be co
 	\label{fig:scenario}%
 \end{figure}
 
-This typical smart home configuration consists of light sensors and bulbs to handle the light in the apartment, motion and door detectors to verify the presence of persons, an alarm in case of emergency and a toggle switch on the balcony. Even if the amount of types of devices is rather limited, we can already highlight a set of features absolutely needed to describe the devices, network configuration and specify its dynamic aspects.
+Alice is interested in simple scenarios for her comfort and her little boy's security: she want the the entrance lights to automatically switch on to welcome her when she arrives home; she likes her apartment to stay reasonably warm along the year; and since her boy often wake up at night and play in the balcony, she needs to ensure he does not fall or injure himself. Those scenarios seems already possible with the current equipment she has, and we will propose rules to implement them in Section \ref{sec:IoTDSL-BusinessRules}.
+
+%This typical smart home configuration consists of light sensors and bulbs to handle the light in the apartment, motion and door detectors to verify the presence of persons, an alarm in case of emergency and a toggle switch on the balcony. Even if the amount of types of devices is rather limited, we can already highlight a set of features absolutely needed to describe the devices, network configuration and specify its dynamic aspects.
+
+\subsection{Components for an \IOT Language}
+\label{sec:Motivation-Components}
+
+We argue that a good way of capturing the many variations of scenarios relying on a specific \IOT system deployed at home would consists in offering end users, i.e. home inhabitants like Alice, and technicians in charge of configuring such systems and effectively deploying them, a \DSL that provides at least the following components:
 
 \begin{description}
 	\item[Device Description] We need facility to make a precise inventory of the devices used in a specific deployment as well as the high-level capabilities of these devices, described in terms that are immediately understandable by end-users, as opposed to conveying technical details about how those devices precisely operate;
@@ -22,7 +45,14 @@ This typical smart home configuration consists of light sensors and bulbs to han
 	\item[Dynamics] A way to describe the interactions wished by end-users, \textit{i.e.} how to leverage the functionalities of the devices to effectively realise one or several scenarios that are convenient for the end-users.  
 \end{description}
 
-Those three features are obviously not sufficient to obtain a fully-fledged solution that becomes adaptable to any situation, but they still represent necessary steps to provide end-users the capacity to manipulate a collection of devices without relying on specific technologies. Though, the definition of such \DSLS should encompass a series of facilities dedicated to hide the hardware-related constraints, but still user-defined abstract models should be somehow \textit{transformable} and \textit{traceable} into concrete infrastructures with simulation and verification possibilities. We particularly mention the following challenges:
+Those components are obviously not sufficient to obtain a fully-fledged solution that becomes adaptable to any situation, but they still represent necessary steps to provide end-users the capacity to manipulate a collection of devices without relying on specific technologies. Defining such \DSLS should encompass a series of facilities dedicated to hide hardware- and protocol-related constraints, and high-level models of devices should somehow be easily \emph{transformable} and \emph{traceable} into concrete infrastructures with simulation and verification possibilities.
+
+%Though, the definition of such \DSLS should encompass a series of facilities dedicated to hide the hardware-related constraints, but still user-defined abstract models should be somehow \textit{transformable} and \textit{traceable} into concrete infrastructures with simulation and verification possibilities. 
+
+\subsection{Challenges}
+\label{sec:Motivation-Challenges}
+
+Many challenges arise directly from the previous hypothesis, in order to provide a feasible, tractable and realistic \IOT solution. Many contributions already investigated the various challenges \IOT systems pose, but we revisit the literature in order to extract those directly relevant to the definition of \IOT \DSLS, and suggest possible high-level solutions.
 
 \begin{description}
 	\item[Capability Discovery] Providing the ability to drive interconnected devices assumes the capacity of automatically discovering devices' capabilities in a standardised and uniform way~\cite{chaqfeh-12}. Similar processes exist for other technologies, like \textsc{Usb} devices plugged into computers that automatically expose their natures and capabilities. Classifying those capabilities should be useful to build an ontology of normalised functions that could result in powerful \textsc{Api}s to manipulate devices. 

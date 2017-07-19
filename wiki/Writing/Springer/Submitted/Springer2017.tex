@@ -3,8 +3,8 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{inconsolata}
-\usepackage{listingsutf8}
-\usepackage{caption}[2015/09/20]
+\usepackage{listings}
+%\usepackage{caption}[2015/09/20]
 \usepackage{enumitem}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -47,7 +47,25 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% IoTDSL Syntax Definition
+%%%%%%%%%%%%%%%   TODO & COMMENTS
+
+\usepackage{todonotes}
+
+\newif\ifdraft\drafttrue
+\ifdraft
+   \newcommand\todos[1]{\medskip\todo[inline]{TODO (all): #1}}
+   \newcommand\moussa[1]{\medskip\todo[color=green!40,inline]{TODO (Moussa): #1}}
+   \newcommand\fabian[1]{\medskip\todo[color=purple!40,inline]{TODO (Fabian): #1}}
+\else
+   \newcommand\todos[1]{}
+   \newcommand\moussa[1]{}
+   \newcommand\fabian[1]{}
+\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% DSL Syntax Definition
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \lstdefinelanguage{iotdsl}{
@@ -59,6 +77,16 @@
     configuration, node, from, to, via,
     sensing, actuating, gateway, device,
     rule, when, before, after, and, do, in, out, within, not, true, false
+  }
+}
+
+\lstdefinelanguage{tesla}{
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[d]",
+  morestring=[d]',
+  morekeywords={
+    define, where, from, consuming, or, and, within, not, true, false, =, := 
   }
 }
 

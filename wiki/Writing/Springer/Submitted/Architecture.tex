@@ -1,15 +1,19 @@
 \subsection{General Architecture}
 \label{sec:CG-Architecture}
 
-As many \IOT solutions, \IOTDSL massively relies on event processing. In order to transform abstract event definitions into runnable code, we rely on a middleware on which the event processing will run and that will be responsible for the evaluation of business rules. Figure~\ref{fig:gen-archi} depicts the general architecture of the \IOTDSL framework.
+Our proposal relies on a middleware that embeds a \CEP engine for handling event processing, as depicted in Figure \ref{fig:Architecture}. Our tool offers a simulation mode, where devices are simulated as software components mimicking their actual execution, thus allowing to test \IOT scenarios without physical devices.
 
 \begin{figure}%
 	\centering  
 	\includegraphics[width=.95\linewidth]{gen-archi.png}%
 	\caption{General architecture of \IOTDSL framework}%
-	\label{fig:gen-archi}%
+	\label{fig:Architecture}%
 \end{figure}
 
-From \IOTDSL models, the generator will create a set of files that gather, on the one side, all rules as executable complex events and on the other side, a set of simulation code used to emulate the devices' behaviours. The event rules will be deployed in a \CEP engine running on a middleware and the individual simulation files will be used to test the whole infrastructure.
+The central element is the automatic code generator process: it produces executable code from \IOTDSL models and configuration files that define platform-specific details on the execution timing of devices (that the technicians set once and for all), and, for the purpose of our prototype, simulation code used to emulate the behaviour of the devices. The executable code is deployed into the \CEP engine running on a middleware, which reuses in simulation mode the simulation code for communicating with the (abstract) devices. 
 
-As we already mentioned, at present time the rules are all gathered and managed by a centralised entity where the simulation files are each emulating a single device. We are currently investigating how all business rules can be split into smaller chunks to be run on devices themselves when those objects have sufficient battery and CPU power. As we are developing the non-functional properties for \IOTDSL type and mapping definitions, those characteristics will be expressible in the form of technical specifications for devices and thus powerful equipments that are meeting some minimum requirements will be identified as deployment targets for distributed \CEP engines. 
+%From \IOTDSL models, the generator will create a set of files that gather, on the one side, all rules as executable complex events and on the other side, a set of simulation code used to emulate the devices' behaviours. The event rules will be deployed in a \CEP engine running on a middleware and the individual simulation files will be used to test the whole infrastructure.
+
+We are currently investigating how business rules could be broken down into smaller clusters that could be deployed directly into devices, assuming they present sufficient battery and computing power. When addressing non-functional properties of devices, we envision the possibility of expressing technical specifications relative to the energy consumption and computation capabilities of devices in a separate file that \IOTDSL would take into consideration for identifying distributable rules.
+
+%As we already mentioned, at present time the rules are all gathered and managed by a centralised entity where the simulation files are each emulating a single device. We are currently investigating how all business rules can be split into smaller chunks to be run on devices themselves when those objects have sufficient battery and CPU power. As we are developing the non-functional properties for \IOTDSL type and mapping definitions, those characteristics will be expressible in the form of technical specifications for devices and thus powerful equipments that are meeting some minimum requirements will be identified as deployment targets for distributed \CEP engines. 
