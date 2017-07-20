@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/be.unamur.iot.model/src" modelPluginID="be.unamur.iot.model"
+    modelName="IotDsl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>IotDsl.ecore</foreignModel>
+  <genPackages prefix="Iotdsl" basePackage="be.unamur.iot" disposableProviderFactory="true"
+      ecorePackage="IotDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IotDsl.ecore#//Protocol">
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Protocol/ip"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Protocol/zwave"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Protocol/zigbee"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Protocol/mqtt"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Protocol/dds"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IotDsl.ecore#//Operator">
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Operator/lesser"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Operator/leq"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Operator/greater"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Operator/geq"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Operator/equal"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Operator/neq"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="IotDsl.ecore#//Unit">
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Unit/hour"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Unit/min"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Unit/sec"/>
+      <genEnumLiterals ecoreEnumLiteral="IotDsl.ecore#//Unit/milli"/>
+    </genEnums>
+    <genClasses ecoreClass="IotDsl.ecore#//IotModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//IotModel/imports"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//IotModel/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//IotModel/content"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//Import/importedNamespace"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Content"/>
+    <genClasses ecoreClass="IotDsl.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//Type/name"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//PrimitiveType"/>
+    <genClasses ecoreClass="IotDsl.ecore#//DeclaredType"/>
+    <genClasses ecoreClass="IotDsl.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Enumeration/literals"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//EnumLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//EnumLiteral/name"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Node"/>
+    <genClasses ecoreClass="IotDsl.ecore#//Device">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Device/features"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Gateway"/>
+    <genClasses ecoreClass="IotDsl.ecore#//Feature">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//Feature/name"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Property">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Capability">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Capability/parameters"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Actuating"/>
+    <genClasses ecoreClass="IotDsl.ecore#//Sensing"/>
+    <genClasses ecoreClass="IotDsl.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//Parameter/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Parameter/type"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//Configuration/confname"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Configuration/nodes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Configuration/paths"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//NodeInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//NodeInstance/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//NodeInstance/type"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//CommunicationPath">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//CommunicationPath/source"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//CommunicationPath/taget"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//CommunicationPath/protocol"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Rule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//Rule/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Rule/triggers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Rule/reactions"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Expression"/>
+    <genClasses ecoreClass="IotDsl.ecore#//TimeFrame">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//TimeFrame/time"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//TimeFrame/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//NotExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//NotExpression/event"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//EventOccurrence">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//EventOccurrence/instance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//EventOccurrence/capability"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//EventOccurrence/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//EventOccurrence/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//EventOccurrence/value"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Value"/>
+    <genClasses ecoreClass="IotDsl.ecore#//Reaction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Reaction/instance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Reaction/capability"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//Reaction/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//Attribute/name"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//AndExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//AndExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//AndExpression/right"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//WithinExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//WithinExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//WithinExpression/frame"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//WithinExpression/preceding"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//AfterExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//AfterExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference IotDsl.ecore#//AfterExpression/preceding"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//StringConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//StringConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//IntConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//IntConstant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="IotDsl.ecore#//BoolConstant">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute IotDsl.ecore#//BoolConstant/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
