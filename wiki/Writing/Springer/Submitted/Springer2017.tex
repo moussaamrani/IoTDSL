@@ -96,7 +96,7 @@
   keywordstyle=\bfseries\color{codeviolet},
   commentstyle=\itshape\color{mygrey},
   stringstyle=\color{darkblue},
-  identifierstyle=\color{black},
+  identifierstyle=\mdseries\color{black},
   numbers=left,
   numberstyle=\tiny\color{rulerline},
   stepnumber=1, 
@@ -114,6 +114,15 @@
   literate={~} {$\sim$}{1},
   showlines=true
 }
+
+\def\inlineT{
+	\lstinline[basicstyle=\ttfamily,language=tesla]
+}
+
+\def\inlineI{
+	\lstinline[basicstyle=\ttfamily,language=iotdsl]
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

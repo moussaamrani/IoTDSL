@@ -16,49 +16,49 @@ We now illustrate how the scenarios Alice is concerned about (cf. Section \ref{s
 	\begin{lstlisting}[language=iotdsl,
 							label=lis:home-rule,
 		caption=Rule to switch on the lights at home incoming]
-rule SwitchLightsWhenEntering:
-	when (frontDoor.opened() after foyerMotion.moving()) do {
-		foyerBulb.on() 
-		livingBulb.on()
-	}
+	rule SwitchLightsWhenEntering:
+		when (foyerMotion.moving after frontDoor.opened) do {
+			foyerBulb.on
+			livingBulb.on
+		}
 	\end{lstlisting}
-	This rule introduces what we call \emph{facilitators}, i.e. keywords that define an unspecified time window in which a sequence of events should be observed. This time window is system-specific and needs to be defined independently in configuration files independent of descriptions in \IOTDSL. In this case, the \lstinline[language=iotdsl]{foyerMotion} should detect movement \emph{nearly after} the \lstinline[language=iotdsl]{frontDoor} detects an opening. 
+	This rule introduces what we call \emph{facilitators}, i.e. keywords that define an unspecified time window in which a sequence of events should be observed. This time window is system-specific and needs to be defined independently in configuration files independent of descriptions in \IOTDSL. In this case, the \inlineI{foyerMotion} should detect movement \emph{nearly after} the \inlineI{frontDoor} detects an opening. 
 		
-	Note that reactions are defined as a sequence that does not matter: the order in which the \lstinline[language=iotdsl]{foyerBulb} and the \lstinline[language=iotdsl]{livingBulb} switch on largely depends on the platform capacities, i.e. they can be actuated synchronously or sequentially (in which case, no guarantee is given that the definition order will be respected). At the abstraction level \IOTDSL operates, it is irrelevant since the end user wishes to see both switched on at some point, without having to consider low-level details that would enforce such behaviour.
+	Note that reactions are defined as a sequence that does not matter: the order in which the \inlineI{foyerBulb} and the \inlineI{livingBulb} switch on largely depends on the platform capacities, i.e. they can be actuated synchronously or sequentially (in which case, no guarantee is given that the definition order will be respected). At the abstraction level \IOTDSL operates, it is irrelevant since the end user wishes to see both switched on at some point, without having to consider low-level details that would enforce such behaviour.
 
 	\item[Illuminate bathroom when children wake up at night] When Alice's little boy wakes up at night, she would like to have the light in the bathroom to be switched on to prevent him from falling or injuring himself. Analogously, she wants the light to be switched off when he gets back to sleep afterwards.
 	\begin{lstlisting}[language=iotdsl,
 							label=lis:night-rule,
 		caption=Rules to switch on\//off lights in the corridor at night]
-rule SwitchBathroomLightOnAtNight:	
-	when (not livingLight.light() and 
-	 (childDoor.opened() after hallMotion.moving())) do {
-		bathroomBulb.on()
-	}
-
-rule SwitchBathroomLightOffAtNight:	
-	when (not hallMotion.movement() within 3 min from childDoor.closed()) do {
-		bathroomBulb.off()
-	}
+		rule SwitchBathroomLightOnAtNight:	
+			when (not livingLight.light() and 
+					 (hallMotion.moving after childDoor.opened)) do {
+				bathroomBulb.on
+			}
+  
+		rule SwitchBathroomLightOffAtNight:	
+			when (not hallMotion.movement within 3 min from childDoor.closed) do {
+				bathroomBulb.off
+			}
 	\end{lstlisting}
-	The rule \lstinline[language=iotdsl]{SwitchBathroomLightOnAtNight} introduces a new keyword \lstinline[language=iotdsl]{not}, which represents the \emph{absence} of a certain event type, here \lstinline[language=iotdsl]{livingLight.light}. This is different than simply observing some events occuring. Note also that the second part of the rule trigger uses parenthesis to relate the facilitator \lstinline[language=iotdsl]{after} to the closest event \lstinline[language=iotdsl]{childDoor.open}, instead of spanning on the whole condition.
+	The rule \inlineI{SwitchBathroomLightOnAtNight} introduces a new keyword \inlineI{not}, which represents the \emph{absence} of a certain event type, here \inlineI{livingLight.light}. This is different than simply observing some events occuring. Note also that the second part of the rule trigger uses parenthesis to relate the facilitator \inlineI{after} to the closest event \inlineI{childDoor.open}, instead of spanning on the whole condition.
 
-	The rule \lstinline[language=iotdsl]{SwitchBathroomLightOffAtNight} presents a combination of negation with an explicit time window with the construct \lstinline[language=iotdsl]{within ... from}: it indicates that no event of type \lstinline[language=iotdsl]{movement} from the hall motion sensor should occur in a three-minute time window after observing the \lstinline[language=iotdsl]{closed} event from the boy's door, in order to trigger the rule. \IOTDSL defines several useful time units to cope with simpler definitions (seconds, minutes, hours, or a combination of the three). 
+	The rule \inlineI{SwitchBathroomLightOffAtNight} presents a combination of negation with an explicit time window with the construct \inlineI{within ... from}: it indicates that no event of type \inlineI{movement} from the hall motion sensor should occur in a three-minute time window after observing the \inlineI{closed} event from the boy's door, in order to trigger the rule. \IOTDSL defines several useful time units to cope with simpler definitions (seconds, minutes, hours, or a combination of the three). 
 	
 
 	\item[Report unsupervised children on balcony] Alice considers that it is a critical situation if a child enters into the balcony without her knowledge, because of fall risks. To avoid that, she placed a switch button high enough that only an adult could press when accompanying a child outside. If the button is not press within 3 seconds after someone enters the balcony, an alarm should notify the situation.
 	\begin{lstlisting}[language=iotdsl,
 							label=lis:balcony-rule,
 		caption=Rules to ring the alarm in case of an unsupervised child in the balcony]
-rule AlarmWhenChildOnBalcony:	
-	when (not toggle.toggle() within 5 sec from
-			(balconyDoor.opened() after balconyMotion.moving())) do {
-		alarm.sound()
-	}
+	rule AlarmWhenChildOnBalcony:	
+		when (not toggle.toggled within 5 sec from 
+				(balconyMotion.moving after balconyDoor.opened)) do {
+			alarm.sound()
+		}
 	\end{lstlisting}
-	This last rules states that once the balcony door has been opened and movement is detected inside the balcony, the alarm should ring unless the toogle button is pressed in a five-second time window. This rule is similar to \lstinline[language=iotdsl]{SwitchBathroomLightOffAtNight}, except that the baseline of the time window is here a composite event using a facilitator: once an opening followed by movement in the balcony is observed do we expect the toogle to be pressed. 
+	This last rules states that once the balcony door has been opened and movement is detected inside the balcony, the alarm should ring unless the toogle button is pressed in a five-second time window. This rule is similar to \inlineI{SwitchBathroomLightOffAtNight}, except that the baseline of the time window is here a composite event using a facilitator: once an opening followed by movement in the balcony is observed do we expect the toogle to be pressed. 
 \end{description}
-To summarise, an end-user uses the Business Rules sublanguage to specify the scenarios of interest in the form of \lstinline[language=iotdsl]!when (trigger) do {actuations}}!: the \lstinline[language=iotdsl]{trigger} condition specify the event observation pattern under which the \lstinline[language=iotdsl]{actuations} are performed, by using common boolean connectors as well as time windows to observe delayed events; whereas the \lstinline[language=iotdsl]{actuations} are undeterministically performed independently of their definition order. 
+To summarise, an end-user uses the Business Rules sublanguage to specify the scenarios of interest in the form of \inlineI!when (trigger) do {actuations}}!: the \inlineI{trigger} condition specify the event observation pattern under which the \inlineI{actuations} are performed, by using common boolean connectors as well as time windows to observe delayed events; whereas the \inlineI{actuations} are undeterministically performed independently of their definition order. 
 
 From a qualititive viewpoint, adopting a rule-based language presents the advantage of mimicking the cognitive process of establishing a scenario, which should ease the adoption of \IOTDSL. However, we are conscious that this requires a further examination and actual validation with end-users that are not aware of the underlying \DSL mechanisms, but we believe that presenting a visual representation for rules and powerful analysis of rule activation could ease the adoption process and facilitate scenario definitions.
 
