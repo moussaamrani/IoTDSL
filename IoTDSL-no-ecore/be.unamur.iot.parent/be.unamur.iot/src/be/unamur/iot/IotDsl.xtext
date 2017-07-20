@@ -1,0 +1,138 @@
+grammar be.unamur.iot.IotDsl with org.eclipse.xtext.common.Terminals
+
+generate iotDsl "http://www.unamur.be/iot/IotDsl"
+
+IotModel returns IotModel:
+	imports += Import*
+	'model' name=ID '{'
+		content += Content*
+	'}';
+
+Import returns Import:
+	'import' importedNamespace=FQNWithWildCard;
+
+
+Content:
+	Type | Configuration | Rule;
+
+/*
+ * TYPES
+ */
+ 
+Type returns Type:
+	PrimitiveType | DeclaredType;
+
+PrimitiveType returns PrimitiveType:
+	'datatype' name=ID;
+
+DeclaredType returns DeclaredType:
+	Enumeration | Node;
+
+Enumeration returns Enumeration:
+	'enum' name=ID '{'
+		literals+=EnumLiteral ( "," literals+=EnumLiteral)*  
+	'}';
+
+EnumLiteral :
+	{EnumLiteral} name=ID;
+
+Node returns Node:
+	Device | Gateway;
+
+Device returns Device:
+	'device' devname=ID '{'
+		capabilities += Capability*
+	'}';
+
+Gateway returns Gateway:
+	'gateway' name=ID;
+
+Capability returns Capability:	
+	Actuating | Sensing;
+
+Actuating returns Actuating:
+	'actuating' name=ID '('(parameters+=Parameter ("," parameters+=Parameter)*)?')';
+
+Sensing returns Sensing:
+	'sensing' name=ID '('(parameters+=Parameter ("," parameters+=Parameter)*)?')';
+
+
+Parameter returns Parameter:
+	(access=ParamDir)? name=ID ':' type=[Type];
+/*
+ * CONFIGURATION
+ */
+
+
+Configuration returns Configuration:
+	{Configuration}
+	'configuration' confname=ID '{'
+		nodes+=NodeInstance*
+		paths+=CommunicationPath*
+	'}';
+
+NodeInstance returns NodeInstance:
+	'node' name=ID ':' type=[Type];
+
+CommunicationPath returns CommunicationPath:
+	'from' source=[NodeInstance] 'to' taget=[NodeInstance] 'via' protocol=Protocol;
+
+/*
+ * RULES
+ */
+
+Rule returns Rule:
+	'rule' name=ID ':'
+		'when' '(' triggers=Expression ')' 'do' '{'
+			reactions+=Reaction+
+		'}';
+
+Expression :
+	AndExpression;
+
+AndExpression returns Expression: 
+	AfterExpression ({AndExpression.left=current} 'and' right=SimpleExpression)*;
+
+AfterExpression returns Expression:
+	WithinExpression ({AfterExpression.left=current} 'after' preceding=SimpleExpression)*;
+
+WithinExpression returns Expression:
+	SimpleExpression ({WithinExpression.left=current} 'within' frame=TimeFrame 'from' preceding=SimpleExpression)*;
+
+TimeFrame returns TimeFrame:
+	time=INT unit=STRING;
+
+SimpleExpression returns Expression:
+	'(' Expression ')' 
+	| (not?='not')? instance=[NodeInstance]'.' capability=[Sensing] (operator=Operator value=Value)?; 
+	
+Value returns Value:
+	{StringConstant} value=STRING |	{IntConstant} value=INT | {BoolConstant} value = ('true' | 'false'); 
+
+Reaction returns Reaction:
+	instance=[NodeInstance]'.'capability=[Actuating];
+
+
+/* 
+ * TECHNICAL RULES AND PREDEFINED ENUMS
+ */
+
+FQN :
+	ID('.'ID)*;
+
+FQNWithWildCard:
+	FQN '.*'?;
+	
+enum ParamDir returns ParamDir:
+	in='in' | out='out' | inout='inout'; 
+
+enum Protocol returns Protocol:
+	ip='IP' | zwave='ZWAVE' | zigbee='ZIGBEE' | mqtt='MQTT' | dds='DDS';
+	
+enum Operator returns Operator:
+	lesser='<' | leq='<=' | greater='>' | geq='>=' | equal='==' | neq='!=';
+
+
+	
+	
+	
