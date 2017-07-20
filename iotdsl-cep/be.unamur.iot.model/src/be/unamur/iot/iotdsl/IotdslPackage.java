@@ -998,14 +998,14 @@ public interface IotdslPackage extends EPackage {
 	int EXPRESSION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.TimeFrameImpl <em>Time Frame</em>}' class.
+	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.DelayImpl <em>Delay</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see be.unamur.iot.iotdsl.impl.TimeFrameImpl
-	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getTimeFrame()
+	 * @see be.unamur.iot.iotdsl.impl.DelayImpl
+	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getDelay()
 	 * @generated
 	 */
-	int TIME_FRAME = 22;
+	int DELAY = 22;
 
 	/**
 	 * The feature id for the '<em><b>Time</b></em>' attribute.
@@ -1014,7 +1014,7 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FRAME__TIME = 0;
+	int DELAY__TIME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' attribute.
@@ -1023,25 +1023,25 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FRAME__UNIT = 1;
+	int DELAY__UNIT = 1;
 
 	/**
-	 * The number of structural features of the '<em>Time Frame</em>' class.
+	 * The number of structural features of the '<em>Delay</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FRAME_FEATURE_COUNT = 2;
+	int DELAY_FEATURE_COUNT = 2;
 
 	/**
-	 * The number of operations of the '<em>Time Frame</em>' class.
+	 * The number of operations of the '<em>Delay</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_FRAME_OPERATION_COUNT = 0;
+	int DELAY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.NotExpressionImpl <em>Not Expression</em>}' class.
@@ -1154,34 +1154,6 @@ public interface IotdslPackage extends EPackage {
 	int EVENT_OCCURRENCE_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.ValueImpl <em>Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see be.unamur.iot.iotdsl.impl.ValueImpl
-	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getValue()
-	 * @generated
-	 */
-	int VALUE = 25;
-
-	/**
-	 * The number of structural features of the '<em>Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_FEATURE_COUNT = 0;
-
-	/**
-	 * The number of operations of the '<em>Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.ReactionImpl <em>Reaction</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1189,7 +1161,7 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getReaction()
 	 * @generated
 	 */
-	int REACTION = 26;
+	int REACTION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Instance</b></em>' reference.
@@ -1244,7 +1216,7 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getAttribute()
 	 * @generated
 	 */
-	int ATTRIBUTE = 27;
+	int ATTRIBUTE = 26;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1281,7 +1253,7 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getAndExpression()
 	 * @generated
 	 */
-	int AND_EXPRESSION = 28;
+	int AND_EXPRESSION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1320,6 +1292,52 @@ public interface IotdslPackage extends EPackage {
 	int AND_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.TimingExpressionImpl <em>Timing Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.unamur.iot.iotdsl.impl.TimingExpressionImpl
+	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getTimingExpression()
+	 * @generated
+	 */
+	int TIMING_EXPRESSION = 28;
+
+	/**
+	 * The feature id for the '<em><b>Following</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_EXPRESSION__FOLLOWING = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Preceding</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_EXPRESSION__PRECEDING = EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Timing Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Timing Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIMING_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.WithinExpressionImpl <em>Within Expression</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1330,22 +1348,13 @@ public interface IotdslPackage extends EPackage {
 	int WITHIN_EXPRESSION = 29;
 
 	/**
-	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * The feature id for the '<em><b>Following</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WITHIN_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Frame</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WITHIN_EXPRESSION__FRAME = EXPRESSION_FEATURE_COUNT + 1;
+	int WITHIN_EXPRESSION__FOLLOWING = TIMING_EXPRESSION__FOLLOWING;
 
 	/**
 	 * The feature id for the '<em><b>Preceding</b></em>' containment reference.
@@ -1354,7 +1363,16 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WITHIN_EXPRESSION__PRECEDING = EXPRESSION_FEATURE_COUNT + 2;
+	int WITHIN_EXPRESSION__PRECEDING = TIMING_EXPRESSION__PRECEDING;
+
+	/**
+	 * The feature id for the '<em><b>Delay</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WITHIN_EXPRESSION__DELAY = TIMING_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Within Expression</em>' class.
@@ -1363,7 +1381,7 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WITHIN_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+	int WITHIN_EXPRESSION_FEATURE_COUNT = TIMING_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Within Expression</em>' class.
@@ -1372,7 +1390,7 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int WITHIN_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int WITHIN_EXPRESSION_OPERATION_COUNT = TIMING_EXPRESSION_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.AfterExpressionImpl <em>After Expression</em>}' class.
@@ -1385,13 +1403,13 @@ public interface IotdslPackage extends EPackage {
 	int AFTER_EXPRESSION = 30;
 
 	/**
-	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * The feature id for the '<em><b>Following</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int AFTER_EXPRESSION__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+	int AFTER_EXPRESSION__FOLLOWING = TIMING_EXPRESSION__FOLLOWING;
 
 	/**
 	 * The feature id for the '<em><b>Preceding</b></em>' containment reference.
@@ -1400,7 +1418,7 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AFTER_EXPRESSION__PRECEDING = EXPRESSION_FEATURE_COUNT + 1;
+	int AFTER_EXPRESSION__PRECEDING = TIMING_EXPRESSION__PRECEDING;
 
 	/**
 	 * The number of structural features of the '<em>After Expression</em>' class.
@@ -1409,7 +1427,7 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AFTER_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+	int AFTER_EXPRESSION_FEATURE_COUNT = TIMING_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>After Expression</em>' class.
@@ -1418,7 +1436,35 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int AFTER_EXPRESSION_OPERATION_COUNT = EXPRESSION_OPERATION_COUNT + 0;
+	int AFTER_EXPRESSION_OPERATION_COUNT = TIMING_EXPRESSION_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.ValueImpl <em>Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.unamur.iot.iotdsl.impl.ValueImpl
+	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getValue()
+	 * @generated
+	 */
+	int VALUE = 31;
+
+	/**
+	 * The number of structural features of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link be.unamur.iot.iotdsl.impl.StringConstantImpl <em>String Constant</em>}' class.
@@ -1428,7 +1474,7 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getStringConstant()
 	 * @generated
 	 */
-	int STRING_CONSTANT = 31;
+	int STRING_CONSTANT = 32;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1465,7 +1511,7 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getIntConstant()
 	 * @generated
 	 */
-	int INT_CONSTANT = 32;
+	int INT_CONSTANT = 33;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1502,7 +1548,7 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getBoolConstant()
 	 * @generated
 	 */
-	int BOOL_CONSTANT = 33;
+	int BOOL_CONSTANT = 34;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1532,14 +1578,14 @@ public interface IotdslPackage extends EPackage {
 	int BOOL_CONSTANT_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link be.unamur.iot.iotdsl.Protocol <em>Protocol</em>}' enum.
+	 * The meta object id for the '{@link be.unamur.iot.iotdsl.DefaultType <em>Default Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see be.unamur.iot.iotdsl.Protocol
-	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getProtocol()
+	 * @see be.unamur.iot.iotdsl.DefaultType
+	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getDefaultType()
 	 * @generated
 	 */
-	int PROTOCOL = 34;
+	int DEFAULT_TYPE = 35;
 
 	/**
 	 * The meta object id for the '{@link be.unamur.iot.iotdsl.Operator <em>Operator</em>}' enum.
@@ -1549,7 +1595,17 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getOperator()
 	 * @generated
 	 */
-	int OPERATOR = 35;
+	int OPERATOR = 36;
+
+	/**
+	 * The meta object id for the '{@link be.unamur.iot.iotdsl.Protocol <em>Protocol</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see be.unamur.iot.iotdsl.Protocol
+	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getProtocol()
+	 * @generated
+	 */
+	int PROTOCOL = 37;
 
 	/**
 	 * The meta object id for the '{@link be.unamur.iot.iotdsl.Unit <em>Unit</em>}' enum.
@@ -1559,7 +1615,7 @@ public interface IotdslPackage extends EPackage {
 	 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getUnit()
 	 * @generated
 	 */
-	int UNIT = 36;
+	int UNIT = 38;
 
 
 	/**
@@ -2047,36 +2103,36 @@ public interface IotdslPackage extends EPackage {
 	EClass getExpression();
 
 	/**
-	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.TimeFrame <em>Time Frame</em>}'.
+	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.Delay <em>Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Time Frame</em>'.
-	 * @see be.unamur.iot.iotdsl.TimeFrame
+	 * @return the meta object for class '<em>Delay</em>'.
+	 * @see be.unamur.iot.iotdsl.Delay
 	 * @generated
 	 */
-	EClass getTimeFrame();
+	EClass getDelay();
 
 	/**
-	 * Returns the meta object for the attribute '{@link be.unamur.iot.iotdsl.TimeFrame#getTime <em>Time</em>}'.
+	 * Returns the meta object for the attribute '{@link be.unamur.iot.iotdsl.Delay#getTime <em>Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Time</em>'.
-	 * @see be.unamur.iot.iotdsl.TimeFrame#getTime()
-	 * @see #getTimeFrame()
+	 * @see be.unamur.iot.iotdsl.Delay#getTime()
+	 * @see #getDelay()
 	 * @generated
 	 */
-	EAttribute getTimeFrame_Time();
+	EAttribute getDelay_Time();
 
 	/**
-	 * Returns the meta object for the attribute '{@link be.unamur.iot.iotdsl.TimeFrame#getUnit <em>Unit</em>}'.
+	 * Returns the meta object for the attribute '{@link be.unamur.iot.iotdsl.Delay#getUnit <em>Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Unit</em>'.
-	 * @see be.unamur.iot.iotdsl.TimeFrame#getUnit()
-	 * @see #getTimeFrame()
+	 * @see be.unamur.iot.iotdsl.Delay#getUnit()
+	 * @see #getDelay()
 	 * @generated
 	 */
-	EAttribute getTimeFrame_Unit();
+	EAttribute getDelay_Unit();
 
 	/**
 	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.NotExpression <em>Not Expression</em>}'.
@@ -2163,16 +2219,6 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEventOccurrence_Value();
-
-	/**
-	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.Value <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Value</em>'.
-	 * @see be.unamur.iot.iotdsl.Value
-	 * @generated
-	 */
-	EClass getValue();
 
 	/**
 	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.Reaction <em>Reaction</em>}'.
@@ -2271,6 +2317,38 @@ public interface IotdslPackage extends EPackage {
 	EReference getAndExpression_Right();
 
 	/**
+	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.TimingExpression <em>Timing Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Timing Expression</em>'.
+	 * @see be.unamur.iot.iotdsl.TimingExpression
+	 * @generated
+	 */
+	EClass getTimingExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.TimingExpression#getFollowing <em>Following</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Following</em>'.
+	 * @see be.unamur.iot.iotdsl.TimingExpression#getFollowing()
+	 * @see #getTimingExpression()
+	 * @generated
+	 */
+	EReference getTimingExpression_Following();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.TimingExpression#getPreceding <em>Preceding</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Preceding</em>'.
+	 * @see be.unamur.iot.iotdsl.TimingExpression#getPreceding()
+	 * @see #getTimingExpression()
+	 * @generated
+	 */
+	EReference getTimingExpression_Preceding();
+
+	/**
 	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.WithinExpression <em>Within Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2281,37 +2359,15 @@ public interface IotdslPackage extends EPackage {
 	EClass getWithinExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.WithinExpression#getLeft <em>Left</em>}'.
+	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.WithinExpression#getDelay <em>Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Left</em>'.
-	 * @see be.unamur.iot.iotdsl.WithinExpression#getLeft()
+	 * @return the meta object for the containment reference '<em>Delay</em>'.
+	 * @see be.unamur.iot.iotdsl.WithinExpression#getDelay()
 	 * @see #getWithinExpression()
 	 * @generated
 	 */
-	EReference getWithinExpression_Left();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.WithinExpression#getFrame <em>Frame</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Frame</em>'.
-	 * @see be.unamur.iot.iotdsl.WithinExpression#getFrame()
-	 * @see #getWithinExpression()
-	 * @generated
-	 */
-	EReference getWithinExpression_Frame();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.WithinExpression#getPreceding <em>Preceding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Preceding</em>'.
-	 * @see be.unamur.iot.iotdsl.WithinExpression#getPreceding()
-	 * @see #getWithinExpression()
-	 * @generated
-	 */
-	EReference getWithinExpression_Preceding();
+	EReference getWithinExpression_Delay();
 
 	/**
 	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.AfterExpression <em>After Expression</em>}'.
@@ -2324,26 +2380,14 @@ public interface IotdslPackage extends EPackage {
 	EClass getAfterExpression();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.AfterExpression#getLeft <em>Left</em>}'.
+	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Left</em>'.
-	 * @see be.unamur.iot.iotdsl.AfterExpression#getLeft()
-	 * @see #getAfterExpression()
+	 * @return the meta object for class '<em>Value</em>'.
+	 * @see be.unamur.iot.iotdsl.Value
 	 * @generated
 	 */
-	EReference getAfterExpression_Left();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link be.unamur.iot.iotdsl.AfterExpression#getPreceding <em>Preceding</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Preceding</em>'.
-	 * @see be.unamur.iot.iotdsl.AfterExpression#getPreceding()
-	 * @see #getAfterExpression()
-	 * @generated
-	 */
-	EReference getAfterExpression_Preceding();
+	EClass getValue();
 
 	/**
 	 * Returns the meta object for class '{@link be.unamur.iot.iotdsl.StringConstant <em>String Constant</em>}'.
@@ -2409,14 +2453,14 @@ public interface IotdslPackage extends EPackage {
 	EAttribute getBoolConstant_Value();
 
 	/**
-	 * Returns the meta object for enum '{@link be.unamur.iot.iotdsl.Protocol <em>Protocol</em>}'.
+	 * Returns the meta object for enum '{@link be.unamur.iot.iotdsl.DefaultType <em>Default Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Protocol</em>'.
-	 * @see be.unamur.iot.iotdsl.Protocol
+	 * @return the meta object for enum '<em>Default Type</em>'.
+	 * @see be.unamur.iot.iotdsl.DefaultType
 	 * @generated
 	 */
-	EEnum getProtocol();
+	EEnum getDefaultType();
 
 	/**
 	 * Returns the meta object for enum '{@link be.unamur.iot.iotdsl.Operator <em>Operator</em>}'.
@@ -2427,6 +2471,16 @@ public interface IotdslPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link be.unamur.iot.iotdsl.Protocol <em>Protocol</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Protocol</em>'.
+	 * @see be.unamur.iot.iotdsl.Protocol
+	 * @generated
+	 */
+	EEnum getProtocol();
 
 	/**
 	 * Returns the meta object for enum '{@link be.unamur.iot.iotdsl.Unit <em>Unit</em>}'.
@@ -2874,14 +2928,14 @@ public interface IotdslPackage extends EPackage {
 		EClass EXPRESSION = eINSTANCE.getExpression();
 
 		/**
-		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.TimeFrameImpl <em>Time Frame</em>}' class.
+		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.DelayImpl <em>Delay</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see be.unamur.iot.iotdsl.impl.TimeFrameImpl
-		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getTimeFrame()
+		 * @see be.unamur.iot.iotdsl.impl.DelayImpl
+		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getDelay()
 		 * @generated
 		 */
-		EClass TIME_FRAME = eINSTANCE.getTimeFrame();
+		EClass DELAY = eINSTANCE.getDelay();
 
 		/**
 		 * The meta object literal for the '<em><b>Time</b></em>' attribute feature.
@@ -2889,7 +2943,7 @@ public interface IotdslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TIME_FRAME__TIME = eINSTANCE.getTimeFrame_Time();
+		EAttribute DELAY__TIME = eINSTANCE.getDelay_Time();
 
 		/**
 		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
@@ -2897,7 +2951,7 @@ public interface IotdslPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TIME_FRAME__UNIT = eINSTANCE.getTimeFrame_Unit();
+		EAttribute DELAY__UNIT = eINSTANCE.getDelay_Unit();
 
 		/**
 		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.NotExpressionImpl <em>Not Expression</em>}' class.
@@ -2966,16 +3020,6 @@ public interface IotdslPackage extends EPackage {
 		 * @generated
 		 */
 		EReference EVENT_OCCURRENCE__VALUE = eINSTANCE.getEventOccurrence_Value();
-
-		/**
-		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.ValueImpl <em>Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see be.unamur.iot.iotdsl.impl.ValueImpl
-		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getValue()
-		 * @generated
-		 */
-		EClass VALUE = eINSTANCE.getValue();
 
 		/**
 		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.ReactionImpl <em>Reaction</em>}' class.
@@ -3056,6 +3100,32 @@ public interface IotdslPackage extends EPackage {
 		EReference AND_EXPRESSION__RIGHT = eINSTANCE.getAndExpression_Right();
 
 		/**
+		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.TimingExpressionImpl <em>Timing Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.unamur.iot.iotdsl.impl.TimingExpressionImpl
+		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getTimingExpression()
+		 * @generated
+		 */
+		EClass TIMING_EXPRESSION = eINSTANCE.getTimingExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Following</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_EXPRESSION__FOLLOWING = eINSTANCE.getTimingExpression_Following();
+
+		/**
+		 * The meta object literal for the '<em><b>Preceding</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIMING_EXPRESSION__PRECEDING = eINSTANCE.getTimingExpression_Preceding();
+
+		/**
 		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.WithinExpressionImpl <em>Within Expression</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3066,28 +3136,12 @@ public interface IotdslPackage extends EPackage {
 		EClass WITHIN_EXPRESSION = eINSTANCE.getWithinExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Delay</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference WITHIN_EXPRESSION__LEFT = eINSTANCE.getWithinExpression_Left();
-
-		/**
-		 * The meta object literal for the '<em><b>Frame</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference WITHIN_EXPRESSION__FRAME = eINSTANCE.getWithinExpression_Frame();
-
-		/**
-		 * The meta object literal for the '<em><b>Preceding</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference WITHIN_EXPRESSION__PRECEDING = eINSTANCE.getWithinExpression_Preceding();
+		EReference WITHIN_EXPRESSION__DELAY = eINSTANCE.getWithinExpression_Delay();
 
 		/**
 		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.AfterExpressionImpl <em>After Expression</em>}' class.
@@ -3100,20 +3154,14 @@ public interface IotdslPackage extends EPackage {
 		EClass AFTER_EXPRESSION = eINSTANCE.getAfterExpression();
 
 		/**
-		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.ValueImpl <em>Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see be.unamur.iot.iotdsl.impl.ValueImpl
+		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getValue()
 		 * @generated
 		 */
-		EReference AFTER_EXPRESSION__LEFT = eINSTANCE.getAfterExpression_Left();
-
-		/**
-		 * The meta object literal for the '<em><b>Preceding</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference AFTER_EXPRESSION__PRECEDING = eINSTANCE.getAfterExpression_Preceding();
+		EClass VALUE = eINSTANCE.getValue();
 
 		/**
 		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.impl.StringConstantImpl <em>String Constant</em>}' class.
@@ -3170,14 +3218,14 @@ public interface IotdslPackage extends EPackage {
 		EAttribute BOOL_CONSTANT__VALUE = eINSTANCE.getBoolConstant_Value();
 
 		/**
-		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.Protocol <em>Protocol</em>}' enum.
+		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.DefaultType <em>Default Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see be.unamur.iot.iotdsl.Protocol
-		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getProtocol()
+		 * @see be.unamur.iot.iotdsl.DefaultType
+		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getDefaultType()
 		 * @generated
 		 */
-		EEnum PROTOCOL = eINSTANCE.getProtocol();
+		EEnum DEFAULT_TYPE = eINSTANCE.getDefaultType();
 
 		/**
 		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.Operator <em>Operator</em>}' enum.
@@ -3188,6 +3236,16 @@ public interface IotdslPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum OPERATOR = eINSTANCE.getOperator();
+
+		/**
+		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.Protocol <em>Protocol</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see be.unamur.iot.iotdsl.Protocol
+		 * @see be.unamur.iot.iotdsl.impl.IotdslPackageImpl#getProtocol()
+		 * @generated
+		 */
+		EEnum PROTOCOL = eINSTANCE.getProtocol();
 
 		/**
 		 * The meta object literal for the '{@link be.unamur.iot.iotdsl.Unit <em>Unit</em>}' enum.

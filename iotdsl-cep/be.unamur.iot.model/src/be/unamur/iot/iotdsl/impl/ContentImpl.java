@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class ContentImpl extends MinimalEObjectImpl.Container implements Content {
+public abstract class ContentImpl extends MinimalEObjectImpl.Container implements Content {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -31,7 +31,7 @@ public interface NotExpression extends Expression {
 	 * @return the value of the '<em>Event</em>' containment reference.
 	 * @see #setEvent(EventOccurrence)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getNotExpression_Event()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EventOccurrence getEvent();

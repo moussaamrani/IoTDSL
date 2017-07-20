@@ -225,9 +225,9 @@ public class IotdslSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case IotdslPackage.TIME_FRAME: {
-				TimeFrame timeFrame = (TimeFrame)theEObject;
-				T result = caseTimeFrame(timeFrame);
+			case IotdslPackage.DELAY: {
+				Delay delay = (Delay)theEObject;
+				T result = caseDelay(delay);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -242,12 +242,6 @@ public class IotdslSwitch<T> extends Switch<T> {
 				EventOccurrence eventOccurrence = (EventOccurrence)theEObject;
 				T result = caseEventOccurrence(eventOccurrence);
 				if (result == null) result = caseExpression(eventOccurrence);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case IotdslPackage.VALUE: {
-				Value value = (Value)theEObject;
-				T result = caseValue(value);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -270,9 +264,17 @@ public class IotdslSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case IotdslPackage.TIMING_EXPRESSION: {
+				TimingExpression timingExpression = (TimingExpression)theEObject;
+				T result = caseTimingExpression(timingExpression);
+				if (result == null) result = caseExpression(timingExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case IotdslPackage.WITHIN_EXPRESSION: {
 				WithinExpression withinExpression = (WithinExpression)theEObject;
 				T result = caseWithinExpression(withinExpression);
+				if (result == null) result = caseTimingExpression(withinExpression);
 				if (result == null) result = caseExpression(withinExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -280,7 +282,14 @@ public class IotdslSwitch<T> extends Switch<T> {
 			case IotdslPackage.AFTER_EXPRESSION: {
 				AfterExpression afterExpression = (AfterExpression)theEObject;
 				T result = caseAfterExpression(afterExpression);
+				if (result == null) result = caseTimingExpression(afterExpression);
 				if (result == null) result = caseExpression(afterExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case IotdslPackage.VALUE: {
+				Value value = (Value)theEObject;
+				T result = caseValue(value);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -640,17 +649,17 @@ public class IotdslSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Time Frame</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Delay</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Time Frame</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Delay</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTimeFrame(TimeFrame object) {
+	public T caseDelay(Delay object) {
 		return null;
 	}
 
@@ -681,21 +690,6 @@ public class IotdslSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEventOccurrence(EventOccurrence object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Value</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseValue(Value object) {
 		return null;
 	}
 
@@ -745,6 +739,21 @@ public class IotdslSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Timing Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Timing Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTimingExpression(TimingExpression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Within Expression</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -771,6 +780,21 @@ public class IotdslSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseAfterExpression(AfterExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Value</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseValue(Value object) {
 		return null;
 	}
 

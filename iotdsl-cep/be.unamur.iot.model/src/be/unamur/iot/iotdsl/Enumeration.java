@@ -32,7 +32,7 @@ public interface Enumeration extends DeclaredType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Literals</em>' containment reference list.
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getEnumeration_Literals()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<EnumLiteral> getLiterals();

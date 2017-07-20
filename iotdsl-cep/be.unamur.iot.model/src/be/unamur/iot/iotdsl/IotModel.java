@@ -52,7 +52,7 @@ public interface IotModel extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getIotModel_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

@@ -33,7 +33,7 @@ public interface Parameter extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getParameter_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -59,7 +59,7 @@ public interface Parameter extends EObject {
 	 * @return the value of the '<em>Type</em>' reference.
 	 * @see #setType(Type)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getParameter_Type()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Type getType();

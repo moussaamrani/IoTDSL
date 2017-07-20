@@ -12,6 +12,8 @@ import be.unamur.iot.iotdsl.CommunicationPath;
 import be.unamur.iot.iotdsl.Configuration;
 import be.unamur.iot.iotdsl.Content;
 import be.unamur.iot.iotdsl.DeclaredType;
+import be.unamur.iot.iotdsl.DefaultType;
+import be.unamur.iot.iotdsl.Delay;
 import be.unamur.iot.iotdsl.Device;
 import be.unamur.iot.iotdsl.EnumLiteral;
 import be.unamur.iot.iotdsl.Enumeration;
@@ -36,7 +38,7 @@ import be.unamur.iot.iotdsl.Reaction;
 import be.unamur.iot.iotdsl.Rule;
 import be.unamur.iot.iotdsl.Sensing;
 import be.unamur.iot.iotdsl.StringConstant;
-import be.unamur.iot.iotdsl.TimeFrame;
+import be.unamur.iot.iotdsl.TimingExpression;
 import be.unamur.iot.iotdsl.Type;
 import be.unamur.iot.iotdsl.Unit;
 import be.unamur.iot.iotdsl.Value;
@@ -216,7 +218,7 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass timeFrameEClass = null;
+	private EClass delayEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,13 +233,6 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * @generated
 	 */
 	private EClass eventOccurrenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass valueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,6 +260,13 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass timingExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass withinExpressionEClass = null;
 
 	/**
@@ -273,6 +275,13 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * @generated
 	 */
 	private EClass afterExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -300,7 +309,7 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum protocolEEnum = null;
+	private EEnum defaultTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -308,6 +317,13 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * @generated
 	 */
 	private EEnum operatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum protocolEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -796,8 +812,8 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTimeFrame() {
-		return timeFrameEClass;
+	public EClass getDelay() {
+		return delayEClass;
 	}
 
 	/**
@@ -805,8 +821,8 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeFrame_Time() {
-		return (EAttribute)timeFrameEClass.getEStructuralFeatures().get(0);
+	public EAttribute getDelay_Time() {
+		return (EAttribute)delayEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -814,8 +830,8 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTimeFrame_Unit() {
-		return (EAttribute)timeFrameEClass.getEStructuralFeatures().get(1);
+	public EAttribute getDelay_Unit() {
+		return (EAttribute)delayEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -888,15 +904,6 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 */
 	public EReference getEventOccurrence_Value() {
 		return (EReference)eventOccurrenceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getValue() {
-		return valueEClass;
 	}
 
 	/**
@@ -985,6 +992,33 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTimingExpression() {
+		return timingExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingExpression_Following() {
+		return (EReference)timingExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTimingExpression_Preceding() {
+		return (EReference)timingExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getWithinExpression() {
 		return withinExpressionEClass;
 	}
@@ -994,26 +1028,8 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getWithinExpression_Left() {
+	public EReference getWithinExpression_Delay() {
 		return (EReference)withinExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getWithinExpression_Frame() {
-		return (EReference)withinExpressionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getWithinExpression_Preceding() {
-		return (EReference)withinExpressionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1030,17 +1046,8 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAfterExpression_Left() {
-		return (EReference)afterExpressionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAfterExpression_Preceding() {
-		return (EReference)afterExpressionEClass.getEStructuralFeatures().get(1);
+	public EClass getValue() {
+		return valueEClass;
 	}
 
 	/**
@@ -1102,8 +1109,8 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getProtocol() {
-		return protocolEEnum;
+	public EEnum getDefaultType() {
+		return defaultTypeEEnum;
 	}
 
 	/**
@@ -1113,6 +1120,15 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 	 */
 	public EEnum getOperator() {
 		return operatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getProtocol() {
+		return protocolEEnum;
 	}
 
 	/**
@@ -1220,9 +1236,9 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 
 		expressionEClass = createEClass(EXPRESSION);
 
-		timeFrameEClass = createEClass(TIME_FRAME);
-		createEAttribute(timeFrameEClass, TIME_FRAME__TIME);
-		createEAttribute(timeFrameEClass, TIME_FRAME__UNIT);
+		delayEClass = createEClass(DELAY);
+		createEAttribute(delayEClass, DELAY__TIME);
+		createEAttribute(delayEClass, DELAY__UNIT);
 
 		notExpressionEClass = createEClass(NOT_EXPRESSION);
 		createEReference(notExpressionEClass, NOT_EXPRESSION__EVENT);
@@ -1233,8 +1249,6 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 		createEReference(eventOccurrenceEClass, EVENT_OCCURRENCE__ATTRIBUTES);
 		createEAttribute(eventOccurrenceEClass, EVENT_OCCURRENCE__OPERATOR);
 		createEReference(eventOccurrenceEClass, EVENT_OCCURRENCE__VALUE);
-
-		valueEClass = createEClass(VALUE);
 
 		reactionEClass = createEClass(REACTION);
 		createEReference(reactionEClass, REACTION__INSTANCE);
@@ -1248,14 +1262,16 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 		createEReference(andExpressionEClass, AND_EXPRESSION__LEFT);
 		createEReference(andExpressionEClass, AND_EXPRESSION__RIGHT);
 
+		timingExpressionEClass = createEClass(TIMING_EXPRESSION);
+		createEReference(timingExpressionEClass, TIMING_EXPRESSION__FOLLOWING);
+		createEReference(timingExpressionEClass, TIMING_EXPRESSION__PRECEDING);
+
 		withinExpressionEClass = createEClass(WITHIN_EXPRESSION);
-		createEReference(withinExpressionEClass, WITHIN_EXPRESSION__LEFT);
-		createEReference(withinExpressionEClass, WITHIN_EXPRESSION__FRAME);
-		createEReference(withinExpressionEClass, WITHIN_EXPRESSION__PRECEDING);
+		createEReference(withinExpressionEClass, WITHIN_EXPRESSION__DELAY);
 
 		afterExpressionEClass = createEClass(AFTER_EXPRESSION);
-		createEReference(afterExpressionEClass, AFTER_EXPRESSION__LEFT);
-		createEReference(afterExpressionEClass, AFTER_EXPRESSION__PRECEDING);
+
+		valueEClass = createEClass(VALUE);
 
 		stringConstantEClass = createEClass(STRING_CONSTANT);
 		createEAttribute(stringConstantEClass, STRING_CONSTANT__VALUE);
@@ -1267,8 +1283,9 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 		createEAttribute(boolConstantEClass, BOOL_CONSTANT__VALUE);
 
 		// Create enums
-		protocolEEnum = createEEnum(PROTOCOL);
+		defaultTypeEEnum = createEEnum(DEFAULT_TYPE);
 		operatorEEnum = createEEnum(OPERATOR);
+		protocolEEnum = createEEnum(PROTOCOL);
 		unitEEnum = createEEnum(UNIT);
 	}
 
@@ -1316,8 +1333,9 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 		notExpressionEClass.getESuperTypes().add(this.getExpression());
 		eventOccurrenceEClass.getESuperTypes().add(this.getExpression());
 		andExpressionEClass.getESuperTypes().add(this.getExpression());
-		withinExpressionEClass.getESuperTypes().add(this.getExpression());
-		afterExpressionEClass.getESuperTypes().add(this.getExpression());
+		timingExpressionEClass.getESuperTypes().add(this.getExpression());
+		withinExpressionEClass.getESuperTypes().add(this.getTimingExpression());
+		afterExpressionEClass.getESuperTypes().add(this.getTimingExpression());
 		stringConstantEClass.getESuperTypes().add(this.getValue());
 		intConstantEClass.getESuperTypes().add(this.getValue());
 		boolConstantEClass.getESuperTypes().add(this.getValue());
@@ -1325,41 +1343,41 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(iotModelEClass, IotModel.class, "IotModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getIotModel_Imports(), this.getImport(), null, "imports", null, 0, -1, IotModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getIotModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, IotModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIotModel_Name(), ecorePackage.getEString(), "name", null, 1, 1, IotModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getIotModel_Content(), this.getContent(), null, "content", null, 0, -1, IotModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getImport_ImportedNamespace(), ecorePackage.getEString(), "importedNamespace", null, 1, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(contentEClass, Content.class, "Content", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(contentEClass, Content.class, "Content", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(typeEClass, Type.class, "Type", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 1, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(primitiveTypeEClass, PrimitiveType.class, "PrimitiveType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(declaredTypeEClass, DeclaredType.class, "DeclaredType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(declaredTypeEClass, DeclaredType.class, "DeclaredType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumeration_Literals(), this.getEnumLiteral(), null, "literals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeration_Literals(), this.getEnumLiteral(), null, "literals", null, 1, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumLiteralEClass, EnumLiteral.class, "EnumLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEnumLiteral_Name(), ecorePackage.getEString(), "name", null, 0, 1, EnumLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEnumLiteral_Name(), ecorePackage.getEString(), "name", null, 1, 1, EnumLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(nodeEClass, Node.class, "Node", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(deviceEClass, Device.class, "Device", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDevice_Features(), this.getFeature(), null, "features", null, 0, -1, Device.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gatewayEClass, Gateway.class, "Gateway", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(featureEClass, Feature.class, "Feature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProperty_Value(), this.getValue(), null, "value", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProperty_Value(), this.getValue(), null, "value", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(capabilityEClass, Capability.class, "Capability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(capabilityEClass, Capability.class, "Capability", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCapability_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Capability.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actuatingEClass, Actuating.class, "Actuating", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1367,83 +1385,83 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 		initEClass(sensingEClass, Sensing.class, "Sensing", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getParameter_Type(), this.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getParameter_Type(), this.getType(), null, "type", null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getConfiguration_Confname(), ecorePackage.getEString(), "confname", null, 0, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getConfiguration_Confname(), ecorePackage.getEString(), "confname", null, 1, 1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Nodes(), this.getNodeInstance(), null, "nodes", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getConfiguration_Paths(), this.getCommunicationPath(), null, "paths", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nodeInstanceEClass, NodeInstance.class, "NodeInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNodeInstance_Name(), ecorePackage.getEString(), "name", null, 0, 1, NodeInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNodeInstance_Type(), this.getType(), null, "type", null, 0, 1, NodeInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNodeInstance_Name(), ecorePackage.getEString(), "name", null, 1, 1, NodeInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNodeInstance_Type(), this.getType(), null, "type", null, 1, 1, NodeInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(communicationPathEClass, CommunicationPath.class, "CommunicationPath", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCommunicationPath_Source(), this.getNodeInstance(), null, "source", null, 0, 1, CommunicationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCommunicationPath_Taget(), this.getNodeInstance(), null, "taget", null, 0, 1, CommunicationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCommunicationPath_Protocol(), this.getProtocol(), "protocol", null, 0, 1, CommunicationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationPath_Source(), this.getNodeInstance(), null, "source", null, 1, 1, CommunicationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommunicationPath_Taget(), this.getNodeInstance(), null, "taget", null, 1, 1, CommunicationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommunicationPath_Protocol(), this.getProtocol(), "protocol", null, 1, 1, CommunicationPath.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRule_Triggers(), this.getExpression(), null, "triggers", null, 0, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRule_Reactions(), this.getReaction(), null, "reactions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRule_Name(), ecorePackage.getEString(), "name", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_Triggers(), this.getExpression(), null, "triggers", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_Reactions(), this.getReaction(), null, "reactions", null, 1, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(timeFrameEClass, TimeFrame.class, "TimeFrame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTimeFrame_Time(), ecorePackage.getEInt(), "time", null, 0, 1, TimeFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTimeFrame_Unit(), this.getUnit(), "unit", null, 0, 1, TimeFrame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(delayEClass, Delay.class, "Delay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDelay_Time(), ecorePackage.getEInt(), "time", null, 1, 1, Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDelay_Unit(), this.getUnit(), "unit", null, 1, 1, Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(notExpressionEClass, NotExpression.class, "NotExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNotExpression_Event(), this.getEventOccurrence(), null, "event", null, 0, 1, NotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNotExpression_Event(), this.getEventOccurrence(), null, "event", null, 1, 1, NotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(eventOccurrenceEClass, EventOccurrence.class, "EventOccurrence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEventOccurrence_Instance(), this.getNodeInstance(), null, "instance", null, 0, 1, EventOccurrence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEventOccurrence_Capability(), this.getSensing(), null, "capability", null, 0, 1, EventOccurrence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventOccurrence_Instance(), this.getNodeInstance(), null, "instance", null, 1, 1, EventOccurrence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEventOccurrence_Capability(), this.getSensing(), null, "capability", null, 1, 1, EventOccurrence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventOccurrence_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, EventOccurrence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEventOccurrence_Operator(), this.getOperator(), "operator", null, 0, 1, EventOccurrence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEventOccurrence_Value(), this.getValue(), null, "value", null, 0, 1, EventOccurrence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(reactionEClass, Reaction.class, "Reaction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getReaction_Instance(), this.getNodeInstance(), null, "instance", null, 0, 1, Reaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReaction_Capability(), this.getActuating(), null, "capability", null, 0, 1, Reaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(reactionEClass, Reaction.class, "Reaction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReaction_Instance(), this.getNodeInstance(), null, "instance", null, 1, 1, Reaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReaction_Capability(), this.getActuating(), null, "capability", null, 1, 1, Reaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReaction_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Reaction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(andExpressionEClass, AndExpression.class, "AndExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAndExpression_Left(), this.getExpression(), null, "left", null, 0, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAndExpression_Right(), this.getExpression(), null, "right", null, 0, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAndExpression_Left(), this.getExpression(), null, "left", null, 1, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAndExpression_Right(), this.getExpression(), null, "right", null, 1, 1, AndExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(timingExpressionEClass, TimingExpression.class, "TimingExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTimingExpression_Following(), this.getExpression(), null, "following", null, 1, 1, TimingExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTimingExpression_Preceding(), this.getExpression(), null, "preceding", null, 1, 1, TimingExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(withinExpressionEClass, WithinExpression.class, "WithinExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getWithinExpression_Left(), this.getExpression(), null, "left", null, 0, 1, WithinExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getWithinExpression_Frame(), this.getTimeFrame(), null, "frame", null, 0, 1, WithinExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getWithinExpression_Preceding(), this.getExpression(), null, "preceding", null, 0, 1, WithinExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWithinExpression_Delay(), this.getDelay(), null, "delay", null, 1, 1, WithinExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(afterExpressionEClass, AfterExpression.class, "AfterExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAfterExpression_Left(), this.getExpression(), null, "left", null, 0, 1, AfterExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAfterExpression_Preceding(), this.getExpression(), null, "preceding", null, 0, 1, AfterExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(stringConstantEClass, StringConstant.class, "StringConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStringConstant_Value(), ecorePackage.getEString(), "value", null, 1, 1, StringConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(intConstantEClass, IntConstant.class, "IntConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntConstant_Value(), ecorePackage.getEInt(), "value", null, 1, 1, IntConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(boolConstantEClass, BoolConstant.class, "BoolConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBoolConstant_Value(), ecorePackage.getEString(), "value", null, 0, 1, BoolConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBoolConstant_Value(), ecorePackage.getEString(), "value", null, 1, 1, BoolConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(protocolEEnum, Protocol.class, "Protocol");
-		addEEnumLiteral(protocolEEnum, Protocol.IP);
-		addEEnumLiteral(protocolEEnum, Protocol.ZWAVE);
-		addEEnumLiteral(protocolEEnum, Protocol.ZIGBEE);
-		addEEnumLiteral(protocolEEnum, Protocol.MQTT);
-		addEEnumLiteral(protocolEEnum, Protocol.DDS);
+		initEEnum(defaultTypeEEnum, DefaultType.class, "DefaultType");
+		addEEnumLiteral(defaultTypeEEnum, DefaultType.VOID);
+		addEEnumLiteral(defaultTypeEEnum, DefaultType.INTEGER);
+		addEEnumLiteral(defaultTypeEEnum, DefaultType.REAL);
+		addEEnumLiteral(defaultTypeEEnum, DefaultType.STRING);
+		addEEnumLiteral(defaultTypeEEnum, DefaultType.BOOLEAN);
 
 		initEEnum(operatorEEnum, Operator.class, "Operator");
 		addEEnumLiteral(operatorEEnum, Operator.LESSER);
@@ -1452,6 +1470,13 @@ public class IotdslPackageImpl extends EPackageImpl implements IotdslPackage {
 		addEEnumLiteral(operatorEEnum, Operator.GEQ);
 		addEEnumLiteral(operatorEEnum, Operator.EQUAL);
 		addEEnumLiteral(operatorEEnum, Operator.NEQ);
+
+		initEEnum(protocolEEnum, Protocol.class, "Protocol");
+		addEEnumLiteral(protocolEEnum, Protocol.IP);
+		addEEnumLiteral(protocolEEnum, Protocol.ZWAVE);
+		addEEnumLiteral(protocolEEnum, Protocol.ZIGBEE);
+		addEEnumLiteral(protocolEEnum, Protocol.MQTT);
+		addEEnumLiteral(protocolEEnum, Protocol.DDS);
 
 		initEEnum(unitEEnum, Unit.class, "Unit");
 		addEEnumLiteral(unitEEnum, Unit.HOUR);

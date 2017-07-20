@@ -40,24 +40,6 @@ public interface IotdslFactory extends EFactory {
 	Import createImport();
 
 	/**
-	 * Returns a new object of class '<em>Content</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Content</em>'.
-	 * @generated
-	 */
-	Content createContent();
-
-	/**
-	 * Returns a new object of class '<em>Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Type</em>'.
-	 * @generated
-	 */
-	Type createType();
-
-	/**
 	 * Returns a new object of class '<em>Primitive Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,15 +47,6 @@ public interface IotdslFactory extends EFactory {
 	 * @generated
 	 */
 	PrimitiveType createPrimitiveType();
-
-	/**
-	 * Returns a new object of class '<em>Declared Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Declared Type</em>'.
-	 * @generated
-	 */
-	DeclaredType createDeclaredType();
 
 	/**
 	 * Returns a new object of class '<em>Enumeration</em>'.
@@ -94,15 +67,6 @@ public interface IotdslFactory extends EFactory {
 	EnumLiteral createEnumLiteral();
 
 	/**
-	 * Returns a new object of class '<em>Node</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Node</em>'.
-	 * @generated
-	 */
-	Node createNode();
-
-	/**
 	 * Returns a new object of class '<em>Device</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,15 +85,6 @@ public interface IotdslFactory extends EFactory {
 	Gateway createGateway();
 
 	/**
-	 * Returns a new object of class '<em>Feature</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Feature</em>'.
-	 * @generated
-	 */
-	Feature createFeature();
-
-	/**
 	 * Returns a new object of class '<em>Property</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -137,15 +92,6 @@ public interface IotdslFactory extends EFactory {
 	 * @generated
 	 */
 	Property createProperty();
-
-	/**
-	 * Returns a new object of class '<em>Capability</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Capability</em>'.
-	 * @generated
-	 */
-	Capability createCapability();
 
 	/**
 	 * Returns a new object of class '<em>Actuating</em>'.
@@ -211,22 +157,13 @@ public interface IotdslFactory extends EFactory {
 	Rule createRule();
 
 	/**
-	 * Returns a new object of class '<em>Expression</em>'.
+	 * Returns a new object of class '<em>Delay</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Expression</em>'.
+	 * @return a new object of class '<em>Delay</em>'.
 	 * @generated
 	 */
-	Expression createExpression();
-
-	/**
-	 * Returns a new object of class '<em>Time Frame</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Time Frame</em>'.
-	 * @generated
-	 */
-	TimeFrame createTimeFrame();
+	Delay createDelay();
 
 	/**
 	 * Returns a new object of class '<em>Not Expression</em>'.
@@ -245,24 +182,6 @@ public interface IotdslFactory extends EFactory {
 	 * @generated
 	 */
 	EventOccurrence createEventOccurrence();
-
-	/**
-	 * Returns a new object of class '<em>Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value</em>'.
-	 * @generated
-	 */
-	Value createValue();
-
-	/**
-	 * Returns a new object of class '<em>Reaction</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Reaction</em>'.
-	 * @generated
-	 */
-	Reaction createReaction();
 
 	/**
 	 * Returns a new object of class '<em>Attribute</em>'.
@@ -299,6 +218,15 @@ public interface IotdslFactory extends EFactory {
 	 * @generated
 	 */
 	AfterExpression createAfterExpression();
+
+	/**
+	 * Returns a new object of class '<em>Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Value</em>'.
+	 * @generated
+	 */
+	Value createValue();
 
 	/**
 	 * Returns a new object of class '<em>String Constant</em>'.

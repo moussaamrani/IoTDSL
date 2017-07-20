@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getFeature()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Feature extends EObject {
@@ -32,7 +32,7 @@ public interface Feature extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getFeature_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

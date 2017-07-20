@@ -10,7 +10,7 @@ package be.unamur.iot.iotdsl;
  *
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getNode()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Node extends DeclaredType {

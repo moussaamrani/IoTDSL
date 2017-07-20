@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
+public abstract class DeclaredTypeImpl extends TypeImpl implements DeclaredType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

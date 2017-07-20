@@ -34,7 +34,7 @@ public interface CommunicationPath extends EObject {
 	 * @return the value of the '<em>Source</em>' reference.
 	 * @see #setSource(NodeInstance)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getCommunicationPath_Source()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	NodeInstance getSource();
@@ -60,7 +60,7 @@ public interface CommunicationPath extends EObject {
 	 * @return the value of the '<em>Taget</em>' reference.
 	 * @see #setTaget(NodeInstance)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getCommunicationPath_Taget()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	NodeInstance getTaget();
@@ -88,7 +88,7 @@ public interface CommunicationPath extends EObject {
 	 * @see be.unamur.iot.iotdsl.Protocol
 	 * @see #setProtocol(Protocol)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getCommunicationPath_Protocol()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Protocol getProtocol();

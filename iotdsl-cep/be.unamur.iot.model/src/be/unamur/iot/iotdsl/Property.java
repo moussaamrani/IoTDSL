@@ -31,7 +31,7 @@ public interface Property extends Feature {
 	 * @return the value of the '<em>Value</em>' containment reference.
 	 * @see #setValue(Value)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getProperty_Value()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Value getValue();

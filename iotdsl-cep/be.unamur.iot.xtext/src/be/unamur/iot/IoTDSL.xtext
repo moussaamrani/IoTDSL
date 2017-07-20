@@ -13,20 +13,20 @@ IotModel returns IotModel:
 Import returns Import:
 	'import' importedNamespace=FQNWithWildCard;
 
-
 Content:
 	Type | Configuration | Rule;
+
 
 /*
  * TYPES
  */
  
 Type returns Type:
-	PrimitiveType | DeclaredType;
+	PrimitiveType | DeclaredType ;
 
 PrimitiveType returns PrimitiveType:
 	'datatype' name=ID;
-
+	
 DeclaredType returns DeclaredType:
 	Enumeration | Node;
 
@@ -84,6 +84,7 @@ NodeInstance returns NodeInstance:
 CommunicationPath returns CommunicationPath:
 	'from' source=[NodeInstance] 'to' taget=[NodeInstance] 'via' protocol=Protocol;
 
+
 /*
  * RULES
  */
@@ -102,11 +103,11 @@ AndExpression returns Expression:
 
 IntervalExpression returns Expression:
 	SimpleExpression (
-		{WithinExpression.left=current} 'within' frame=TimeFrame 'from' preceding=SimpleExpression
-		| {AfterExpression.left=current} 'after' preceding=SimpleExpression
+		{WithinExpression.following=current} 'within' delay=Delay 'from' preceding=SimpleExpression
+		| {AfterExpression.following=current} 'after' preceding=SimpleExpression
 	)*;
 
-TimeFrame returns TimeFrame:
+Delay returns Delay:
 	time=INT unit=Unit;
 
 SimpleExpression returns Expression:
@@ -146,5 +147,8 @@ enum Operator returns Operator:
 	lesser='<' | leq='<=' | greater='>' | geq='>=' | equal='==' | neq='!=';
 
 enum Unit returns Unit:
-	hour='hour' | min='min' | sec='sec' | milli='ms';	
+	hour='hour' | min='min' | sec='sec' | milli='ms';
 	
+enum DefaultType returns DefaultType:
+	Void='void' | Integer='integer' | Real='real' | String='string' | Boolean='boolean';
+		

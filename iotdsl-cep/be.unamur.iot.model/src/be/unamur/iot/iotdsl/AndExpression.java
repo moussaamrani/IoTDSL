@@ -32,7 +32,7 @@ public interface AndExpression extends Expression {
 	 * @return the value of the '<em>Left</em>' containment reference.
 	 * @see #setLeft(Expression)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getAndExpression_Left()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Expression getLeft();
@@ -58,7 +58,7 @@ public interface AndExpression extends Expression {
 	 * @return the value of the '<em>Right</em>' containment reference.
 	 * @see #setRight(Expression)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getAndExpression_Right()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Expression getRight();

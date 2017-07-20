@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class NodeImpl extends DeclaredTypeImpl implements Node {
+public abstract class NodeImpl extends DeclaredTypeImpl implements Node {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

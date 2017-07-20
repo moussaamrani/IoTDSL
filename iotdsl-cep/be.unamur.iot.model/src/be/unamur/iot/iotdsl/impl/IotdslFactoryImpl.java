@@ -59,18 +59,12 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 		switch (eClass.getClassifierID()) {
 			case IotdslPackage.IOT_MODEL: return createIotModel();
 			case IotdslPackage.IMPORT: return createImport();
-			case IotdslPackage.CONTENT: return createContent();
-			case IotdslPackage.TYPE: return createType();
 			case IotdslPackage.PRIMITIVE_TYPE: return createPrimitiveType();
-			case IotdslPackage.DECLARED_TYPE: return createDeclaredType();
 			case IotdslPackage.ENUMERATION: return createEnumeration();
 			case IotdslPackage.ENUM_LITERAL: return createEnumLiteral();
-			case IotdslPackage.NODE: return createNode();
 			case IotdslPackage.DEVICE: return createDevice();
 			case IotdslPackage.GATEWAY: return createGateway();
-			case IotdslPackage.FEATURE: return createFeature();
 			case IotdslPackage.PROPERTY: return createProperty();
-			case IotdslPackage.CAPABILITY: return createCapability();
 			case IotdslPackage.ACTUATING: return createActuating();
 			case IotdslPackage.SENSING: return createSensing();
 			case IotdslPackage.PARAMETER: return createParameter();
@@ -78,16 +72,14 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 			case IotdslPackage.NODE_INSTANCE: return createNodeInstance();
 			case IotdslPackage.COMMUNICATION_PATH: return createCommunicationPath();
 			case IotdslPackage.RULE: return createRule();
-			case IotdslPackage.EXPRESSION: return createExpression();
-			case IotdslPackage.TIME_FRAME: return createTimeFrame();
+			case IotdslPackage.DELAY: return createDelay();
 			case IotdslPackage.NOT_EXPRESSION: return createNotExpression();
 			case IotdslPackage.EVENT_OCCURRENCE: return createEventOccurrence();
-			case IotdslPackage.VALUE: return createValue();
-			case IotdslPackage.REACTION: return createReaction();
 			case IotdslPackage.ATTRIBUTE: return createAttribute();
 			case IotdslPackage.AND_EXPRESSION: return createAndExpression();
 			case IotdslPackage.WITHIN_EXPRESSION: return createWithinExpression();
 			case IotdslPackage.AFTER_EXPRESSION: return createAfterExpression();
+			case IotdslPackage.VALUE: return createValue();
 			case IotdslPackage.STRING_CONSTANT: return createStringConstant();
 			case IotdslPackage.INT_CONSTANT: return createIntConstant();
 			case IotdslPackage.BOOL_CONSTANT: return createBoolConstant();
@@ -104,10 +96,12 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case IotdslPackage.PROTOCOL:
-				return createProtocolFromString(eDataType, initialValue);
+			case IotdslPackage.DEFAULT_TYPE:
+				return createDefaultTypeFromString(eDataType, initialValue);
 			case IotdslPackage.OPERATOR:
 				return createOperatorFromString(eDataType, initialValue);
+			case IotdslPackage.PROTOCOL:
+				return createProtocolFromString(eDataType, initialValue);
 			case IotdslPackage.UNIT:
 				return createUnitFromString(eDataType, initialValue);
 			default:
@@ -123,10 +117,12 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case IotdslPackage.PROTOCOL:
-				return convertProtocolToString(eDataType, instanceValue);
+			case IotdslPackage.DEFAULT_TYPE:
+				return convertDefaultTypeToString(eDataType, instanceValue);
 			case IotdslPackage.OPERATOR:
 				return convertOperatorToString(eDataType, instanceValue);
+			case IotdslPackage.PROTOCOL:
+				return convertProtocolToString(eDataType, instanceValue);
 			case IotdslPackage.UNIT:
 				return convertUnitToString(eDataType, instanceValue);
 			default:
@@ -159,39 +155,9 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Content createContent() {
-		ContentImpl content = new ContentImpl();
-		return content;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Type createType() {
-		TypeImpl type = new TypeImpl();
-		return type;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public PrimitiveType createPrimitiveType() {
 		PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
 		return primitiveType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DeclaredType createDeclaredType() {
-		DeclaredTypeImpl declaredType = new DeclaredTypeImpl();
-		return declaredType;
 	}
 
 	/**
@@ -219,16 +185,6 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Node createNode() {
-		NodeImpl node = new NodeImpl();
-		return node;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Device createDevice() {
 		DeviceImpl device = new DeviceImpl();
 		return device;
@@ -249,29 +205,9 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Feature createFeature() {
-		FeatureImpl feature = new FeatureImpl();
-		return feature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Property createProperty() {
 		PropertyImpl property = new PropertyImpl();
 		return property;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Capability createCapability() {
-		CapabilityImpl capability = new CapabilityImpl();
-		return capability;
 	}
 
 	/**
@@ -349,19 +285,9 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression createExpression() {
-		ExpressionImpl expression = new ExpressionImpl();
-		return expression;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TimeFrame createTimeFrame() {
-		TimeFrameImpl timeFrame = new TimeFrameImpl();
-		return timeFrame;
+	public Delay createDelay() {
+		DelayImpl delay = new DelayImpl();
+		return delay;
 	}
 
 	/**
@@ -382,26 +308,6 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	public EventOccurrence createEventOccurrence() {
 		EventOccurrenceImpl eventOccurrence = new EventOccurrenceImpl();
 		return eventOccurrence;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Value createValue() {
-		ValueImpl value = new ValueImpl();
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Reaction createReaction() {
-		ReactionImpl reaction = new ReactionImpl();
-		return reaction;
 	}
 
 	/**
@@ -449,6 +355,16 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Value createValue() {
+		ValueImpl value = new ValueImpl();
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public StringConstant createStringConstant() {
 		StringConstantImpl stringConstant = new StringConstantImpl();
 		return stringConstant;
@@ -479,8 +395,8 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Protocol createProtocolFromString(EDataType eDataType, String initialValue) {
-		Protocol result = Protocol.get(initialValue);
+	public DefaultType createDefaultTypeFromString(EDataType eDataType, String initialValue) {
+		DefaultType result = DefaultType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -490,7 +406,7 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertProtocolToString(EDataType eDataType, Object instanceValue) {
+	public String convertDefaultTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 
@@ -511,6 +427,26 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	 * @generated
 	 */
 	public String convertOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Protocol createProtocolFromString(EDataType eDataType, String initialValue) {
+		Protocol result = Protocol.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertProtocolToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

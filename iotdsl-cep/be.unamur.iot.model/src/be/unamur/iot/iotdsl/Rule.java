@@ -34,7 +34,7 @@ public interface Rule extends Content {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getRule_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();
@@ -60,7 +60,7 @@ public interface Rule extends Content {
 	 * @return the value of the '<em>Triggers</em>' containment reference.
 	 * @see #setTriggers(Expression)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getRule_Triggers()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Expression getTriggers();
@@ -86,7 +86,7 @@ public interface Rule extends Content {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reactions</em>' containment reference list.
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getRule_Reactions()
-	 * @model containment="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Reaction> getReactions();

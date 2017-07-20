@@ -32,7 +32,7 @@ public interface Import extends EObject {
 	 * @return the value of the '<em>Imported Namespace</em>' attribute.
 	 * @see #setImportedNamespace(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getImport_ImportedNamespace()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getImportedNamespace();

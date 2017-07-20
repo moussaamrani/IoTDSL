@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getReaction()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Reaction extends EObject {
@@ -36,7 +36,7 @@ public interface Reaction extends EObject {
 	 * @return the value of the '<em>Instance</em>' reference.
 	 * @see #setInstance(NodeInstance)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getReaction_Instance()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	NodeInstance getInstance();
@@ -62,7 +62,7 @@ public interface Reaction extends EObject {
 	 * @return the value of the '<em>Capability</em>' reference.
 	 * @see #setCapability(Actuating)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getReaction_Capability()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Actuating getCapability();

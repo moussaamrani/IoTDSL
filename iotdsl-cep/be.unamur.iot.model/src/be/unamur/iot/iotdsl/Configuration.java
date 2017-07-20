@@ -34,7 +34,7 @@ public interface Configuration extends Content {
 	 * @return the value of the '<em>Confname</em>' attribute.
 	 * @see #setConfname(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getConfiguration_Confname()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getConfname();
