@@ -16,32 +16,30 @@ We now illustrate how the scenarios Alice is concerned about (cf. Section \ref{s
 	\begin{lstlisting}[language=iotdsl,
 							label=lis:home-rule,
 		caption=Rule to switch on the lights at home incoming]
-	rule SwitchLightsWhenEntering:
-		when (frontDoor.opened() after foyerMotion.moving()) do {
-			foyerBulb.on() 
-			livingBulb.on()
-		}
+rule SwitchLightsWhenEntering:
+	when (frontDoor.opened() after foyerMotion.moving()) do {
+		foyerBulb.on() 
+		livingBulb.on()
+	}
 	\end{lstlisting}
 	This rule introduces what we call \emph{facilitators}, i.e. keywords that define an unspecified time window in which a sequence of events should be observed. This time window is system-specific and needs to be defined independently in configuration files independent of descriptions in \IOTDSL. In this case, the \lstinline[language=iotdsl]{foyerMotion} should detect movement \emph{nearly after} the \lstinline[language=iotdsl]{frontDoor} detects an opening. 
 		
 	Note that reactions are defined as a sequence that does not matter: the order in which the \lstinline[language=iotdsl]{foyerBulb} and the \lstinline[language=iotdsl]{livingBulb} switch on largely depends on the platform capacities, i.e. they can be actuated synchronously or sequentially (in which case, no guarantee is given that the definition order will be respected). At the abstraction level \IOTDSL operates, it is irrelevant since the end user wishes to see both switched on at some point, without having to consider low-level details that would enforce such behaviour.
 
-	\moussa{Add rule with temperature???}
-
 	\item[Illuminate bathroom when children wake up at night] When Alice's little boy wakes up at night, she would like to have the light in the bathroom to be switched on to prevent him from falling or injuring himself. Analogously, she wants the light to be switched off when he gets back to sleep afterwards.
 	\begin{lstlisting}[language=iotdsl,
 							label=lis:night-rule,
 		caption=Rules to switch on\//off lights in the corridor at night]
-		rule SwitchBathroomLightOnAtNight:	
-			when (not livingLight.light() and 
-					 (childDoor.opened() after hallMotion.moving())) do {
-				bathroomBulb.on()
-			}
-  
-		rule SwitchBathroomLightOffAtNight:	
-			when (not hallMotion.movement() within 3 min from childDoor.closed()) do {
-				bathroomBulb.off()
-			}
+rule SwitchBathroomLightOnAtNight:	
+	when (not livingLight.light() and 
+	 (childDoor.opened() after hallMotion.moving())) do {
+		bathroomBulb.on()
+	}
+
+rule SwitchBathroomLightOffAtNight:	
+	when (not hallMotion.movement() within 3 min from childDoor.closed()) do {
+		bathroomBulb.off()
+	}
 	\end{lstlisting}
 	The rule \lstinline[language=iotdsl]{SwitchBathroomLightOnAtNight} introduces a new keyword \lstinline[language=iotdsl]{not}, which represents the \emph{absence} of a certain event type, here \lstinline[language=iotdsl]{livingLight.light}. This is different than simply observing some events occuring. Note also that the second part of the rule trigger uses parenthesis to relate the facilitator \lstinline[language=iotdsl]{after} to the closest event \lstinline[language=iotdsl]{childDoor.open}, instead of spanning on the whole condition.
 
@@ -52,11 +50,11 @@ We now illustrate how the scenarios Alice is concerned about (cf. Section \ref{s
 	\begin{lstlisting}[language=iotdsl,
 							label=lis:balcony-rule,
 		caption=Rules to ring the alarm in case of an unsupervised child in the balcony]
-	rule AlarmWhenChildOnBalcony:	
-		when (not toggle.toggle() within 5 sec from and
-				(balconyDoor.opened() after balconyMotion.moving())) do {
-			alarm.sound()
-		}
+rule AlarmWhenChildOnBalcony:	
+	when (not toggle.toggle() within 5 sec from
+			(balconyDoor.opened() after balconyMotion.moving())) do {
+		alarm.sound()
+	}
 	\end{lstlisting}
 	This last rules states that once the balcony door has been opened and movement is detected inside the balcony, the alarm should ring unless the toogle button is pressed in a five-second time window. This rule is similar to \lstinline[language=iotdsl]{SwitchBathroomLightOffAtNight}, except that the baseline of the time window is here a composite event using a facilitator: once an opening followed by movement in the balcony is observed do we expect the toogle to be pressed. 
 \end{description}
