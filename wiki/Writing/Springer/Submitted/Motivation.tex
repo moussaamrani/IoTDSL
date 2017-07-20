@@ -1,13 +1,13 @@
 \section{Motivation and Challenges}
 \label{sec:Motivation}
 
-A major issue for \IOT is the rapid growth of the offer, spanning from very simple devices (e.g., temperature, light or sound sensors) to more elaborate objects that interact with their environment (e.g. building security or multimedia solutions). For domestic usage however, it is likely the case that devices would have simple capabilities, while responding to various scenarios specific to the inhabitants. Therefore, taming the complexity of smart homes requires handling the \emph{interactions} between devices, rather than their own, specific capabilities. 
+A major issue for \IOT is the rapid growth of the offer, spanning from very simple devices (e.g., temperature, light or sound sensors) to more elaborate objects that interact with their environment (e.g. building security or multimedia solutions). For domestic usage however, it is likely the case that devices would have simpler capabilities, while responding to various scenarios specific to the inhabitants. Therefore, taming the complexity of smart homes requires handling the \emph{interactions} between devices, rather than their own, specific capabilities. 
 
-Even in this context, simple devices could be manipulated in a plethora of scenarios: for example, a simple temperature sensor that simply reports a value could be paired with a heating system to regulate rooms temperature to keep them in comfortable ranges, or detect possible fire situations in the kitchen. 
+Even in this context, simple devices could be manipulated in a plethora of scenarios: for example, a simple sensor that simply reports a temperature value could be paired with a heating system to regulate rooms temperature to keep them in comfortable ranges, or detect possible fire situations in the kitchen. 
 
 At a technical level, driving such devices for realising end-users scenarios is hampered by the complexity of vendors and their proprietary data formats, the plethora of \textsc{Api}s that are quickly evolving, and the large variety of communication protocols, among others. This overburden the work of \IOT technicians when dealing with end user requirements. Besides the need for more standardization in \IOT specifications, there is also a crucial need for abstract definition of the semantics of \IOT configurations~\cite{park-16}.
 
-Our proposal consists of two facets. First, we clearly separate the responsibilities of the \emph{technicians}, who deal with the technical details relative to a specific solution deployed in a smart home \cite{park-16}; and \emph{end-users}, who control the devices according to their changing, evolving needs. Second, we provide users a way to interact with their home at an abstract level: far from knowing how each and every device works, users manipulate them only as an abstract level where interactions are carried through events.
+Our proposal consists of two facets. First, we clearly separate the responsibilities of the \emph{technicians}, who deal with the technical details relative to a specific solution deployed in a smart home \cite{park-16}; and \emph{end users}, who control the devices according to their changing, evolving needs. Second, we offer end users a way to interact with their home at an abstract level: far from knowing how each and every device works, users manipulate them only as an abstract level where interactions are carried through events. To this end, we propose that these manipulations occur through a Domain-Specific Language (\DSL).
 
 In this section, we show a typical smart home instalment with affordable, simple devices, then outline the main components of a \DSL that captures \IOT systems. We then list the main challenges such an \IOT \DSL should address to effectively provide a viable solution.
 
@@ -15,58 +15,7 @@ In this section, we show a typical smart home instalment with affordable, simple
 
 %Considering the wide range of possible use cases for nowadays devices must be coupled to the profusion of vendors, hardware,\textsc{Api}s and so forth, which overburden the work of \IOT technicians when dealing with end user requirements. Besides the need for more standardization in \IOT specifications, there is also a crucial need for abstract definition of the semantics of \IOT configurations~\cite{park-16}. 
 
-\subsection{Typical \IOT Scenarios}
-\label{sec:Motivation-Scenarios}
 
-Figure \ref{fig:scenario} describes a typical instalment at Alice's smart home, the fictional character we use in our case study. Alice asks her technician to deploy simple devices: light sensors and light bulbs to lighten the rooms; motion and door detectors to check human presence; an alarm that produces a sound in case of emergency; and a toogle button installed in the balcony for security purposes. 
-
-%In order to illustrate our proposal, we will use a hypothetical \IOT configuration depicted in Figure~\ref{fig:scenario} where Alice's apartment is represented with a set of sensors and actuators.
-\begin{figure}%
-	\centering  
-	\includegraphics[width=.9\linewidth]{scenario.png}%
-	\caption{Hypothetical Alice's \textit{smart-home} configuration of \IOT devices}%
-	\label{fig:scenario}%
-\end{figure}
-
-Alice is interested in simple scenarios for her comfort and her little boy's security: she want the the entrance lights to automatically switch on to welcome her when she arrives home; she likes her apartment to stay reasonably warm along the year; and since her boy often wake up at night and play in the balcony, she needs to ensure he does not fall or injure himself. Those scenarios seems already possible with the current equipment she has, and we will propose rules to implement them in Section \ref{sec:IoTDSL-BusinessRules}.
-
-%This typical smart home configuration consists of light sensors and bulbs to handle the light in the apartment, motion and door detectors to verify the presence of persons, an alarm in case of emergency and a toggle switch on the balcony. Even if the amount of types of devices is rather limited, we can already highlight a set of features absolutely needed to describe the devices, network configuration and specify its dynamic aspects.
-
-\subsection{Components for an \IOT Language}
-\label{sec:Motivation-Components}
-
-We argue that a good way of capturing the many variations of scenarios relying on a specific \IOT system deployed at home would consists in offering end users, i.e. home inhabitants like Alice, and technicians in charge of configuring such systems and effectively deploying them, a \DSL that provides at least the following components:
-
-\begin{description}
-	\item[Device Description] We need facility to make a precise inventory of the devices used in a specific deployment as well as the high-level capabilities of these devices, described in terms that are immediately understandable by end-users, as opposed to conveying technical details about how those devices precisely operate;
-	
-	\item[Network Description] A way to capture where each device is located and how it is possible to communicate with it, in order to receive or send data to it;
-	
-	\item[Dynamics] A way to describe the interactions wished by end-users, \textit{i.e.} how to leverage the functionalities of the devices to effectively realise one or several scenarios that are convenient for the end-users.  
-\end{description}
-
-Those components are obviously not sufficient to obtain a fully-fledged solution that becomes adaptable to any situation, but they still represent necessary steps to provide end-users the capacity to manipulate a collection of devices without relying on specific technologies. Defining such \DSLS should encompass a series of facilities dedicated to hide hardware- and protocol-related constraints, and high-level models of devices should somehow be easily \emph{transformable} and \emph{traceable} into concrete infrastructures with simulation and verification possibilities.
-
-%Though, the definition of such \DSLS should encompass a series of facilities dedicated to hide the hardware-related constraints, but still user-defined abstract models should be somehow \textit{transformable} and \textit{traceable} into concrete infrastructures with simulation and verification possibilities. 
-
-\subsection{Challenges}
-\label{sec:Motivation-Challenges}
-
-Many challenges arise directly from the previous hypothesis, in order to provide a feasible, tractable and realistic \IOT solution. Many contributions already investigated the various challenges \IOT systems pose, but we revisit the literature in order to extract those directly relevant to the definition of \IOT \DSLS, and suggest possible high-level solutions.
-
-\begin{description}
-	\item[Capability Discovery] Providing the ability to drive interconnected devices assumes the capacity of automatically discovering devices' capabilities in a standardised and uniform way~\cite{chaqfeh-12}. Similar processes exist for other technologies, like \textsc{Usb} devices plugged into computers that automatically expose their natures and capabilities. Classifying those capabilities should be useful to build an ontology of normalised functions that could result in powerful \textsc{Api}s to manipulate devices. 
-	
-	\item[Reusability] Knowledge exchange and reusability of devices' definitions and interaction specifications are essential prerequisites to the adoption of a \DSL for the \IOT. It is not uncommon to reuse existing scenarios that involve a set of devices in different configurations. Those partial \IOT structures with their event orchestrations should be \textit{externalisable}, despite the large amount of standards, \textsc{API}s or hardware~\cite{ma-14}.
-
-	\item[Complex Event Processing (\CEP)] Letting end-users deal with devices through their low-level capability interfaces could lead to confusion and stiff complexity for defining usage scenarios~\cite{ma-13}. Rather, providing a way of reifying low-level device computations into high-level events could help end-users leverage the complexity of devices networks and pave the way to manipulate them freely and transparently \cite{cugola-12}. Since \CEP consists of deriving meaningful conclusions from a stream of events occurring within a system and responding to them as quickly as possible, it provides a solution to extract meaningful events from low-level computations. However, for a solution to be complete and useful, the reverse operation should be addressed: high-level actions should be adequately translated into low-level actuations and interactions.
-	
-	\item[Protocol Interoperability] A smart-home solution with heterogeneous devices would often integrate elements from various providers, thus communicating through disparate protocols. In order to make them interact efficiently without forcing end-users to stick with one vendor, a powerful \DSL should provide ways for interoperability over multiple communication protocols, without requiring end-users to understand the protocols' intricacies, versions and technical restrictions~\cite{gubbi-13}.
-	
-	\item[Scalability] As the number of application domains increases, the amount of connected devices is expected to rise exponentially. When updating existing \IOT configurations, current solutions may not collapse when adding more elements~\cite{mukho-14}. Furthermore, a \DSL must provide a way to absorb scalability problems, hiding as much as possible purely technical constraints regarding increases in size and complexity of operating configurations. 
-	
-	\item[Data Management] Analogously to scalability issues, the massive increase in connected devices will produce more and more data to be processed, stored and, for some of them, post processed~\cite{lee-15}. More data means seemingly more storage capabilities and the required space to handle such flow of information will be at its highest ever. Furthermore, the multiplication of available (sensors) sources is creating a whole new world of data processing and mining possibilities, but also a profusion of divergent concrete data types that sooner or later must be mapped to equivalent concepts.
-	
-	\item[Non-Functional Properties] A powerful \DSL should encompass typical non-functional properties of device networks to ensure long-life and secure realisation of scenarios. \emph{Performance} is crucial, and depends both on the devices capabilities but also on the quality of the communication network. \emph{Resource availability}, both in terms of computation and memory capability, but also in terms of energy, is another crucial bottleneck for the adoption of \textsc{Dsl}s as a solution for defining scenarios. The generated code from the \DSL should not overload the devices with repetitive communications or unnecessary computations that would drain the device's battery. \emph{Security} is yet another concern with respect to two aspects. First, sensitive data could be exposed through the communication network, endangering users privacy. Second, some functionalities could be locked and only accessible to authorised users~\cite{tan-10}.
-\end{description}
-This challenges will be revisited in Section \ref{sec:Discussion} in the light of our \IOTDSL, to discuss which and to which extent our proposal offers potential solutions.
+\input{Scenarios}
+\input{Challenges}
+\input{Components}

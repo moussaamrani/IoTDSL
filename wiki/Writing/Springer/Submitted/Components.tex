@@ -1,0 +1,18 @@
+\subsection{Components for an \IOT Language}
+\label{sec:Motivation-Components}
+
+We argue that a good way of capturing the many variations of scenarios relying on a specific \IOT system deployed at home would consists in offering end users, i.e. home inhabitants like Alice, and technicians in charge of configuring such systems and effectively deploying them, a \DSL that provides at least the following components:
+
+\begin{description}
+	\item[Device Description] We need facility to make a precise inventory of the devices used in a specific deployment as well as the high-level capabilities of these devices, described in terms that are immediately understandable by end-users, as opposed to conveying technical details about how those devices precisely operate;
+	
+	\item[Network Description] A way to capture where each device is located and how it is possible to communicate with it, in order to receive or send data to it;
+	
+	\item[Dynamics] A way to describe the interactions wished by end-users, \textit{i.e.} how to leverage the functionalities of the devices to effectively realise one or several scenarios that are convenient for the end-users.  
+\end{description}
+
+Those components are obviously not sufficient to obtain a fully-fledged solution that becomes adaptable to any situation, but they still represent necessary steps to provide end-users the capacity to manipulate a collection of devices without relying on specific technologies. Defining such \DSLS should encompass a series of facilities dedicated to hide hardware- and protocol-related constraints, and high-level models of devices should somehow be easily \emph{transformable} and \emph{traceable} into concrete infrastructures with simulation and verification possibilities.
+
+%Though, the definition of such \DSLS should encompass a series of facilities dedicated to hide the hardware-related constraints, but still user-defined abstract models should be somehow \textit{transformable} and \textit{traceable} into concrete infrastructures with simulation and verification possibilities. 
+
+

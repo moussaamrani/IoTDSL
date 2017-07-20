@@ -9,7 +9,7 @@ An \IOTDSL Business Rule is identified by the keyword \textsf{rule} followed by 
 
 Our approach is currently purely middleware-oriented: all rules are evaluated inside a single gateway that supposedly possesses enough processing power. We leave as future work the exploration of parallelisation techniques to support multiple gateways that communicate appropriately, or the possibility to decentralise parts of the computation into nodes with sufficient processing and power resources to optimise resource consumption and lighten communication. 
 
-We now illustrate how our smart house scenario presented in Section \ref{sec:Motivation} can be translated into business rules in \IOTDSL with the devices' definitions detailed in Listings~\ref{lis:RE-TypeDeclarations} and \ref{lis:RE-Network}. We identified three different situations to depict the usage of business rules and highlight the main assets of \IOTDSL.
+We now illustrate how the scenarios Alice is concerned about (cf. Section \ref{sec:Motivation-Scenarios} can be translated into business rules in \IOTDSL with the devices' definitions detailed in Listings~\ref{lis:RE-TypeDeclarations} and \ref{lis:RE-Network}. 
 
 \begin{description}[leftmargin=0cm]
 	\item[Switching entrance lights on when coming in]  When Alice gets home (and thus opens the front door), she wants the lights to be automatically switched on in the foyer and in the living room.
