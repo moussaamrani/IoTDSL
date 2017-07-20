@@ -3,6 +3,9 @@
  */
 package be.unamur.iot
 
+import be.unamur.iot.iotdsl.IotdslPackage
+import com.google.inject.Injector
+import org.eclipse.emf.ecore.EPackage
 
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
@@ -12,4 +15,12 @@ class IoTDSLStandaloneSetup extends IoTDSLStandaloneSetupGenerated {
 	def static void doSetup() {
 		new IoTDSLStandaloneSetup().createInjectorAndDoEMFRegistration()
 	}
+	
+	override register(Injector injector) {
+		if (!EPackage.Registry.INSTANCE.containsKey(IotdslPackage.eNS_URI)) {
+			EPackage.Registry.INSTANCE.put(IotdslPackage.eNS_URI, IotdslPackage.eINSTANCE);
+		} //maybe you have to register the subpackages as well
+		super.register(injector)
+	}
+	
 }
