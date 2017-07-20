@@ -156,8 +156,8 @@ public class IotdslAdapterFactory extends AdapterFactoryImpl {
 				return createExpressionAdapter();
 			}
 			@Override
-			public Adapter caseTimeFrame(TimeFrame object) {
-				return createTimeFrameAdapter();
+			public Adapter caseDelay(Delay object) {
+				return createDelayAdapter();
 			}
 			@Override
 			public Adapter caseNotExpression(NotExpression object) {
@@ -166,10 +166,6 @@ public class IotdslAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEventOccurrence(EventOccurrence object) {
 				return createEventOccurrenceAdapter();
-			}
-			@Override
-			public Adapter caseValue(Value object) {
-				return createValueAdapter();
 			}
 			@Override
 			public Adapter caseReaction(Reaction object) {
@@ -184,12 +180,20 @@ public class IotdslAdapterFactory extends AdapterFactoryImpl {
 				return createAndExpressionAdapter();
 			}
 			@Override
+			public Adapter caseTimingExpression(TimingExpression object) {
+				return createTimingExpressionAdapter();
+			}
+			@Override
 			public Adapter caseWithinExpression(WithinExpression object) {
 				return createWithinExpressionAdapter();
 			}
 			@Override
 			public Adapter caseAfterExpression(AfterExpression object) {
 				return createAfterExpressionAdapter();
+			}
+			@Override
+			public Adapter caseValue(Value object) {
+				return createValueAdapter();
 			}
 			@Override
 			public Adapter caseStringConstant(StringConstant object) {
@@ -532,16 +536,16 @@ public class IotdslAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link be.unamur.iot.iotdsl.TimeFrame <em>Time Frame</em>}'.
+	 * Creates a new adapter for an object of class '{@link be.unamur.iot.iotdsl.Delay <em>Delay</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see be.unamur.iot.iotdsl.TimeFrame
+	 * @see be.unamur.iot.iotdsl.Delay
 	 * @generated
 	 */
-	public Adapter createTimeFrameAdapter() {
+	public Adapter createDelayAdapter() {
 		return null;
 	}
 
@@ -570,20 +574,6 @@ public class IotdslAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEventOccurrenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link be.unamur.iot.iotdsl.Value <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see be.unamur.iot.iotdsl.Value
-	 * @generated
-	 */
-	public Adapter createValueAdapter() {
 		return null;
 	}
 
@@ -630,6 +620,20 @@ public class IotdslAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link be.unamur.iot.iotdsl.TimingExpression <em>Timing Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.unamur.iot.iotdsl.TimingExpression
+	 * @generated
+	 */
+	public Adapter createTimingExpressionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link be.unamur.iot.iotdsl.WithinExpression <em>Within Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -654,6 +658,20 @@ public class IotdslAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAfterExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link be.unamur.iot.iotdsl.Value <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see be.unamur.iot.iotdsl.Value
+	 * @generated
+	 */
+	public Adapter createValueAdapter() {
 		return null;
 	}
 

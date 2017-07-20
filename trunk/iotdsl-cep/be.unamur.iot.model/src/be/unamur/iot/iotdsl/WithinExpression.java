@@ -12,92 +12,38 @@ package be.unamur.iot.iotdsl;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link be.unamur.iot.iotdsl.WithinExpression#getLeft <em>Left</em>}</li>
- *   <li>{@link be.unamur.iot.iotdsl.WithinExpression#getFrame <em>Frame</em>}</li>
- *   <li>{@link be.unamur.iot.iotdsl.WithinExpression#getPreceding <em>Preceding</em>}</li>
+ *   <li>{@link be.unamur.iot.iotdsl.WithinExpression#getDelay <em>Delay</em>}</li>
  * </ul>
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getWithinExpression()
  * @model
  * @generated
  */
-public interface WithinExpression extends Expression {
+public interface WithinExpression extends TimingExpression {
 	/**
-	 * Returns the value of the '<em><b>Left</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Delay</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Left</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Delay</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Left</em>' containment reference.
-	 * @see #setLeft(Expression)
-	 * @see be.unamur.iot.iotdsl.IotdslPackage#getWithinExpression_Left()
-	 * @model containment="true"
+	 * @return the value of the '<em>Delay</em>' containment reference.
+	 * @see #setDelay(Delay)
+	 * @see be.unamur.iot.iotdsl.IotdslPackage#getWithinExpression_Delay()
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Expression getLeft();
+	Delay getDelay();
 
 	/**
-	 * Sets the value of the '{@link be.unamur.iot.iotdsl.WithinExpression#getLeft <em>Left</em>}' containment reference.
+	 * Sets the value of the '{@link be.unamur.iot.iotdsl.WithinExpression#getDelay <em>Delay</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Left</em>' containment reference.
-	 * @see #getLeft()
+	 * @param value the new value of the '<em>Delay</em>' containment reference.
+	 * @see #getDelay()
 	 * @generated
 	 */
-	void setLeft(Expression value);
-
-	/**
-	 * Returns the value of the '<em><b>Frame</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Frame</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Frame</em>' containment reference.
-	 * @see #setFrame(TimeFrame)
-	 * @see be.unamur.iot.iotdsl.IotdslPackage#getWithinExpression_Frame()
-	 * @model containment="true"
-	 * @generated
-	 */
-	TimeFrame getFrame();
-
-	/**
-	 * Sets the value of the '{@link be.unamur.iot.iotdsl.WithinExpression#getFrame <em>Frame</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Frame</em>' containment reference.
-	 * @see #getFrame()
-	 * @generated
-	 */
-	void setFrame(TimeFrame value);
-
-	/**
-	 * Returns the value of the '<em><b>Preceding</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Preceding</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Preceding</em>' containment reference.
-	 * @see #setPreceding(Expression)
-	 * @see be.unamur.iot.iotdsl.IotdslPackage#getWithinExpression_Preceding()
-	 * @model containment="true"
-	 * @generated
-	 */
-	Expression getPreceding();
-
-	/**
-	 * Sets the value of the '{@link be.unamur.iot.iotdsl.WithinExpression#getPreceding <em>Preceding</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Preceding</em>' containment reference.
-	 * @see #getPreceding()
-	 * @generated
-	 */
-	void setPreceding(Expression value);
+	void setDelay(Delay value);
 
 } // WithinExpression

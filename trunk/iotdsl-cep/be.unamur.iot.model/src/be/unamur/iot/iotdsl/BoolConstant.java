@@ -31,7 +31,7 @@ public interface BoolConstant extends Value {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getBoolConstant_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();

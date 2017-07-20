@@ -36,7 +36,7 @@ public interface EventOccurrence extends Expression {
 	 * @return the value of the '<em>Instance</em>' reference.
 	 * @see #setInstance(NodeInstance)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getEventOccurrence_Instance()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	NodeInstance getInstance();
@@ -62,7 +62,7 @@ public interface EventOccurrence extends Expression {
 	 * @return the value of the '<em>Capability</em>' reference.
 	 * @see #setCapability(Sensing)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getEventOccurrence_Capability()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	Sensing getCapability();

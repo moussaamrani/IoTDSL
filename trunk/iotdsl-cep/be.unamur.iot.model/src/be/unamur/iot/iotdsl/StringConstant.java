@@ -31,7 +31,7 @@ public interface StringConstant extends Value {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getStringConstant_Value()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getValue();

@@ -39,7 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ReactionImpl extends MinimalEObjectImpl.Container implements Reaction {
+public abstract class ReactionImpl extends MinimalEObjectImpl.Container implements Reaction {
 	/**
 	 * The cached value of the '{@link #getInstance() <em>Instance</em>}' reference.
 	 * <!-- begin-user-doc -->

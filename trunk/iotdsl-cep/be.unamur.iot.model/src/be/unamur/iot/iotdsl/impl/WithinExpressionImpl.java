@@ -2,9 +2,8 @@
  */
 package be.unamur.iot.iotdsl.impl;
 
-import be.unamur.iot.iotdsl.Expression;
+import be.unamur.iot.iotdsl.Delay;
 import be.unamur.iot.iotdsl.IotdslPackage;
-import be.unamur.iot.iotdsl.TimeFrame;
 import be.unamur.iot.iotdsl.WithinExpression;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,43 +22,21 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link be.unamur.iot.iotdsl.impl.WithinExpressionImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link be.unamur.iot.iotdsl.impl.WithinExpressionImpl#getFrame <em>Frame</em>}</li>
- *   <li>{@link be.unamur.iot.iotdsl.impl.WithinExpressionImpl#getPreceding <em>Preceding</em>}</li>
+ *   <li>{@link be.unamur.iot.iotdsl.impl.WithinExpressionImpl#getDelay <em>Delay</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class WithinExpressionImpl extends ExpressionImpl implements WithinExpression {
+public class WithinExpressionImpl extends TimingExpressionImpl implements WithinExpression {
 	/**
-	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * The cached value of the '{@link #getDelay() <em>Delay</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getLeft()
+	 * @see #getDelay()
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression left;
-
-	/**
-	 * The cached value of the '{@link #getFrame() <em>Frame</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFrame()
-	 * @generated
-	 * @ordered
-	 */
-	protected TimeFrame frame;
-
-	/**
-	 * The cached value of the '{@link #getPreceding() <em>Preceding</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPreceding()
-	 * @generated
-	 * @ordered
-	 */
-	protected Expression preceding;
+	protected Delay delay;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -85,8 +62,8 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression getLeft() {
-		return left;
+	public Delay getDelay() {
+		return delay;
 	}
 
 	/**
@@ -94,11 +71,11 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLeft(Expression newLeft, NotificationChain msgs) {
-		Expression oldLeft = left;
-		left = newLeft;
+	public NotificationChain basicSetDelay(Delay newDelay, NotificationChain msgs) {
+		Delay oldDelay = delay;
+		delay = newDelay;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__LEFT, oldLeft, newLeft);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__DELAY, oldDelay, newDelay);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -109,104 +86,18 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeft(Expression newLeft) {
-		if (newLeft != left) {
+	public void setDelay(Delay newDelay) {
+		if (newDelay != delay) {
 			NotificationChain msgs = null;
-			if (left != null)
-				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__LEFT, null, msgs);
-			if (newLeft != null)
-				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__LEFT, null, msgs);
-			msgs = basicSetLeft(newLeft, msgs);
+			if (delay != null)
+				msgs = ((InternalEObject)delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__DELAY, null, msgs);
+			if (newDelay != null)
+				msgs = ((InternalEObject)newDelay).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__DELAY, null, msgs);
+			msgs = basicSetDelay(newDelay, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__LEFT, newLeft, newLeft));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TimeFrame getFrame() {
-		return frame;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetFrame(TimeFrame newFrame, NotificationChain msgs) {
-		TimeFrame oldFrame = frame;
-		frame = newFrame;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__FRAME, oldFrame, newFrame);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFrame(TimeFrame newFrame) {
-		if (newFrame != frame) {
-			NotificationChain msgs = null;
-			if (frame != null)
-				msgs = ((InternalEObject)frame).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__FRAME, null, msgs);
-			if (newFrame != null)
-				msgs = ((InternalEObject)newFrame).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__FRAME, null, msgs);
-			msgs = basicSetFrame(newFrame, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__FRAME, newFrame, newFrame));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Expression getPreceding() {
-		return preceding;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetPreceding(Expression newPreceding, NotificationChain msgs) {
-		Expression oldPreceding = preceding;
-		preceding = newPreceding;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__PRECEDING, oldPreceding, newPreceding);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPreceding(Expression newPreceding) {
-		if (newPreceding != preceding) {
-			NotificationChain msgs = null;
-			if (preceding != null)
-				msgs = ((InternalEObject)preceding).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__PRECEDING, null, msgs);
-			if (newPreceding != null)
-				msgs = ((InternalEObject)newPreceding).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - IotdslPackage.WITHIN_EXPRESSION__PRECEDING, null, msgs);
-			msgs = basicSetPreceding(newPreceding, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__PRECEDING, newPreceding, newPreceding));
+			eNotify(new ENotificationImpl(this, Notification.SET, IotdslPackage.WITHIN_EXPRESSION__DELAY, newDelay, newDelay));
 	}
 
 	/**
@@ -217,12 +108,8 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case IotdslPackage.WITHIN_EXPRESSION__LEFT:
-				return basicSetLeft(null, msgs);
-			case IotdslPackage.WITHIN_EXPRESSION__FRAME:
-				return basicSetFrame(null, msgs);
-			case IotdslPackage.WITHIN_EXPRESSION__PRECEDING:
-				return basicSetPreceding(null, msgs);
+			case IotdslPackage.WITHIN_EXPRESSION__DELAY:
+				return basicSetDelay(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -235,12 +122,8 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case IotdslPackage.WITHIN_EXPRESSION__LEFT:
-				return getLeft();
-			case IotdslPackage.WITHIN_EXPRESSION__FRAME:
-				return getFrame();
-			case IotdslPackage.WITHIN_EXPRESSION__PRECEDING:
-				return getPreceding();
+			case IotdslPackage.WITHIN_EXPRESSION__DELAY:
+				return getDelay();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -253,14 +136,8 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case IotdslPackage.WITHIN_EXPRESSION__LEFT:
-				setLeft((Expression)newValue);
-				return;
-			case IotdslPackage.WITHIN_EXPRESSION__FRAME:
-				setFrame((TimeFrame)newValue);
-				return;
-			case IotdslPackage.WITHIN_EXPRESSION__PRECEDING:
-				setPreceding((Expression)newValue);
+			case IotdslPackage.WITHIN_EXPRESSION__DELAY:
+				setDelay((Delay)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -274,14 +151,8 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case IotdslPackage.WITHIN_EXPRESSION__LEFT:
-				setLeft((Expression)null);
-				return;
-			case IotdslPackage.WITHIN_EXPRESSION__FRAME:
-				setFrame((TimeFrame)null);
-				return;
-			case IotdslPackage.WITHIN_EXPRESSION__PRECEDING:
-				setPreceding((Expression)null);
+			case IotdslPackage.WITHIN_EXPRESSION__DELAY:
+				setDelay((Delay)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -295,12 +166,8 @@ public class WithinExpressionImpl extends ExpressionImpl implements WithinExpres
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case IotdslPackage.WITHIN_EXPRESSION__LEFT:
-				return left != null;
-			case IotdslPackage.WITHIN_EXPRESSION__FRAME:
-				return frame != null;
-			case IotdslPackage.WITHIN_EXPRESSION__PRECEDING:
-				return preceding != null;
+			case IotdslPackage.WITHIN_EXPRESSION__DELAY:
+				return delay != null;
 		}
 		return super.eIsSet(featureID);
 	}

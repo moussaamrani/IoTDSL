@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getCapability()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Capability extends Feature {

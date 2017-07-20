@@ -16,7 +16,7 @@ package be.unamur.iot.iotdsl;
  * </ul>
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getType()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Type extends Content {
@@ -31,7 +31,7 @@ public interface Type extends Content {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see be.unamur.iot.iotdsl.IotdslPackage#getType_Name()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

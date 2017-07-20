@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getContent()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Content extends EObject {
