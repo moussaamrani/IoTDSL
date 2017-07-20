@@ -31,13 +31,13 @@ We now illustrate how the scenarios Alice is concerned about (cf. Section \ref{s
 							label=lis:night-rule,
 		caption=Rules to switch on\//off lights in the corridor at night]
 		rule SwitchBathroomLightOnAtNight:	
-			when (not livingLight.light() and 
+			when (not livingLight.light and 
 					 (hallMotion.moving after childDoor.opened)) do {
 				bathroomBulb.on
 			}
   
 		rule SwitchBathroomLightOffAtNight:	
-			when (not hallMotion.movement within 3 min from childDoor.closed) do {
+			when (not hallMotion.moving within 3 min from childDoor.closed) do {
 				bathroomBulb.off
 			}
 	\end{lstlisting}
@@ -51,8 +51,9 @@ We now illustrate how the scenarios Alice is concerned about (cf. Section \ref{s
 							label=lis:balcony-rule,
 		caption=Rules to ring the alarm in case of an unsupervised child in the balcony]
 	rule AlarmWhenChildOnBalcony:	
-		when (not toggle.toggled() within 5 sec from
-			alarm.sound()
+		when (not toggle.toggled within 5 sec from 
+				(balconyMotion.moving after balconyDoor.open)) do{
+			alarm.sound
 		}
 	\end{lstlisting}
 	This last rules states that once the balcony door has been opened and movement is detected inside the balcony, the alarm should ring unless the toogle button is pressed in a five-second time window. This rule is similar to \inlineI{SwitchBathroomLightOffAtNight}, except that the baseline of the time window is here a composite event using a facilitator: once an opening followed by movement in the balcony is observed do we expect the toogle to be pressed. 
