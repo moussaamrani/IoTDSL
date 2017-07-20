@@ -51,8 +51,7 @@ We now illustrate how the scenarios Alice is concerned about (cf. Section \ref{s
 							label=lis:balcony-rule,
 		caption=Rules to ring the alarm in case of an unsupervised child in the balcony]
 	rule AlarmWhenChildOnBalcony:	
-		when (not toggle.toggled within 5 sec from 
-				(balconyMotion.moving after balconyDoor.opened)) do {
+		when (not toggle.toggled() within 5 sec from
 			alarm.sound()
 		}
 	\end{lstlisting}
