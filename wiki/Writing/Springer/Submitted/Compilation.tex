@@ -11,23 +11,23 @@ In \IOTDSL, a Business Rule has the following general form: \inlineI{rule R: whe
 	\begin{itemize}
 		\item If it is not a composite, i.e. the rule consists of only one actuation of the form \inlineI{inst.actuation(<param1, ..., paramN>)}, we translate it in a simple rule of the form
 		\begin{lstlisting}[language=tesla, numbers=none]
-			define actuation(param1, ..., paramN)
-			from   transformedTrigger
-			where  param1 := f1, ..., paramN := fN
+	define actuation(param1, ..., paramN)
+	from   transformedTrigger
+	where  param1 := f1, ..., paramN := fN
 		\end{lstlisting}
 		where the actuation parameters are computed in the \inlineT{where} line, and the \inlineI{trigger} condition is transformed into \inlineT{transformedTrigger} with the process in Step 3.
 		
 		\item If the \inlineI{reaction} is composite, i.e. it consists of several actions \inlineI{a1}, \ldots, \inlineI{aN}, we issue $n+1$ Tesla rules: one rule for each actuation \inlineI{aI}, and one additional rule to bind things together.
 		\begin{center}
 			\begin{lstlisting}[language=tesla, numbers=none]
-				define R(Rparam1, ..., RparamM)
-				from   transformedTrigger
-				where  Rparam1 := g1, ..., RparamM := gn
-				...
-				define aI(AIparam1, ..., AIparamN)
-				from   R(Rparam1, ..., RparamM)
-				where  AIparam1 := f1, ..., AIparamN := fn
-				...
+	define R(Rparam1, ..., RparamM)
+	from   transformedTrigger
+	where  Rparam1 := g1, ..., RparamM := gn
+	...
+	define aI(AIparam1, ..., AIparamN)
+	from   R(Rparam1, ..., RparamM)
+	where  AIparam1 := f1, ..., AIparamN := fn
+	...
 			\end{lstlisting}
 		\end{center}
 		When the event pattern for the rule \inlineI{R} is detected, the first rule issues the complex event \inlineT{R}, which is immediately produced by the \CEP engine to trigger the subsequent rules. This way, all actuations are processed at the same time, leaving the platform handling how to effectively enforce the actuations. Note that in the additional Tesla rule \inlineT{R}, no \inlineT{_inst} parameter appears (as it is not needed), but all parameters necessary to the $n$ actuations are part of event \inlineT{R}'s signature, so that functions \inlineT{f1}, ..., \inlineT{fN} rematches the parameters of each actuation (\inlineI{aIparamK}) correctly from \inlineT{R}'s parameters.
