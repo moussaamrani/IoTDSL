@@ -1,11 +1,9 @@
 \subsection{Type Definition}
 \label{sec:IoTDSL-TD}
 
-The first task is to provide a description of which capabilities each device included in the \IOT system possess: how each device may provide information about the environment through a \emph{sensing} operation; and how it could react and influence it through \emph{actuations}. Our framework currently requires that an advanced user that is able to reason properly about how to effectively manipulate a device and extract the relevant information, but is flexible enough to accomodate automation in the future, so that information about devices could be automatically extracted from pre-existing devices databases (either from a knowledge database the \IOT system is connected to, or from a library of \emph{off-the-shelf devices}).
+The first task is to provide a description of which capabilities each device possess, how each device may provide information about the environment through a \emph{sensing} operation, and how it could react and influence it through \emph{actuations}. Our framework currently requires that an advanced user extract  relevant information regarding devices' exposed features, but it is flexible enough to accommodate automation in the future, so that such pieces of information could be automatically extracted from pre-existing devices databases (either from a knowledge database the \IOT system is connected to, or from a library of \emph{off-the-shelf devices}).
 
-%In this section, we define \IOT devices' types, \textit{i.e.} which capabilities are available to the users in terms of getting information from the environment, \textit{a.k.a.} sensing, and operating on the environment, \textit{a.k.a} actuating. In our framework, type definitions either come from an advanced user who is able to reason properly about a particular device and extract the relevant information, or from a pre-existing devices database, either being a repository the system is connected to, or a library of \textit{devices-off-the-shelf}. 
-
-The concepts dedicated to type definition are shown in Figure~\ref{fig:IoTDevice-MM} (green background). This part is similar to the notion of \textsf{Classifier} in \textsc{Mof}-like languages: a \textsf{Type} is either a \textsf{PrimitiveType}, or a user-defined \textsf{DeclaredType}. We distinguish between general \textsf{Gateway}s, which centralise information and processing, and \textsf{Node}s deployed in the environment and communicating with gateways, and which possess capabilities to interact with the environment. A \textsf{Capability} is basically a parameterised event that drives the node to either capture data from the environment, to act on it, or to perform both. This abstract view of an ``thing'' allows us to manipulate any device at a high abstraction level, exhibiting a clean and uniform interface for end-users based on device capabilities. Since \textsf{Node}s are \textsf{Type}s themselves, it remains possible to reference them as a parameter for the purpose of dynamic discovery across devices.
+The concepts dedicated to type definition are shown in Figure~\ref{fig:IoTDevice-MM} (top-right part in green background). This part is similar to the notion of \textsf{Classifier} in \textsc{Mof}-like languages: a \textsf{Type} is either a \textsf{PrimitiveType}, or a user-defined \textsf{DeclaredType}. We distinguish between general \textsf{Gateway}s, which centralise information and processing, and \textsf{Node}s deployed in the environment and communicating with \textsf{Gateway}s, and which possess capabilities to interact with the environment. A \textsf{Capability} is basically a parametrised event that drives the node to either capture data from the environment, act on it, or perform both. This abstract view of a ``thing'' allows us to manipulate any device at a high level of abstraction, exhibiting a clean and uniform interface for end-users based on device capabilities. Since \textsf{Node}s are \textsf{Type}s themselves, they may be referenced as parameters for the purpose of dynamic discovery across devices.
 
 Listing~\ref{lis:RE-TypeDeclarations} illustrates how the devices in Figure~\ref{fig:scenario} are declared in \IOTDSL. Each device is introduced by the keyword \textsf{device}, possesses a name and lists capabilities that correspond to reporting events (\textsf{sensing}) or operating over the environment (\textsf{actuating}). 
 
@@ -21,13 +19,12 @@ device MotionDetector {
 	sensing moving()
 }
 device ToggleSwitch {
-	sensing toggled();
+	sensing toggled()
 }
 		\end{lstlisting}
 	\end{minipage}\hfill%
 	\begin{minipage}[b]{.45\textwidth}
 		\begin{lstlisting}[language=iotdsl, firstnumber=12]
-		
 device LightSensor {
 	sensing light()
 }
@@ -39,6 +36,7 @@ device Alarm {
 	actuating sound()
 }
 		\end{lstlisting}
+		\vspace{.3cm}
 	\end{minipage}
 	\caption{Type declarations in \IOTDSL: capabilities as high-level events.}
 	\label{lis:RE-TypeDeclarations}

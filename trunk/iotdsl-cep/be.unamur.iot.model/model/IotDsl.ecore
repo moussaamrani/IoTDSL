@@ -94,7 +94,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reaction" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Reaction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="instance" lowerBound="1"
         eType="#//NodeInstance"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="capability" lowerBound="1"

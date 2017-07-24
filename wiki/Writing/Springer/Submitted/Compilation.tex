@@ -5,10 +5,10 @@ We now describe how we obtain the final code deployed into the gateway using TRe
 
 In \IOTDSL, a Business Rule has the following general form: \inlineI{rule R: when (trigger) do reaction}. The scheme for producing Tesla code relies on a three-step process:
 \begin{enumerate}
-	\item For traceability purposes, we map each rule name \inlineI{R} to the resulting Tesla rule(s), to be able to trace in the future analysis results directly back to \IOTDSL rules.
+	\item For traceability purposes, we map each rule name \inlineI{R} to the resulting Tesla rule(s), to be able to trace results directly from \IOTDSL rules in future analysis.
 	
 	\item The second step requires a preliminary task: since Tesla does not handle instances (in the form of our dot-like notation for events), we need to add a predefined attribute \inlineT{E(_inst : Instance)} to each event \inlineI{E} used in \IOTDSL Business Rules, and link the type \inlineI{Instance} to simple strings; unicity of instance names is ensured by \IOTDSL while checking Network Configurations. The rest of the second step depends on the nature of the \inlineI{reaction}:
-	\begin{itemize}
+	\begin{enumerate}
 		\item If it is not a composite, i.e. the rule consists of only one actuation of the form \inlineI{inst.actuation(<param1, ..., paramN>)}, we translate it in a simple rule of the form
 		\begin{lstlisting}[language=tesla, numbers=none]
 	define actuation(param1, ..., paramN)
@@ -30,17 +30,19 @@ In \IOTDSL, a Business Rule has the following general form: \inlineI{rule R: whe
 	...
 			\end{lstlisting}
 		\end{center}
-		When the event pattern for the rule \inlineI{R} is detected, the first rule issues the complex event \inlineT{R}, which is immediately produced by the \CEP engine to trigger the subsequent rules. This way, all actuations are processed at the same time, leaving the platform handling how to effectively enforce the actuations. Note that in the additional Tesla rule \inlineT{R}, no \inlineT{_inst} parameter appears (as it is not needed), but all parameters necessary to the $n$ actuations are part of event \inlineT{R}'s signature, so that functions \inlineT{f1}, ..., \inlineT{fN} rematches the parameters of each actuation (\inlineI{aIparamK}) correctly from \inlineT{R}'s parameters.
-	\end{itemize}
-	\item It then remains to compute the \inlineT{transformedTrigger} appearing in Tesla rules, which depends on whether facilitators (like \inlineI{after} or \inlineI{before}) have been used. In the absence of facilitators, the transformation is straigthforward since the same expressions are natively available in Tesla. Otherwise, we rely on an external configuration file that describe the expected latency delays specific to devices and their communication paths, to translate such triggers into appropriate time windows. Producing this file is not the responsibility of the end-user, since it rather leverages knowledge pertaining to the \IOT system installation and deployment. 
+		When the event pattern for rule \inlineI{R} is detected, the first rule issues the complex event \inlineT{R}, which is immediately produced by the \CEP engine to trigger the subsequent rules. This way, all actuations are processed at the same time, leaving the platform dealing with the actuations. Note that in the additional Tesla rule \inlineT{R}, no \inlineT{_inst} parameter appears (as it is not needed), but all parameters necessary to the $n$ actuations are part of event \inlineT{R}'s signature, so that functions \inlineT{f1}, ..., \inlineT{fN} rematches the parameters of each actuation (\inlineI{aIparamK}) correctly from \inlineT{R}'s parameters.
+	\end{enumerate}
+
+	\item So there remains to compute the \inlineT{transformedTrigger} appearing in Tesla rules, which depends on whether facilitators (like \inlineI{after} or \inlineI{before}) have been used. In the absence of facilitators, the transformation is straightforward since the same expressions are natively available in Tesla. Otherwise, we rely on an external configuration file that describe the expected latency delays specific to devices and their communication paths, to translate such triggers into appropriate time windows. Producing this file is not the responsibility of end-users, since it rather belongs to knowledge pertaining to \IOT system installation and deployment.
 \end{enumerate}
 
-Let us now apply this compilation scheme to the three Business Rules described in Section \ref{sec:IoTDSL-BusinessRules}. Rule \inlineI{SwitchBathroomLightOffAtNight} is the simplest one: it contains only one actuation, and its triggers has a regular Tesla time window expression. Applying our compilation scheme results in the following Tesla rule:
+Let us now apply this compilation scheme to the three Business Rules described in Section \ref{sec:IoTDSL-BusinessRules}. Rule \inlineI{SwitchBathroomLightOffAtNight} is the simplest one: it contains only one actuation, and its trigger has a regular Tesla time window expression. Applying our compilation scheme results in the following Tesla rule:
 \begin{lstlisting}[language=tesla, numbers=none]
 	define Off(_inst : Instance)
 	from   not Movement(_inst = hallMotion) within 3 min from Closed(_inst = childDoor)
 	where  _inst = bathroomBulb
 \end{lstlisting}
+
 Note that all event names are capitalised to cope with Tesla entry language, and that the \inlineT{from} clause only binds the \inlineT{_inst} attributes to their respective instances in the source \IOTDSL rule. 
 
 Rule \inlineI{SwitchLightsWhenEntering} is a good illustration of \IOTDSL rules with multiple actuations. Applying the compilation scheme results in three rules, one for each actuation, and an additional one that glues things together. 
@@ -56,9 +58,10 @@ Rule \inlineI{SwitchLightsWhenEntering} is a good illustration of \IOTDSL rules 
 	from   SwitchLightsWhenEntering
 	where  _inst = livingBulb
 \end{lstlisting}
-The additional rule defining the \inlineT{SwitchLightsWhenEntering} event does not define an \inlineT{_inst} attribute, and converts the event facilitator \inlineI{after} into a time window from a predefined value (here, 10 seconds). The two other rules originate from the actuators that have the particularity to activate the same event on two different devices (\inlineI{foyerBulb} and \inlineI{livingBulb}): this results in the same rule with different bindings for \inlineT{_inst}.
 
-Rule \inlineI{SwitchBathroomLightOnAtNight} is the most complicated, since it combines negation outside a time window. Applying the compilation scheme results in only one rule, since there is only one actuation, but the trigger condition is more complicated that the first rule. Since Tesla does not support negation operators outside of time windows, we need to integrate it inside one. Intuitively, the starting point of this scenario is the opening of the door room: at this point, the bathroom light should be switch on if movement is detected shortly after and there is currently no light in the living. Such trigger patterns are detected and refactored as follows: 
+The additional rule defining the \inlineT{SwitchLightsWhenEntering} event does not define an \inlineT{_inst} attribute, and converts the event facilitator \inlineI{after} into a time window from a predefined value (\textit{i.e} 10 seconds in this case). The two other rules originate from the actuators that have the particularity to activate the same event on two different devices, namely \inlineI{foyerBulb} and \inlineI{livingBulb}: this results in the same rule with different bindings for \inlineT{_inst}.
+
+Rule \inlineI{SwitchBathroomLightOnAtNight} is the trickiest one as it combines negation outside a time window. Applying the compilation scheme results in only one rule, since there is only one actuation, but the trigger condition is more complicated that the first rule. Since Tesla does not support negation operators outside of time windows, we need to integrate it inside one. Intuitively, the starting point of this scenario is the opening of the door room: at this point, the bathroom light should be switch on if movements are detected shortly after and there is currently no light in the living room. Such trigger patterns are detected and refactored as follows: 
 \begin{lstlisting}[language=tesla, numbers=none]
 	define On(_inst : Instance)
 	from   (Light(_inst = livingLight) within  2 sec from Opened(_inst = childDoor)) and 

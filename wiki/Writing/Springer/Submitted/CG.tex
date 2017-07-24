@@ -1,7 +1,7 @@
 \section{General Architecture \& Code Generation}
 \label{sec:CG}
 
-Fundamentally, \IOTDSL describes a real-time reactive system: information is regularly reported to the middleware where it is processed in order to react back on the environment. However, in the context of \IOT systems, the environment cannot be controlled, but it is perceived through the many deployed devices, that allow at the same time to react on it. The key task is then to process events quickly enough to ensure appropriate reactions, although it it not critical to react in a precise timeframe. In this section, we first describe the general architecture of our tool as well as the technical choices for processing events in an \IOT system, then provide a compilation schema to translate \IOTDSL business rules into Tesla rules, the entry language of TRex \cite{cugola-12}, the \CEP engine we have chosen in our architecture.
+Fundamentally, \IOTDSL describes a real-time reactive system: information is regularly reported to the middleware where it is processed in order to react on the environment. However, in the context of \IOT systems, the environment cannot be controlled, but it is perceived through the many deployed devices, that allow at the same time to react on it. The key task is then to process events quickly enough to ensure appropriate reactions, although it it not critical to react in a precise timeframe. In this section, we first describe the general architecture of our tool as well as the technical choices for processing events in an \IOT system, then provide a compilation schema to translate \IOTDSL business rules into Tesla rules, the entry language of TRex \cite{cugola-12}, the \CEP engine we have chosen in our architecture.
 
 \input{Architecture}
 \input{TRex}

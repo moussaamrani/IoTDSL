@@ -75,6 +75,7 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 			case IotdslPackage.DELAY: return createDelay();
 			case IotdslPackage.NOT_EXPRESSION: return createNotExpression();
 			case IotdslPackage.EVENT_OCCURRENCE: return createEventOccurrence();
+			case IotdslPackage.REACTION: return createReaction();
 			case IotdslPackage.ATTRIBUTE: return createAttribute();
 			case IotdslPackage.AND_EXPRESSION: return createAndExpression();
 			case IotdslPackage.WITHIN_EXPRESSION: return createWithinExpression();
@@ -308,6 +309,16 @@ public class IotdslFactoryImpl extends EFactoryImpl implements IotdslFactory {
 	public EventOccurrence createEventOccurrence() {
 		EventOccurrenceImpl eventOccurrence = new EventOccurrenceImpl();
 		return eventOccurrence;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Reaction createReaction() {
+		ReactionImpl reaction = new ReactionImpl();
+		return reaction;
 	}
 
 	/**
