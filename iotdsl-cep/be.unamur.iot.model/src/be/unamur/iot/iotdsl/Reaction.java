@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see be.unamur.iot.iotdsl.IotdslPackage#getReaction()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface Reaction extends EObject {

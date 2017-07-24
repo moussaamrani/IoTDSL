@@ -184,6 +184,15 @@ public interface IotdslFactory extends EFactory {
 	EventOccurrence createEventOccurrence();
 
 	/**
+	 * Returns a new object of class '<em>Reaction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reaction</em>'.
+	 * @generated
+	 */
+	Reaction createReaction();
+
+	/**
 	 * Returns a new object of class '<em>Attribute</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
