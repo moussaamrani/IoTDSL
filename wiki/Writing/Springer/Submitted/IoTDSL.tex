@@ -7,6 +7,13 @@ Building a well-calibrated \DSL is known to be difficult and error-prone. It usu
 
 To illustrate our proposal, we show how \IOTDSL is built by describing each sublanguage, following the \DSL components identified in Section \ref{sec:Motivation-Components}, and illustrate them by providing the full implementation for Alice's apartment as depicted in Section \ref{sec:Motivation-Scenarios}.
 
+\begin{figure*}%
+  \centering  
+  \includegraphics[width=.92\linewidth]{IoTDevice-MM.png}%
+  \caption{Metamodel of \IOTDSL, separated in three concerns: \emph{Type Definition} captures devices' capabilities (top green part), \emph{Network Configuration} details how device instances are connected to each others (middle purple part), \emph{Business Rules} defines the functionalities expected from the IoT installation (bottom yellow part).}%
+  \label{fig:IoTDevice-MM}%
+\end{figure*}
+
 \input{IoTDSL_TD}
 \input{IoTDSL_NC}
 \input{IoTDSL_BR}
